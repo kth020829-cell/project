@@ -18,4 +18,4 @@
 
 역할: 개인 프로젝트
 <dr>
-<img width="738" height="968" alt="Image" src="https://github.com/user-attachments/assets/8b38d526-1d72-41ac-8474-09e07e432911" />
+<img src="https://github.com/user-attachments/assets/8b38d526-1d72-41ac-8474-09e07e432911" width="500"/>
