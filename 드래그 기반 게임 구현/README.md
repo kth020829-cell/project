@@ -17,5 +17,7 @@
 - **성장형 게임 밸런스:** 단순 회피 게임을 넘어 아이템 조합과 스킬 강화를 통해 캐릭터가 성장하는 '로그라이크' 요소를 가미하여 게임성 강화.
 
 역할: 개인 프로젝트
+
 <dr>
-<img src="https://github.com/user-attachments/assets/8b38d526-1d72-41ac-8474-09e07e432911" width="500"/>
+
+<img src="https://github.com/user-attachments/assets/8b38d526-1d72-41ac-8474-09e07e432911" width="200"/>
