@@ -1,0 +1,44 @@
+{
+  "YOLOv8n": {
+    "mAP50": 0.7354,
+    "mAP50_95": 0.4282,
+    "precision": 0.6629,
+    "recall": 0.7092,
+    "per_class": {
+      "crazing": 0.1618,
+      "inclusion": 0.4453,
+      "patches": 0.6029,
+      "pitted_surface": 0.5515,
+      "rolled-in_scale": 0.2883,
+      "scratches": 0.5195
+    }
+  },
+  "YOLOv11n": {
+    "mAP50": 0.7491,
+    "mAP50_95": 0.43,
+    "precision": 0.7074,
+    "recall": 0.688,
+    "per_class": {
+      "crazing": 0.1661,
+      "inclusion": 0.472,
+      "patches": 0.5977,
+      "pitted_surface": 0.537,
+      "rolled-in_scale": 0.2833,
+      "scratches": 0.5235
+    }
+  },
+  "YOLOv26n": {
+    "mAP50": 0.7107,
+    "mAP50_95": 0.4222,
+    "precision": 0.6951,
+    "recall": 0.6712,
+    "per_class": {
+      "crazing": 0.1532,
+      "inclusion": 0.4503,
+      "patches": 0.577,
+      "pitted_surface": 0.5605,
+      "rolled-in_scale": 0.2382,
+      "scratches": 0.5539
+    }
+  }
+}
