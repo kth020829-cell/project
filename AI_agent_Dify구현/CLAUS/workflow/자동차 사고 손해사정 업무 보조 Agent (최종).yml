@@ -1,0 +1,5923 @@
+app:
+  description: 자동차 사고 전용 손해사정 검토 보조 Agent. 판례/약관/웹 검색, 소멸시효, 우선순위, 카카오 지도, Word 보고서
+    저장 통합.
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 자동차 사고 손해사정 업무 보조 Agent (분기 추가본)
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/cohere:0.0.15@5582eef179b26b70378cbf40cf51ad04ddbeaca40e739e07c89921281c0bd0fd
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.10@7ca552fb9e48caa4deddfdef5aa71c200d06d03c26c2e8bb428b3250101b9cb3
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tavily:0.1.10@b43f5dc49fbafc69949ee8231d600b23fb7586d514f4c72e470a86af03d2173d
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780120071760-1780120668395
+      selected: false
+      source: '1780120071760'
+      sourceHandle: source
+      target: '1780120668395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780120668395-1780120759291
+      selected: false
+      source: '1780120668395'
+      sourceHandle: source
+      target: '1780120759291'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780120759291-1780121110148
+      selected: false
+      source: '1780120759291'
+      sourceHandle: source
+      target: '1780121110148'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780121110148-1780121658026
+      selected: false
+      source: '1780121110148'
+      sourceHandle: source
+      target: '1780121658026'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780121110148-1780039072568
+      selected: false
+      source: '1780121110148'
+      sourceHandle: source
+      target: '1780039072568'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780121658026-1780121922891
+      selected: false
+      source: '1780121658026'
+      sourceHandle: source
+      target: '1780121922891'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780121658026-2001000000001
+      selected: false
+      source: '1780121658026'
+      sourceHandle: source
+      target: '2001000000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780121922891-1779897116545
+      selected: false
+      source: '1780121922891'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000001-1779897116545
+      selected: false
+      source: '2001000000001'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000002-1779897116545
+      selected: false
+      source: '2001000000002'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000003-1779897116545
+      selected: false
+      source: '2001000000003'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780061143287-1780062729001
+      selected: false
+      source: '1780061143287'
+      sourceHandle: source
+      target: '1780062729001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000004-1780040487628
+      selected: false
+      source: '2001000000004'
+      sourceHandle: source
+      target: '1780040487628'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-1780040487628-1780123241949
+      selected: false
+      source: '1780040487628'
+      sourceHandle: source
+      target: '1780123241949'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000005-1779897116545
+      selected: false
+      source: '2001000000005'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000006-1779897116545
+      selected: false
+      source: '2001000000006'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: custom
+        targetType: custom
+      id: e-2001000000007-1779897116545
+      selected: false
+      source: '2001000000007'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: http-request
+      id: e-1780121110148-1780061143287
+      selected: false
+      source: '1780121110148'
+      sourceHandle: source
+      target: '1780061143287'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: e-1779897116545-5001000000001
+      selected: false
+      source: '1779897116545'
+      sourceHandle: source
+      target: '5001000000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: e-5001000000004-2001000000004-source
+      selected: false
+      source: '5001000000004'
+      sourceHandle: source
+      target: '2001000000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: e-5001000000020-2001000000004-source
+      selected: false
+      source: '5001000000020'
+      sourceHandle: source
+      target: '2001000000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000005-5001000000008-source
+      selected: false
+      source: '5001000000005'
+      sourceHandle: source
+      target: '5001000000008'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000006-5001000000009-source
+      selected: false
+      source: '5001000000006'
+      sourceHandle: source
+      target: '5001000000009'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000013-5001000000016-source
+      selected: false
+      source: '5001000000013'
+      sourceHandle: source
+      target: '5001000000016'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000014-5001000000017-source
+      selected: false
+      source: '5001000000014'
+      sourceHandle: source
+      target: '5001000000017'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000021-5001000000024-source
+      selected: false
+      source: '5001000000021'
+      sourceHandle: source
+      target: '5001000000024'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: e-5001000000022-5001000000025-source
+      selected: false
+      source: '5001000000022'
+      sourceHandle: source
+      target: '5001000000025'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: e-1780039072568-5001000000001
+      selected: false
+      source: '1780039072568'
+      sourceHandle: source
+      target: '5001000000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1780450625227-source-5001000000012-target
+      selected: false
+      source: '1780450625227'
+      sourceHandle: source
+      target: '5001000000012'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 5001000000012-source-2001000000004-target
+      selected: false
+      source: '5001000000012'
+      sourceHandle: source
+      target: '2001000000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1780121658026-source-1780461777439-target
+      selected: false
+      source: '1780121658026'
+      sourceHandle: source
+      target: '1780461777439'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1780461777439-true-2001000000005-target
+      selected: false
+      source: '1780461777439'
+      sourceHandle: 'true'
+      target: '2001000000005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1780461777439-973f3587-9e81-424d-85c4-18a4ac3a27ef-2001000000006-target
+      selected: false
+      source: '1780461777439'
+      sourceHandle: 973f3587-9e81-424d-85c4-18a4ac3a27ef
+      target: '2001000000006'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1780461777439-fa2a999d-4718-464a-9296-e885911857db-2001000000007-target
+      selected: false
+      source: '1780461777439'
+      sourceHandle: fa2a999d-4718-464a-9296-e885911857db
+      target: '2001000000007'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1780121658026-source-1780462454065-target
+      selected: false
+      source: '1780121658026'
+      sourceHandle: source
+      target: '1780462454065'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1780462454065-source-2001000000003-target
+      selected: false
+      source: '1780462454065'
+      sourceHandle: source
+      target: '2001000000003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1780464108447-true-2001000000002-target
+      selected: false
+      source: '1780464108447'
+      sourceHandle: 'true'
+      target: '2001000000002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1780464108447-false-1780464297477-target
+      selected: false
+      source: '1780464108447'
+      sourceHandle: 'false'
+      target: '1780464297477'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: code
+      id: 1780464297477-source-1779897116545-target
+      source: '1780464297477'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1780062729001-source-1779897116545-target
+      source: '1780062729001'
+      sourceHandle: source
+      target: '1779897116545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: e-1780121658026-7001000000001-source
+      selected: false
+      source: '1780121658026'
+      sourceHandle: source
+      target: '7001000000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: e-7001000000001-1780464108447-source
+      selected: false
+      source: '7001000000001'
+      sourceHandle: source
+      target: '1780464108447'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 5001000000001-clause-17804851611560-target
+      source: '5001000000001'
+      sourceHandle: clause
+      target: '17804851611560'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 5001000000001-precedent-17804853035690-target
+      source: '5001000000001'
+      sourceHandle: precedent
+      target: '17804853035690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 5001000000001-issue-17804853236310-target
+      source: '5001000000001'
+      sourceHandle: issue
+      target: '17804853236310'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 17804851611560-source-17804852105480-target
+      source: '17804851611560'
+      sourceHandle: source
+      target: '17804852105480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804852105480-true-5001000000004-target
+      source: '17804852105480'
+      sourceHandle: 'true'
+      target: '5001000000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804852105480-nomatch-5001000000005-target
+      selected: false
+      source: '17804852105480'
+      sourceHandle: nomatch
+      target: '5001000000005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804852105480-insuff-5001000000006-target
+      source: '17804852105480'
+      sourceHandle: insuff
+      target: '5001000000006'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 17804853035690-source-17804852953960-target
+      source: '17804853035690'
+      sourceHandle: source
+      target: '17804852953960'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 17804852953960-true-1780450625227-target
+      source: '17804852953960'
+      sourceHandle: 'true'
+      target: '1780450625227'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804852953960-nomatch-5001000000013-target
+      source: '17804852953960'
+      sourceHandle: nomatch
+      target: '5001000000013'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804852953960-insuff-5001000000014-target
+      source: '17804852953960'
+      sourceHandle: insuff
+      target: '5001000000014'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 17804853236310-source-17804853166150-target
+      source: '17804853236310'
+      sourceHandle: source
+      target: '17804853166150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804853166150-true-5001000000020-target
+      source: '17804853166150'
+      sourceHandle: 'true'
+      target: '5001000000020'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804853166150-nomatch-5001000000021-target
+      source: '17804853166150'
+      sourceHandle: nomatch
+      target: '5001000000021'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17804853166150-insuff-5001000000022-target
+      source: '17804853166150'
+      sourceHandle: insuff
+      target: '5001000000022'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 시작
+        type: start
+        variables:
+        - allowed_file_types: []
+          default: 약관 조항 정리
+          hint: 원하는 보고서 유형을 선택하세요.
+          label: 보고서 유형
+          max_length: 50
+          options:
+          - 약관 조항 정리
+          - 판례·분쟁사례 정리
+          - 핵심 쟁점 및 준비 서류
+          placeholder: ''
+          required: true
+          type: select
+          variable: report_type
+        - allowed_file_types: []
+          default: 기타
+          hint: 고객이 가입한 보험사를 선택하세요.
+          label: 보험사
+          max_length: 50
+          options:
+          - 삼성화재
+          - 현대해상
+          - KB손해보험
+          - 기타
+          placeholder: ''
+          required: true
+          type: select
+          variable: insurer
+        - default: YYYY-MM
+          hint: 계약 체결 연도와 월을 입력하세요. 예) 2023-03, 2025년 1월, 2024.06
+          label: 계약 체결일
+          placeholder: 예) 2025-01
+          required: true
+          type: text-input
+          variable: contract_year
+        - allowed_file_types: []
+          default: YYYY-MM-DD
+          hint: 예) 2025-05-08
+          label: 사고 일자
+          max_length: 20
+          options: []
+          placeholder: YYYY-MM-DD
+          required: true
+          type: text-input
+          variable: accident_date
+        - allowed_file_types: []
+          hint: '아래 내용을 포함해서 자세히 서술해 주세요.
+
+            ① 사고 경위: 언제, 어디서, 어떻게 발생했는지 (예: 신호 대기 중 후방 추돌)
+
+            ② 청구인 지위: 피해자/가해자/동승자 등
+
+            ③ 손해 유형: 대인(부상)/대물(차량파손)/자차 등
+
+            ④ 상해·진단 내용: 진단명, 상해 등급, 치료 내용
+
+            ⑤ 차량 파손: 파손 부위, 수리 현황
+
+            ⑥ 쟁점: 보험사와 다투고 있는 부분 (예: 시세하락 거절, 대차료 일부 인정 등)'
+          label: 사고 내용
+          max_length: 4000
+          options: []
+          placeholder: 사고 경위, 부상 내용, 차량 파손, 보험사 쟁점 등을 자세히 서술하세요.
+          required: true
+          type: paragraph
+          variable: accident_description
+        - allowed_file_types: []
+          hint: 예) 3800000
+          label: 청구 금액 (원)
+          max_length: 20
+          options: []
+          placeholder: ''
+          required: false
+          type: number
+          variable: claimed_amount
+        - allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          hint: 진단서, 견적서, 진료비 영수증, 대차 영수증 등을 첨부하세요.
+          label: 첨부 파일
+          max_length: 10
+          options: []
+          placeholder: ''
+          required: false
+          type: file-list
+          variable: uploaded_files
+      height: 264
+      id: '1780120071760'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_array_file: true
+        selected: false
+        title: 첨부 파일 변환 노드
+        type: document-extractor
+        variable_selector:
+        - '1780120071760'
+        - uploaded_files
+      height: 104
+      id: '1780120668395'
+      position:
+        x: 372.3750009536743
+        y: 303
+      positionAbsolute:
+        x: 372.3750009536743
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: "[사고 내용]\n{{ accident_description | default(\"미입력\", true) }}\n\n\
+          [청구 금액]\n{{ claimed_amount | default(\"미입력\", true) }}원\n\n[첨부 파일에서 추출한\
+          \ 문서 내용]\n{% if document_text is not none and document_text | length > 0\
+          \ %}\n{{ document_text | join(\"\\n\\n--- 첨부 문서 구분 ---\\n\\n\") }}\n{% else\
+          \ %}\n첨부 파일에서 추출된 문서 내용이 없습니다.\n{% endif %}\n\n[정리 요청]\n위 정보를 바탕으로 다음 단계에서\
+          \ 자동차 사고 손해사정 검토를 할 수 있도록 사건 내용을 명확하게 정리하세요.\n정리 기준:\n1. 사고 경위, 청구인 지위,\
+          \ 손해 유형, 진단명, 차량 파손, 쟁점을 각각 파악하세요.\n2. 첨부 문서 내용이 있으면 서술 내용보다 우선 참고하세요.\n\
+          3. 정보가 부족하거나 모순이 있으면 \"확인 필요\"로 표시하세요.\n4. 과실비율, 보험금 지급 여부, 면책 여부를 확정하지\
+          \ 마세요.\n5. 보험 유형은 자동차보험으로 고정입니다.\n\n[출력]\n사고 요약:\n- \n청구인 지위:\n- \n손해 유형:\n\
+          - 대인:\n- 대물:\n- 기타:\n진단/상해 정보:\n- \n차량 파손/수리:\n- \n보험사 쟁점:\n- \n청구 금액:\n\
+          - \n첨부 서류 확인 내용:\n- \n확인 필요 사항:\n- \n검색 키워드:\n-"
+        title: 데이터 정리 노드(사건 자료 합치기)
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1780120071760'
+          - accident_description
+          value_type: string
+          variable: accident_description
+        - value_selector:
+          - '1780120071760'
+          - claimed_amount
+          value_type: string
+          variable: claimed_amount
+        - value_selector:
+          - '1780120668395'
+          - text
+          value_type: array[string]
+          variable: document_text
+      height: 51
+      id: '1780120759291'
+      position:
+        x: 642.7165678288948
+        y: 303
+      positionAbsolute:
+        x: 642.7165678288948
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        instruction: '너는 자동차 사고 손해사정 업무를 보조하기 위해 사고 정보를 구조화하는 AI이다.
+
+
+          앞 단계에서 정리된 자동차 사고 자료를 읽고, 아래 매개변수에 맞게 핵심 정보를 추출하라.
+
+
+          추출 기준:
+
+          1. 사용자가 직접 입력한 정보와 첨부 문서에서 확인된 정보를 함께 반영한다.
+
+          2. 첨부 문서에서 확인된 내용이 있으면 첨부 문서 내용을 우선 참고한다.
+
+          3. 정보가 명확하지 않거나 서로 다르면 임의로 단정하지 말고 빈 값 또는 "확인 필요"로 처리한다.
+
+          4. 과실비율, 보험금 지급 여부, 면책 여부를 확정하지 않는다.
+
+          5. 금액은 숫자만 추출한다. 예: "85만원"은 850000, "1,200,000원"은 1200000으로 추출한다.
+
+          6. 배열 형식 항목은 여러 개의 짧은 문장 또는 키워드로 나누어 추출한다.
+
+          7. 자동차 사고 손해사정 관점에서 필요한 담보, 서류, 쟁점을 중심으로 정리한다.
+
+          8. RAG 검색어는 사고 유형·피해 유형·진단명·약관 핵심 키워드 중심으로 만든다. 약관에 실제로 나오는 단어(예: "12급 4주
+          향후치료 진단서", "대차료 통상수리기간", "시세하락손해" 등)를 그대로 포함시켜야 검색 정확도가 높아진다.
+
+
+          각 매개변수별 추출 방식은 다음과 같다.
+
+
+          claim_type: 항상 "자동차보험"으로 고정 출력
+
+          보험 또는 청구 유형을 추출한다.
+
+          예: 자동차보험, 운전자보험, 실손보험, 상해보험
+
+
+          accident_date:
+
+          사고 일자를 추출한다.
+
+          날짜가 명확하면 YYYY-MM-DD 형식으로 정리한다.
+
+          불명확하면 "확인 필요"로 처리한다.
+
+
+          accident_location:
+
+          사고 장소를 추출한다.
+
+          예: 교차로, 주차장, 고속도로, 횡단보도, 아파트 단지 내 도로
+
+
+          accident_summary:
+
+          사고 경위를 한두 문장으로 요약한다.
+
+          사고 발생 방식, 충돌 방향, 피해 상황이 드러나게 정리한다.
+
+
+          claimant_role:
+
+          청구인 또는 피해자의 지위를 추출한다.
+
+          예: 피해 차량 운전자, 가해 차량 운전자, 동승자, 보행자, 자전거 운전자
+
+
+          damage_type:
+
+          손해 유형을 배열로 추출한다.
+
+          예: 대인 피해, 대물 피해, 자차 손해, 치료비, 차량 수리비, 휴업손해, 위자료, 렌트비
+
+
+          injury_diagnosis:
+
+          진단명 또는 증상을 추출한다.
+
+          예: 경추 염좌, 요추 염좌, 타박상, 골절, 두통, 어지러움, 확인 필요
+
+
+          treatment_info:
+
+          치료 내용을 추출한다.
+
+          예: 통원치료, 입원치료, X-ray 촬영, MRI 검사, 물리치료, 약 처방
+
+
+          vehicle_damage:
+
+          차량 파손 내용을 추출한다.
+
+          예: 후방 범퍼 파손, 전면부 파손, 문짝 긁힘, 사이드미러 파손, 차량 전손 의심
+
+
+          repair_info:
+
+          차량 수리 견적, 수리비, 정비소 확인 내용을 추출한다.
+
+          금액이 있으면 함께 정리한다.
+
+
+
+
+          claimed_amount:
+
+          청구 금액을 숫자만 추출한다.
+
+          금액 정보가 없으면 0으로 처리한다.
+
+
+          submitted_documents:
+
+          제출된 서류를 배열로 정리한다.
+
+
+          missing_information:
+
+          검토를 위해 추가 확인이 필요한 정보를 배열로 정리한다.
+
+
+          possible_issues:
+
+          자동차 사고 손해사정에서 쟁점이 될 수 있는 사항을 배열로 정리한다.
+
+
+          coverage_candidates:
+
+          검토 가능성이 있는 담보를 배열로 정리한다.
+
+          예: 대인배상, 대물배상, 자기신체사고, 자동차상해, 자기차량손해, 무보험자동차상해, 운전자보험 교통사고처리지원금, 벌금, 변호사선임비용
+
+
+          search_query:
+
+          다음 단계의 자동차 사고 업무 지식 및 표준약관 검색에 사용할 검색어를 만든다.
+
+          핵심 원칙: 약관에서 실제로 검색될 단어를 그대로 포함시켜야 한다. 일반적인 서술어보다 약관·판례에 등장하는 전문 키워드 중심으로
+          만든다.
+
+
+          아래 규칙을 반드시 따른다:
+
+          - 상해등급 12급·13급·14급이 포함되거나 경상환자임이 확인되면: "12급 4주 향후치료 진단서" 키워드를 반드시 포함한다.
+
+          - 치료비 지급보증 중단, 추가 진단서 요구 쟁점이 있으면: "경상환자 4주 진단서 치료비" 키워드를 포함한다.
+
+          - 대차료 쟁점이 있으면: "대차료 통상수리기간 인정기간" 키워드를 포함한다.
+
+          - 시세하락손해 쟁점이 있으면: "시세하락손해 출고 수리비 20%" 키워드를 포함한다.
+
+          - 면책·영업목적 운전 쟁점이 있으면: "보상하지 않는 손해 면책 영업용" 키워드를 포함한다.
+
+          - 기왕증·인과관계 쟁점이 있으면: "기왕증 인과관계 기여율" 키워드를 포함한다.
+
+          - 키워드는 쉼표 없이 공백으로 구분하고, 전체 15단어 이내로 작성한다.
+
+          - 형사 관련 단어(음주운전, 무면허, 형사처벌 등)는 포함하지 않는다.'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        parameters:
+        - description: 항상 "자동차보험"으로 고정 출력
+          name: claim_type
+          required: false
+          type: string
+        - description: 사고 일자
+          name: accident_date
+          required: false
+          type: string
+        - description: 사고 장소
+          name: accident_location
+          required: false
+          type: string
+        - description: 사고 경위 요약
+          name: accident_summary
+          required: false
+          type: string
+        - description: 피해자, 가해자, 동승자, 보행자 등
+          name: claimant_role
+          required: false
+          type: string
+        - description: 대인, 대물, 자차, 치료비, 휴업손해 등
+          name: damage_type
+          required: false
+          type: array[string]
+        - description: 진단명 또는 증상
+          name: injury_diagnosis
+          required: false
+          type: string
+        - description: 치료 내용
+          name: treatment_info
+          required: false
+          type: string
+        - description: 차량 파손 내용
+          name: vehicle_damage
+          required: false
+          type: string
+        - description: 수려 견적/수리비
+          name: repair_info
+          required: false
+          type: string
+        - description: 청구 금액
+          name: claimed_amount
+          required: false
+          type: number
+        - description: 제출된 서류
+          name: submitted_documents
+          required: false
+          type: array[string]
+        - description: 부족하거나 확인이 필요한 정보
+          name: missing_information
+          required: false
+          type: array[string]
+        - description: 주요 심사 쟁점
+          name: possible_issues
+          required: false
+          type: array[string]
+        - description: 검토 가능 담보
+          name: coverage_candidates
+          required: false
+          type: array[string]
+        - description: RAG 검색용 검색어
+          name: search_query
+          required: false
+          type: string
+        query:
+        - '1780120759291'
+        - output
+        reasoning_mode: prompt
+        selected: false
+        title: 매개변수 추출기(핵심 정보 구조화)
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1780121110148'
+      position:
+        x: 906.0694453981188
+        y: 303
+      positionAbsolute:
+        x: 906.0694453981188
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(\n    missing_information=None,\n    missing_inform=None,\n\
+          \    possible_issues=None,\n    submitted_documents=None,\n    submitted_doc=None,\n\
+          \    coverage_candidates=None,\n    coverage_canc=None,\n    damage_type=None,\n\
+          \    claimant_role=\"\",\n    claimed_amount=0,\n    claimed_amou=None,\n\
+          \    **kwargs\n):\n\n # Dify 입력 변수명이 다르게 들어오는 경우까지 대비\n    missing_information\
+          \ = missing_information or missing_inform or kwargs.get(\"missing_info\"\
+          ) or kwargs.get(\"missing\")\n    possible_issues = possible_issues or kwargs.get(\"\
+          possible_issue\") or kwargs.get(\"issues\")\n    submitted_documents = submitted_documents\
+          \ or submitted_doc or kwargs.get(\"submitted_docs\") or kwargs.get(\"submitted_document\"\
+          )\n    coverage_candidates = coverage_candidates or coverage_canc or kwargs.get(\"\
+          coverage_candidate\") or kwargs.get(\"coverage\")\n    claimed_amount =\
+          \ claimed_amount or claimed_amou or kwargs.get(\"claimed_am\") or kwargs.get(\"\
+          amount\") or 0\n\n    def to_list(value): # 리스트로 변환하는 함수\n        if value\
+          \ is None:\n            return []\n        if isinstance(value, list):\n\
+          \            return [str(v).strip() for v in value if str(v).strip()]\n\
+          \        if isinstance(value, str):\n            if not value.strip():\n\
+          \                return []\n            parts = value.replace(\"\\n\", \"\
+          ,\").split(\",\")\n            return [p.strip() for p in parts if p.strip()]\n\
+          \        return [str(value).strip()]\n# 입력값 정리\n    missing_list = to_list(missing_information)\n\
+          \    issue_list = to_list(possible_issues)\n    doc_list = to_list(submitted_documents)\n\
+          \    coverage_list = to_list(coverage_candidates)\n    damage_list = to_list(damage_type)\n\
+          \n# 검색용 텍스트 만들기\n    doc_text = \" \".join(doc_list)\n    issue_text = \"\
+          \ \".join(issue_list)\n    damage_text = \" \".join(damage_list)\n    coverage_text\
+          \ = \" \".join(coverage_list)\n\n    try:\n        amount = int(claimed_amount\
+          \ or 0)\n    except:\n        amount = 0\n\n# 기본 변수 세팅\n    risk_score =\
+          \ 0\n    reasons = []\n    missing_docs_list = []\n    review_focus_list\
+          \ = []\n\n# 부족한 정보가 많을수록 점수를 올린다.\n    # 1. 부족 정보 기준\n    if len(missing_list)\
+          \ >= 5:\n        risk_score += 25\n        reasons.append(\"추가 확인이 필요한 정보가\
+          \ 많습니다.\")\n    elif len(missing_list) >= 3:\n        risk_score += 18\n\
+          \        reasons.append(\"추가 확인이 필요한 정보가 일부 있습니다.\")\n    elif len(missing_list)\
+          \ >= 1:\n        risk_score += 10\n        reasons.append(\"일부 정보 확인이 필요합니다.\"\
+          )\n\n# 쟁점이 많을수록 점수를 올린다.\n# EX) 인과관계 불명확 / 치료 적정성 / 수리비 과다\n    # 2. 심사\
+          \ 쟁점 기준\n    if len(issue_list) >= 5:\n        risk_score += 30\n      \
+          \  reasons.append(\"자동차 사고 손해사정 쟁점이 많습니다.\")\n    elif len(issue_list) >=\
+          \ 3:\n        risk_score += 22\n        reasons.append(\"주요 손해사정 쟁점이 일부\
+          \ 확인됩니다.\")\n    elif len(issue_list) >= 1:\n        risk_score += 12\n\
+          \        reasons.append(\"검토해야 할 쟁점이 있습니다.\")\n\n# 아래 키워드 중 하나라도 있으면 대인\
+          \ 피해\n# 대인 피해가 있으면 단순 차량보다 검토가 많다.\n# 대인 피해 관련 부족 서류(진단서, 영수증 등) 확인\n  \
+          \  # 3. 대인 피해 여부\n    if any(keyword in damage_text + coverage_text for\
+          \ keyword in [\"대인\", \"치료비\", \"자기신체사고\", \"자동차상해\", \"무보험자동차상해\"]):\n\
+          \        risk_score += 12\n        review_focus_list.append(\"대인 피해 여부와\
+          \ 치료 내용, 사고와 상해의 인과관계 확인\")\n        if not any(doc in doc_text for doc\
+          \ in [\"진단서\", \"진료확인서\", \"초진기록지\"]):\n            missing_docs_list.append(\"\
+          진단서 또는 진료확인서\")\n        if not any(doc in doc_text for doc in [\"진료비 영수증\"\
+          , \"진료비 계산서 영수증\"]):\n            missing_docs_list.append(\"진료비 영수증\")\n\
+          \        if \"진료비 세부내역서\" not in doc_text:\n            missing_docs_list.append(\"\
+          진료비 세부내역서\")\n\n# 아래 키워드 중 하나라도 있으면, 차량 손해.\n# 차량 손해 관련 부족 서류(차량 파손 사진,\
+          \ 수리비, 정비소 자료) 확인\n    # 4. 차량 손해 여부\n    if any(keyword in damage_text\
+          \ + coverage_text for keyword in [\"대물\", \"자차\", \"차량\", \"수리\", \"자기차량손해\"\
+          ]):\n        risk_score += 10\n        review_focus_list.append(\"차량 파손\
+          \ 내용과 수리비 적정성 확인\")\n        if not any(doc in doc_text for doc in [\"수리\
+          \ 견적서\", \"차량 수리 견적서\", \"정비 견적서\"]):\n            missing_docs_list.append(\"\
+          차량 수리 견적서\")\n        if not any(doc in doc_text for doc in [\"사고 현장 사진\"\
+          , \"차량 파손 사진\", \"사진\"]):\n            missing_docs_list.append(\"사고 현장\
+          \ 또는 차량 파손 사진\")\n\n# 손해사정 범위 내 복잡 쟁점(인과관계/기왕증/치료기간 등) 키워드\n    # 6. 인과관계/기왕증/치료\
+          \ 적정성 관련 키워드 (손해사정 범위)\n    high_issue_keywords = [\"인과관계\", \"기왕증\", \"\
+          기존 질환\", \"치료기간\", \"치료 적정성\", \"손해액\", \"후유장해\"]\n    if any(keyword in\
+          \ issue_text for keyword in high_issue_keywords):\n        risk_score +=\
+          \ 15\n        review_focus_list.append(\"사고와 상해의 인과관계, 기왕증 여부, 치료 적정성 등\
+          \ 손해사정 핵심 쟁점 확인\")\n\n    # 8. 청구금액 기준\n    if amount >= 3000000:\n    \
+          \    risk_score += 15\n        reasons.append(\"청구금액이 커서 손해액 산정 근거 확인이 중요합니다.\"\
+          )\n    elif amount >= 1000000:\n        risk_score += 8\n        reasons.append(\"\
+          청구금액에 대한 증빙자료 확인이 필요합니다.\")\n\n    # 9. 담보 후보가 많을수록 검토 복잡도 증가\n    if len(coverage_list)\
+          \ >= 3:\n        risk_score += 8\n        reasons.append(\"검토 가능한 담보가 여러\
+          \ 개로 확인됩니다.\")\n\n    # 중복 제거\n    missing_docs_list = list(dict.fromkeys(missing_docs_list))\n\
+          \    review_focus_list = list(dict.fromkeys(review_focus_list))\n    reasons\
+          \ = list(dict.fromkeys(reasons))\n\n    # 점수 상한\n    if risk_score > 100:\n\
+          \        risk_score = 100\n\n    # 우선순위 결정\n    if risk_score >= 70:\n \
+          \       priority = \"높음\"\n    elif risk_score >= 40:\n        priority\
+          \ = \"보통\"\n    else:\n        priority = \"낮음\"\n\n# 점수 산정 아예 X -> 기본값\
+          \ 설정\n    if not reasons:\n        reasons.append(\"현재 입력 정보 기준으로 특별한 고위험\
+          \ 쟁점은 확인되지 않았습니다.\")\n\n# 부족 서류 문자열 만들기\n    if not missing_docs_list:\n\
+          \        missing_docs = \"추가로 부족한 기본 서류는 확인되지 않았습니다.\"\n    else:\n    \
+          \    missing_docs = \"\\n\".join([f\"- {doc}\" for doc in missing_docs_list])\n\
+          \n# 중점 검토사항 문자열 만들기\n    if not review_focus_list:\n        review_focus\
+          \ = \"기본 사고 사실, 제출서류, 약관상 담보 적용 여부 확인\"\n    else:\n        review_focus\
+          \ = \"\\n\".join([f\"- {item}\" for item in review_focus_list])\n\n# 산정\
+          \ 사유 문자열 만들기\n    priority_reasons = \"\\n\".join([f\"- {reason}\" for reason\
+          \ in reasons])\n    \n# 최종 반환\n    return {\n        \"risk_score\": risk_score,\n\
+          \        \"priority\": priority,\n        \"priority_reasons\": priority_reasons,\n\
+          \        \"missing_docs\": missing_docs,\n        \"review_focus\": review_focus\n\
+          \    }"
+        code_language: python3
+        outputs:
+          missing_docs:
+            children: null
+            type: string
+          priority:
+            children: null
+            type: string
+          priority_reasons:
+            children: null
+            type: string
+          review_focus:
+            children: null
+            type: string
+          risk_score:
+            children: null
+            type: number
+        selected: false
+        title: 검토 우선순위 계산기
+        type: code
+        variables:
+        - value_selector:
+          - '1780121110148'
+          - missing_information
+          value_type: array[string]
+          variable: missing_information
+        - value_selector:
+          - '1780121110148'
+          - possible_issues
+          value_type: array[string]
+          variable: possible_issues
+        - value_selector:
+          - '1780121110148'
+          - submitted_documents
+          value_type: array[string]
+          variable: submitted_documents
+        - value_selector:
+          - '1780121110148'
+          - coverage_candidates
+          value_type: array[string]
+          variable: coverage_candidates
+        - value_selector:
+          - '1780121110148'
+          - damage_type
+          value_type: array[string]
+          variable: damage_type
+        - value_selector:
+          - '1780121110148'
+          - claimant_role
+          value_type: string
+          variable: claimant_role
+        - value_selector:
+          - '1780121110148'
+          - claimed_amount
+          value_type: number
+          variable: claimed_amount
+      height: 51
+      id: '1780121658026'
+      position:
+        x: 1193.698893801019
+        y: 303
+      positionAbsolute:
+        x: 1193.698893801019
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - npbCaLU7gBIz6DgGYUwPgFajlpw4jB19tCh2gsTJPz5+E/cV3zdVgMLWmP0doZwq
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          score_threshold: null
+          top_k: 6
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: 자동차 사고 업무 지식 RAG 검색
+        type: knowledge-retrieval
+      height: 89
+      id: '1780121922891'
+      position:
+        x: 1471.1636391579477
+        y: 235.49196499048838
+      positionAbsolute:
+        x: 1471.1636391579477
+        y: 235.49196499048838
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '2001000000004'
+          - result
+          value_type: string
+          variable: report
+        - value_selector:
+          - '1780040487628'
+          - download_url
+          value_type: string
+          variable: word_download_url
+        - value_selector:
+          - '1780040487628'
+          - status
+          value_type: string
+          variable: save_status
+        selected: false
+        title: 출력
+        type: end
+      height: 140
+      id: '1780123241949'
+      position:
+        x: 5828.454280331568
+        y: 103.77175811781046
+      positionAbsolute:
+        x: 5828.454280331568
+        y: 103.77175811781046
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "from datetime import datetime, date\n\ndef main(accident_date: str)\
+          \ -> dict:\n    try:\n        accident = datetime.strptime(accident_date,\
+          \ \"%Y-%m-%d\").date()\n        today = date.today()\n        \n       \
+          \ # 사고일로부터 경과 일수\n        elapsed_days = (today - accident).days\n     \
+          \   elapsed_years = elapsed_days / 365.25\n        \n        # 보험금 청구권 소멸시효:\
+          \ 3년 (상법 제662조)\n        remaining_days = (3 * 365) - elapsed_days\n   \
+          \     remaining_months = remaining_days / 30\n        \n        # 경고 메시지\
+          \ 생성\n        if remaining_days < 0:\n            status = \"⚠️ 시효 경과\"\n\
+          \            message = f\"사고일로부터 {elapsed_years:.1f}년 경과. 청구권 소멸시효(3년)가\
+          \ 이미 지났습니다. 시효 중단 사유 확인이 필요합니다.\"\n        elif remaining_days < 180:\n\
+          \            status = \"\U0001F534 시효 임박\"\n            message = f\"사고일로부터\
+          \ {elapsed_years:.1f}년 경과. 소멸시효까지 약 {int(remaining_months)}개월 남음. 신속한 청구가\
+          \ 필요합니다.\"\n        elif remaining_days < 365:\n            status = \"\U0001F7E1\
+          \ 시효 주의\"\n            message = f\"사고일로부터 {elapsed_years:.1f}년 경과. 소멸시효까지\
+          \ 약 {int(remaining_months)}개월 남음.\"\n        else:\n            status =\
+          \ \"\U0001F7E2 시효 여유\"\n            message = f\"사고일로부터 {elapsed_years:.1f}년\
+          \ 경과. 소멸시효까지 약 {int(remaining_months)}개월 남음.\"\n        \n        return\
+          \ {\n            \"status\": status,\n            \"message\": message,\n\
+          \            \"elapsed_days\": elapsed_days,\n            \"remaining_days\"\
+          : remaining_days\n        }\n    except Exception as e:\n        return\
+          \ {\n            \"status\": \"확인 불가\",\n            \"message\": f\"사고일자\
+          \ 형식 오류로 시효 계산 불가: {accident_date}\",\n            \"elapsed_days\": 0,\n\
+          \            \"remaining_days\": 0\n        }"
+        code_language: python3
+        outputs:
+          elapsed_days:
+            children: null
+            type: number
+          message:
+            children: null
+            type: string
+          remaining_days:
+            children: null
+            type: number
+          status:
+            children: null
+            type: string
+        selected: false
+        title: 소멸 시효 코드
+        type: code
+        variables:
+        - value_selector:
+          - '1780120071760'
+          - accident_date
+          value_type: string
+          variable: accident_date
+      height: 51
+      id: '1780039072568'
+      position:
+        x: 1245.4931803669335
+        y: 174.70001768472122
+      positionAbsolute:
+        x: 1245.4931803669335
+        y: 174.70001768472122
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - X8d9gTRD0YDSHiVhLf3tMkpVYwrxX/InvH0JCbA8rV38corZDl6Hnz1uVXX/DSLq
+        - SgaiI39eYifzZpVHGA2KUX66+Hsu3ujEXRCyr0r3N/vVb22lAK6uk+Etzjw2b4dd
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: 판례·분쟁사례 지식검색
+        type: knowledge-retrieval
+      height: 117
+      id: '2001000000001'
+      position:
+        x: 1466.5906277407876
+        y: 335.1978485612923
+      positionAbsolute:
+        x: 1466.5906277407876
+        y: 335.1978485612923
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - bi782T/aY3vEkZTK13ocKGVHUKs76yUb6eu7QqXM6ee/WgJ6vH1yxG6a51K4YzJu
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          score_threshold: null
+          top_k: 6
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: 표준약관 지식검색 25년도
+        type: knowledge-retrieval
+      height: 89
+      id: '2001000000002'
+      position:
+        x: 2128.9866132933043
+        y: 753.3233165445193
+      positionAbsolute:
+        x: 2128.9866132933043
+        y: 753.3233165445193
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The search query you want to execute with Tavily.
+            ja_JP: The search query you want to execute with Tavily.
+            pt_BR: The search query you want to execute with Tavily.
+            zh_Hans: 您想用 Tavily 执行的搜索查询。
+          label:
+            en_US: Query
+            ja_JP: Query
+            pt_BR: Query
+            zh_Hans: 查询
+          llm_description: The search query.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: basic
+          form: llm
+          human_description:
+            en_US: The depth of the search.
+            ja_JP: The depth of the search.
+            pt_BR: The depth of the search.
+            zh_Hans: 搜索的深度。
+          label:
+            en_US: Search Depth
+            ja_JP: Search Depth
+            pt_BR: Search Depth
+            zh_Hans: 搜索深度
+          llm_description: The depth of the search. 'basic' for standard search, 'advanced'
+            for comprehensive results, 'fast' for quick results, 'ultra-fast' for
+            fastest results with minimal processing.
+          max: null
+          min: null
+          name: search_depth
+          options:
+          - icon: ''
+            label:
+              en_US: Basic
+              ja_JP: Basic
+              pt_BR: Basic
+              zh_Hans: 基本
+            value: basic
+          - icon: ''
+            label:
+              en_US: Advanced
+              ja_JP: Advanced
+              pt_BR: Advanced
+              zh_Hans: 高级
+            value: advanced
+          - icon: ''
+            label:
+              en_US: Fast
+              ja_JP: Fast
+              pt_BR: Fast
+              zh_Hans: 快速
+            value: fast
+          - icon: ''
+            label:
+              en_US: Ultra Fast
+              ja_JP: Ultra Fast
+              pt_BR: Ultra Fast
+              zh_Hans: 超快速
+            value: ultra-fast
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: general
+          form: llm
+          human_description:
+            en_US: The category of the search.
+            ja_JP: The category of the search.
+            pt_BR: The category of the search.
+            zh_Hans: 搜索的类别。
+          label:
+            en_US: Topic
+            ja_JP: Topic
+            pt_BR: Topic
+            zh_Hans: 主题
+          llm_description: The category of the search. Options include 'general',
+            'news', or 'finance'.
+          max: null
+          min: null
+          name: topic
+          options:
+          - icon: ''
+            label:
+              en_US: General
+              ja_JP: General
+              pt_BR: General
+              zh_Hans: 一般
+            value: general
+          - icon: ''
+            label:
+              en_US: News
+              ja_JP: News
+              pt_BR: News
+              zh_Hans: 新闻
+            value: news
+          - icon: ''
+            label:
+              en_US: Finance
+              ja_JP: Finance
+              pt_BR: Finance
+              zh_Hans: 金融
+            value: finance
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: not_specified
+          form: llm
+          human_description:
+            en_US: The time range back from the current date to filter results.
+            ja_JP: The time range back from the current date to filter results.
+            pt_BR: The time range back from the current date to filter results.
+            zh_Hans: 从当前日期起向后筛选结果的时间范围。
+          label:
+            en_US: Time Range
+            ja_JP: Time Range
+            pt_BR: Time Range
+            zh_Hans: 时间范围
+          llm_description: The time range back from the current date to filter results.
+            Options include 'not_specified', 'day', 'week', 'month', or 'year'.
+          max: null
+          min: null
+          name: time_range
+          options:
+          - icon: ''
+            label:
+              en_US: Not Specified
+              ja_JP: Not Specified
+              pt_BR: Not Specified
+              zh_Hans: 不指定
+            value: not_specified
+          - icon: ''
+            label:
+              en_US: Day
+              ja_JP: Day
+              pt_BR: Day
+              zh_Hans: 天
+            value: day
+          - icon: ''
+            label:
+              en_US: Week
+              ja_JP: Week
+              pt_BR: Week
+              zh_Hans: 周
+            value: week
+          - icon: ''
+            label:
+              en_US: Month
+              ja_JP: Month
+              pt_BR: Month
+              zh_Hans: 月
+            value: month
+          - icon: ''
+            label:
+              en_US: Year
+              ja_JP: Year
+              pt_BR: Year
+              zh_Hans: 年
+            value: year
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The start date for filtering results. Required to be written in
+              the format YYYY-MM-DD.
+            ja_JP: The start date for filtering results. Required to be written in
+              the format YYYY-MM-DD.
+            pt_BR: The start date for filtering results. Required to be written in
+              the format YYYY-MM-DD.
+            zh_Hans: 筛选结果的开始日期。必须以YYYY-MM-DD格式编写。
+          label:
+            en_US: Start Date
+            ja_JP: Start Date
+            pt_BR: Start Date
+            zh_Hans: 开始日期
+          llm_description: The start date for filtering results. Required to be written
+            in the format YYYY-MM-DD. Results will be filtered to include content
+            from this date onwards.
+          max: null
+          min: null
+          name: start_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The end date for filtering results. Required to be written in the
+              format YYYY-MM-DD.
+            ja_JP: The end date for filtering results. Required to be written in the
+              format YYYY-MM-DD.
+            pt_BR: The end date for filtering results. Required to be written in the
+              format YYYY-MM-DD.
+            zh_Hans: 筛选结果的结束日期。必须以YYYY-MM-DD格式编写。
+          label:
+            en_US: End Date
+            ja_JP: End Date
+            pt_BR: End Date
+            zh_Hans: 结束日期
+          llm_description: The end date for filtering results. Required to be written
+            in the format YYYY-MM-DD. Results will be filtered to include content
+            up to this date.
+          max: null
+          min: null
+          name: end_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Automatically configure search parameters based on query content
+              and intent.
+            ja_JP: Automatically configure search parameters based on query content
+              and intent.
+            pt_BR: Automatically configure search parameters based on query content
+              and intent.
+            zh_Hans: 根据查询内容和意图自动配置搜索参数。
+          label:
+            en_US: Auto Parameters
+            ja_JP: Auto Parameters
+            pt_BR: Auto Parameters
+            zh_Hans: 自动参数
+          llm_description: When set to true, Tavily automatically configures search
+            parameters based on your query.
+          max: null
+          min: null
+          name: auto_parameters
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Include a list of query-related images in the response.
+            ja_JP: Include a list of query-related images in the response.
+            pt_BR: Include a list of query-related images in the response.
+            zh_Hans: 在响应中包含与查询相关的图片列表。
+          label:
+            en_US: Include Images
+            ja_JP: Include Images
+            pt_BR: Include Images
+            zh_Hans: 包含图片
+          llm_description: When set to true, includes a list of query-related images
+            in the response.
+          max: null
+          min: null
+          name: include_images
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: When include_images is True, adds descriptive text for each image.
+            ja_JP: When include_images is True, adds descriptive text for each image.
+            pt_BR: When include_images is True, adds descriptive text for each image.
+            zh_Hans: 当 include_images 为 True 时，为每个图像添加描述文本。
+          label:
+            en_US: Include Image Descriptions
+            ja_JP: Include Image Descriptions
+            pt_BR: Include Image Descriptions
+            zh_Hans: 包含图片描述
+          llm_description: When include_images is True and this is set to true, adds
+            descriptive text for each image.
+          max: null
+          min: null
+          name: include_image_descriptions
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Include favicon URL for each result.
+            ja_JP: Include favicon URL for each result.
+            pt_BR: Include favicon URL for each result.
+            zh_Hans: 包含每个结果的favicon URL。
+          label:
+            en_US: Include Favicon
+            ja_JP: Include Favicon
+            pt_BR: Include Favicon
+            zh_Hans: 包含Favicon
+          llm_description: When set to true, includes the favicon URL for each result.
+          max: null
+          min: null
+          name: include_favicon
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Include a short answer to the original query in the response. Use
+              'basic' or 'true' for a quick answer or 'advanced' for a more detailed,
+              comprehensive answer.
+            ja_JP: Include a short answer to the original query in the response. Use
+              'basic' or 'true' for a quick answer or 'advanced' for a more detailed,
+              comprehensive answer.
+            pt_BR: Include a short answer to the original query in the response. Use
+              'basic' or 'true' for a quick answer or 'advanced' for a more detailed,
+              comprehensive answer.
+            zh_Hans: 在回复中包含对原始问题的简短回答。对于简要回答，请使用“基本”或“是”；对于更详细、更全面的回答，请使用“高级”。
+          label:
+            en_US: Include Answer
+            ja_JP: Include Answer
+            pt_BR: Include Answer
+            zh_Hans: 包含答案
+          llm_description: When set to true or 'basic', includes a short answer to
+            the original query in the response, 'advanced' for a more detailed comprehensive
+            answer.
+          max: null
+          min: null
+          name: include_answer
+          options:
+          - icon: ''
+            label:
+              en_US: 'False'
+              ja_JP: 'False'
+              pt_BR: 'False'
+              zh_Hans: 否
+            value: 'false'
+          - icon: ''
+            label:
+              en_US: 'True'
+              ja_JP: 'True'
+              pt_BR: 'True'
+              zh_Hans: 是
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Basic
+              ja_JP: Basic
+              pt_BR: Basic
+              zh_Hans: 基本
+            value: basic
+          - icon: ''
+            label:
+              en_US: Advanced
+              ja_JP: Advanced
+              pt_BR: Advanced
+              zh_Hans: 高级
+            value: advanced
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Include the cleaned and parsed HTML content of each search result.
+              Use 'markdown' for markdown format or 'text' for plain text.
+            ja_JP: Include the cleaned and parsed HTML content of each search result.
+              Use 'markdown' for markdown format or 'text' for plain text.
+            pt_BR: Include the cleaned and parsed HTML content of each search result.
+              Use 'markdown' for markdown format or 'text' for plain text.
+            zh_Hans: 包含每个搜索结果的已清理和解析的HTML内容。使用 Markdown 格式请选择 Markdown 选项，使用纯文本请选择文本选项。
+          label:
+            en_US: Include Raw Content
+            ja_JP: Include Raw Content
+            pt_BR: Include Raw Content
+            zh_Hans: 包含原始内容
+          llm_description: Include the cleaned and parsed content of each search result.
+            'false' to disable, 'true' or 'markdown' for markdown format, 'text' for
+            plain text format.
+          max: null
+          min: null
+          name: include_raw_content
+          options:
+          - icon: ''
+            label:
+              en_US: 'False'
+              ja_JP: 'False'
+              pt_BR: 'False'
+              zh_Hans: 否
+            value: 'false'
+          - icon: ''
+            label:
+              en_US: 'True'
+              ja_JP: 'True'
+              pt_BR: 'True'
+              zh_Hans: 是
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Markdown
+              ja_JP: Markdown
+              pt_BR: Markdown
+              zh_Hans: Markdown
+            value: markdown
+          - icon: ''
+            label:
+              en_US: Text
+              ja_JP: Text
+              pt_BR: Text
+              zh_Hans: 纯文本
+            value: text
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Include API usage information (token counts, credits used) in the
+              response.
+            ja_JP: Include API usage information (token counts, credits used) in the
+              response.
+            pt_BR: Include API usage information (token counts, credits used) in the
+              response.
+            zh_Hans: 在响应中包含API使用信息（token计数、使用的积分）。
+          label:
+            en_US: Include Usage
+            ja_JP: Include Usage
+            pt_BR: Include Usage
+            zh_Hans: 包含使用信息
+          llm_description: When set to true, includes API usage information such as
+            token counts and credits used in the response.
+          max: null
+          min: null
+          name: include_usage
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: The maximum number of search results to return.
+            ja_JP: The maximum number of search results to return.
+            pt_BR: The maximum number of search results to return.
+            zh_Hans: 要返回的最大搜索结果数。
+          label:
+            en_US: Max Results
+            ja_JP: Max Results
+            pt_BR: Max Results
+            zh_Hans: 最大结果数
+          llm_description: The maximum number of search results to return. Range is
+            1-20.
+          max: 20
+          min: 1
+          name: max_results
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 3
+          form: form
+          human_description:
+            en_US: Maximum number of content chunks returned per source (advanced
+              search only).
+            ja_JP: Maximum number of content chunks returned per source (advanced
+              search only).
+            pt_BR: Maximum number of content chunks returned per source (advanced
+              search only).
+            zh_Hans: 每个来源返回的内容片段的最大数量（仅限高级搜索）。
+          label:
+            en_US: Chunks Per Source
+            ja_JP: Chunks Per Source
+            pt_BR: Chunks Per Source
+            zh_Hans: 每来源片段数
+          llm_description: Maximum number of relevant content chunks (1-3) returned
+            per source. Valid only when search_depth is advanced.
+          max: 3
+          min: 1
+          name: chunks_per_source
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: united states
+          form: llm
+          human_description:
+            en_US: Boost search results from a specific country (topic must be general).
+            ja_JP: Boost search results from a specific country (topic must be general).
+            pt_BR: Boost search results from a specific country (topic must be general).
+            zh_Hans: 从特定国家/地区提升搜索结果（主题必须是general）。
+          label:
+            en_US: Country
+            ja_JP: Country
+            pt_BR: Country
+            zh_Hans: 国家
+          llm_description: Select a country to boost its content in results (only
+            when topic is general).
+          max: null
+          min: null
+          name: country
+          options:
+          - icon: ''
+            label:
+              en_US: Afghanistan
+              ja_JP: Afghanistan
+              pt_BR: Afghanistan
+              zh_Hans: 阿富汗
+            value: afghanistan
+          - icon: ''
+            label:
+              en_US: Albania
+              ja_JP: Albania
+              pt_BR: Albania
+              zh_Hans: 阿尔巴尼亚
+            value: albania
+          - icon: ''
+            label:
+              en_US: Algeria
+              ja_JP: Algeria
+              pt_BR: Algeria
+              zh_Hans: 阿尔及利亚
+            value: algeria
+          - icon: ''
+            label:
+              en_US: Andorra
+              ja_JP: Andorra
+              pt_BR: Andorra
+              zh_Hans: 安道尔
+            value: andorra
+          - icon: ''
+            label:
+              en_US: Angola
+              ja_JP: Angola
+              pt_BR: Angola
+              zh_Hans: 安哥拉
+            value: angola
+          - icon: ''
+            label:
+              en_US: Argentina
+              ja_JP: Argentina
+              pt_BR: Argentina
+              zh_Hans: 阿根廷
+            value: argentina
+          - icon: ''
+            label:
+              en_US: Armenia
+              ja_JP: Armenia
+              pt_BR: Armenia
+              zh_Hans: 亚美尼亚
+            value: armenia
+          - icon: ''
+            label:
+              en_US: Australia
+              ja_JP: Australia
+              pt_BR: Australia
+              zh_Hans: 澳大利亚
+            value: australia
+          - icon: ''
+            label:
+              en_US: Austria
+              ja_JP: Austria
+              pt_BR: Austria
+              zh_Hans: 奥地利
+            value: austria
+          - icon: ''
+            label:
+              en_US: Azerbaijan
+              ja_JP: Azerbaijan
+              pt_BR: Azerbaijan
+              zh_Hans: 阿塞拜疆
+            value: azerbaijan
+          - icon: ''
+            label:
+              en_US: Bahamas
+              ja_JP: Bahamas
+              pt_BR: Bahamas
+              zh_Hans: 巴哈马
+            value: bahamas
+          - icon: ''
+            label:
+              en_US: Bahrain
+              ja_JP: Bahrain
+              pt_BR: Bahrain
+              zh_Hans: 巴林
+            value: bahrain
+          - icon: ''
+            label:
+              en_US: Bangladesh
+              ja_JP: Bangladesh
+              pt_BR: Bangladesh
+              zh_Hans: 孟加拉国
+            value: bangladesh
+          - icon: ''
+            label:
+              en_US: Barbados
+              ja_JP: Barbados
+              pt_BR: Barbados
+              zh_Hans: 巴巴多斯
+            value: barbados
+          - icon: ''
+            label:
+              en_US: Belarus
+              ja_JP: Belarus
+              pt_BR: Belarus
+              zh_Hans: 白俄罗斯
+            value: belarus
+          - icon: ''
+            label:
+              en_US: Belgium
+              ja_JP: Belgium
+              pt_BR: Belgium
+              zh_Hans: 比利时
+            value: belgium
+          - icon: ''
+            label:
+              en_US: Belize
+              ja_JP: Belize
+              pt_BR: Belize
+              zh_Hans: 伯利兹
+            value: belize
+          - icon: ''
+            label:
+              en_US: Benin
+              ja_JP: Benin
+              pt_BR: Benin
+              zh_Hans: 贝宁
+            value: benin
+          - icon: ''
+            label:
+              en_US: Bhutan
+              ja_JP: Bhutan
+              pt_BR: Bhutan
+              zh_Hans: 不丹
+            value: bhutan
+          - icon: ''
+            label:
+              en_US: Bolivia
+              ja_JP: Bolivia
+              pt_BR: Bolivia
+              zh_Hans: 玻利维亚
+            value: bolivia
+          - icon: ''
+            label:
+              en_US: Bosnia and Herzegovina
+              ja_JP: Bosnia and Herzegovina
+              pt_BR: Bosnia and Herzegovina
+              zh_Hans: 波斯尼亚和黑塞哥维那
+            value: bosnia and herzegovina
+          - icon: ''
+            label:
+              en_US: Botswana
+              ja_JP: Botswana
+              pt_BR: Botswana
+              zh_Hans: 博茨瓦纳
+            value: botswana
+          - icon: ''
+            label:
+              en_US: Brazil
+              ja_JP: Brazil
+              pt_BR: Brazil
+              zh_Hans: 巴西
+            value: brazil
+          - icon: ''
+            label:
+              en_US: Brunei
+              ja_JP: Brunei
+              pt_BR: Brunei
+              zh_Hans: 文莱
+            value: brunei
+          - icon: ''
+            label:
+              en_US: Bulgaria
+              ja_JP: Bulgaria
+              pt_BR: Bulgaria
+              zh_Hans: 保加利亚
+            value: bulgaria
+          - icon: ''
+            label:
+              en_US: Burkina Faso
+              ja_JP: Burkina Faso
+              pt_BR: Burkina Faso
+              zh_Hans: 布基纳法索
+            value: burkina faso
+          - icon: ''
+            label:
+              en_US: Burundi
+              ja_JP: Burundi
+              pt_BR: Burundi
+              zh_Hans: 布隆迪
+            value: burundi
+          - icon: ''
+            label:
+              en_US: Cambodia
+              ja_JP: Cambodia
+              pt_BR: Cambodia
+              zh_Hans: 柬埔寨
+            value: cambodia
+          - icon: ''
+            label:
+              en_US: Cameroon
+              ja_JP: Cameroon
+              pt_BR: Cameroon
+              zh_Hans: 喀麦隆
+            value: cameroon
+          - icon: ''
+            label:
+              en_US: Canada
+              ja_JP: Canada
+              pt_BR: Canada
+              zh_Hans: 加拿大
+            value: canada
+          - icon: ''
+            label:
+              en_US: Cape Verde
+              ja_JP: Cape Verde
+              pt_BR: Cape Verde
+              zh_Hans: 佛得角
+            value: cape verde
+          - icon: ''
+            label:
+              en_US: Central African Republic
+              ja_JP: Central African Republic
+              pt_BR: Central African Republic
+              zh_Hans: 中非共和国
+            value: central african republic
+          - icon: ''
+            label:
+              en_US: Chad
+              ja_JP: Chad
+              pt_BR: Chad
+              zh_Hans: 乍得
+            value: chad
+          - icon: ''
+            label:
+              en_US: Chile
+              ja_JP: Chile
+              pt_BR: Chile
+              zh_Hans: 智利
+            value: chile
+          - icon: ''
+            label:
+              en_US: China
+              ja_JP: China
+              pt_BR: China
+              zh_Hans: 中国
+            value: china
+          - icon: ''
+            label:
+              en_US: Colombia
+              ja_JP: Colombia
+              pt_BR: Colombia
+              zh_Hans: 哥伦比亚
+            value: colombia
+          - icon: ''
+            label:
+              en_US: Comoros
+              ja_JP: Comoros
+              pt_BR: Comoros
+              zh_Hans: 科摩罗
+            value: comoros
+          - icon: ''
+            label:
+              en_US: Congo
+              ja_JP: Congo
+              pt_BR: Congo
+              zh_Hans: 刚果
+            value: congo
+          - icon: ''
+            label:
+              en_US: Costa Rica
+              ja_JP: Costa Rica
+              pt_BR: Costa Rica
+              zh_Hans: 哥斯达黎加
+            value: costa rica
+          - icon: ''
+            label:
+              en_US: Croatia
+              ja_JP: Croatia
+              pt_BR: Croatia
+              zh_Hans: 克罗地亚
+            value: croatia
+          - icon: ''
+            label:
+              en_US: Cuba
+              ja_JP: Cuba
+              pt_BR: Cuba
+              zh_Hans: 古巴
+            value: cuba
+          - icon: ''
+            label:
+              en_US: Cyprus
+              ja_JP: Cyprus
+              pt_BR: Cyprus
+              zh_Hans: 塞浦路斯
+            value: cyprus
+          - icon: ''
+            label:
+              en_US: Czech Republic
+              ja_JP: Czech Republic
+              pt_BR: Czech Republic
+              zh_Hans: 捷克共和国
+            value: czech republic
+          - icon: ''
+            label:
+              en_US: Denmark
+              ja_JP: Denmark
+              pt_BR: Denmark
+              zh_Hans: 丹麦
+            value: denmark
+          - icon: ''
+            label:
+              en_US: Djibouti
+              ja_JP: Djibouti
+              pt_BR: Djibouti
+              zh_Hans: 吉布提
+            value: djibouti
+          - icon: ''
+            label:
+              en_US: Dominican Republic
+              ja_JP: Dominican Republic
+              pt_BR: Dominican Republic
+              zh_Hans: 多米尼加共和国
+            value: dominican republic
+          - icon: ''
+            label:
+              en_US: Ecuador
+              ja_JP: Ecuador
+              pt_BR: Ecuador
+              zh_Hans: 厄瓜多尔
+            value: ecuador
+          - icon: ''
+            label:
+              en_US: Egypt
+              ja_JP: Egypt
+              pt_BR: Egypt
+              zh_Hans: 埃及
+            value: egypt
+          - icon: ''
+            label:
+              en_US: El Salvador
+              ja_JP: El Salvador
+              pt_BR: El Salvador
+              zh_Hans: 萨尔瓦多
+            value: el salvador
+          - icon: ''
+            label:
+              en_US: Equatorial Guinea
+              ja_JP: Equatorial Guinea
+              pt_BR: Equatorial Guinea
+              zh_Hans: 赤道几内亚
+            value: equatorial guinea
+          - icon: ''
+            label:
+              en_US: Eritrea
+              ja_JP: Eritrea
+              pt_BR: Eritrea
+              zh_Hans: 厄立特里亚
+            value: eritrea
+          - icon: ''
+            label:
+              en_US: Estonia
+              ja_JP: Estonia
+              pt_BR: Estonia
+              zh_Hans: 爱沙尼亚
+            value: estonia
+          - icon: ''
+            label:
+              en_US: Ethiopia
+              ja_JP: Ethiopia
+              pt_BR: Ethiopia
+              zh_Hans: 埃塞俄比亚
+            value: ethiopia
+          - icon: ''
+            label:
+              en_US: Fiji
+              ja_JP: Fiji
+              pt_BR: Fiji
+              zh_Hans: 斐济
+            value: fiji
+          - icon: ''
+            label:
+              en_US: Finland
+              ja_JP: Finland
+              pt_BR: Finland
+              zh_Hans: 芬兰
+            value: finland
+          - icon: ''
+            label:
+              en_US: France
+              ja_JP: France
+              pt_BR: France
+              zh_Hans: 法国
+            value: france
+          - icon: ''
+            label:
+              en_US: Gabon
+              ja_JP: Gabon
+              pt_BR: Gabon
+              zh_Hans: 加蓬
+            value: gabon
+          - icon: ''
+            label:
+              en_US: Gambia
+              ja_JP: Gambia
+              pt_BR: Gambia
+              zh_Hans: 冈比亚
+            value: gambia
+          - icon: ''
+            label:
+              en_US: Georgia
+              ja_JP: Georgia
+              pt_BR: Georgia
+              zh_Hans: 格鲁吉亚
+            value: georgia
+          - icon: ''
+            label:
+              en_US: Germany
+              ja_JP: Germany
+              pt_BR: Germany
+              zh_Hans: 德国
+            value: germany
+          - icon: ''
+            label:
+              en_US: Ghana
+              ja_JP: Ghana
+              pt_BR: Ghana
+              zh_Hans: 加纳
+            value: ghana
+          - icon: ''
+            label:
+              en_US: Greece
+              ja_JP: Greece
+              pt_BR: Greece
+              zh_Hans: 希腊
+            value: greece
+          - icon: ''
+            label:
+              en_US: Guatemala
+              ja_JP: Guatemala
+              pt_BR: Guatemala
+              zh_Hans: 危地马拉
+            value: guatemala
+          - icon: ''
+            label:
+              en_US: Guinea
+              ja_JP: Guinea
+              pt_BR: Guinea
+              zh_Hans: 几内亚
+            value: guinea
+          - icon: ''
+            label:
+              en_US: Haiti
+              ja_JP: Haiti
+              pt_BR: Haiti
+              zh_Hans: 海地
+            value: haiti
+          - icon: ''
+            label:
+              en_US: Honduras
+              ja_JP: Honduras
+              pt_BR: Honduras
+              zh_Hans: 洪都拉斯
+            value: honduras
+          - icon: ''
+            label:
+              en_US: Hungary
+              ja_JP: Hungary
+              pt_BR: Hungary
+              zh_Hans: 匈牙利
+            value: hungary
+          - icon: ''
+            label:
+              en_US: Iceland
+              ja_JP: Iceland
+              pt_BR: Iceland
+              zh_Hans: 冰岛
+            value: iceland
+          - icon: ''
+            label:
+              en_US: India
+              ja_JP: India
+              pt_BR: India
+              zh_Hans: 印度
+            value: india
+          - icon: ''
+            label:
+              en_US: Indonesia
+              ja_JP: Indonesia
+              pt_BR: Indonesia
+              zh_Hans: 印度尼西亚
+            value: indonesia
+          - icon: ''
+            label:
+              en_US: Iran
+              ja_JP: Iran
+              pt_BR: Iran
+              zh_Hans: 伊朗
+            value: iran
+          - icon: ''
+            label:
+              en_US: Iraq
+              ja_JP: Iraq
+              pt_BR: Iraq
+              zh_Hans: 伊拉克
+            value: iraq
+          - icon: ''
+            label:
+              en_US: Ireland
+              ja_JP: Ireland
+              pt_BR: Ireland
+              zh_Hans: 爱尔兰
+            value: ireland
+          - icon: ''
+            label:
+              en_US: Israel
+              ja_JP: Israel
+              pt_BR: Israel
+              zh_Hans: 以色列
+            value: israel
+          - icon: ''
+            label:
+              en_US: Italy
+              ja_JP: Italy
+              pt_BR: Italy
+              zh_Hans: 意大利
+            value: italy
+          - icon: ''
+            label:
+              en_US: Jamaica
+              ja_JP: Jamaica
+              pt_BR: Jamaica
+              zh_Hans: 牙买加
+            value: jamaica
+          - icon: ''
+            label:
+              en_US: Japan
+              ja_JP: Japan
+              pt_BR: Japan
+              zh_Hans: 日本
+            value: japan
+          - icon: ''
+            label:
+              en_US: Jordan
+              ja_JP: Jordan
+              pt_BR: Jordan
+              zh_Hans: 约旦
+            value: jordan
+          - icon: ''
+            label:
+              en_US: Kazakhstan
+              ja_JP: Kazakhstan
+              pt_BR: Kazakhstan
+              zh_Hans: 哈萨克斯坦
+            value: kazakhstan
+          - icon: ''
+            label:
+              en_US: Kenya
+              ja_JP: Kenya
+              pt_BR: Kenya
+              zh_Hans: 肯尼亚
+            value: kenya
+          - icon: ''
+            label:
+              en_US: Kuwait
+              ja_JP: Kuwait
+              pt_BR: Kuwait
+              zh_Hans: 科威特
+            value: kuwait
+          - icon: ''
+            label:
+              en_US: Kyrgyzstan
+              ja_JP: Kyrgyzstan
+              pt_BR: Kyrgyzstan
+              zh_Hans: 吉尔吉斯斯坦
+            value: kyrgyzstan
+          - icon: ''
+            label:
+              en_US: Latvia
+              ja_JP: Latvia
+              pt_BR: Latvia
+              zh_Hans: 拉脱维亚
+            value: latvia
+          - icon: ''
+            label:
+              en_US: Lebanon
+              ja_JP: Lebanon
+              pt_BR: Lebanon
+              zh_Hans: 黎巴嫩
+            value: lebanon
+          - icon: ''
+            label:
+              en_US: Lesotho
+              ja_JP: Lesotho
+              pt_BR: Lesotho
+              zh_Hans: 莱索托
+            value: lesotho
+          - icon: ''
+            label:
+              en_US: Liberia
+              ja_JP: Liberia
+              pt_BR: Liberia
+              zh_Hans: 利比里亚
+            value: liberia
+          - icon: ''
+            label:
+              en_US: Libya
+              ja_JP: Libya
+              pt_BR: Libya
+              zh_Hans: 利比亚
+            value: libya
+          - icon: ''
+            label:
+              en_US: Liechtenstein
+              ja_JP: Liechtenstein
+              pt_BR: Liechtenstein
+              zh_Hans: 列支敦士登
+            value: liechtenstein
+          - icon: ''
+            label:
+              en_US: Lithuania
+              ja_JP: Lithuania
+              pt_BR: Lithuania
+              zh_Hans: 立陶宛
+            value: lithuania
+          - icon: ''
+            label:
+              en_US: Luxembourg
+              ja_JP: Luxembourg
+              pt_BR: Luxembourg
+              zh_Hans: 卢森堡
+            value: luxembourg
+          - icon: ''
+            label:
+              en_US: Madagascar
+              ja_JP: Madagascar
+              pt_BR: Madagascar
+              zh_Hans: 马达加斯加
+            value: madagascar
+          - icon: ''
+            label:
+              en_US: Malawi
+              ja_JP: Malawi
+              pt_BR: Malawi
+              zh_Hans: 马拉维
+            value: malawi
+          - icon: ''
+            label:
+              en_US: Malaysia
+              ja_JP: Malaysia
+              pt_BR: Malaysia
+              zh_Hans: 马来西亚
+            value: malaysia
+          - icon: ''
+            label:
+              en_US: Maldives
+              ja_JP: Maldives
+              pt_BR: Maldives
+              zh_Hans: 马尔代夫
+            value: maldives
+          - icon: ''
+            label:
+              en_US: Mali
+              ja_JP: Mali
+              pt_BR: Mali
+              zh_Hans: 马里
+            value: mali
+          - icon: ''
+            label:
+              en_US: Malta
+              ja_JP: Malta
+              pt_BR: Malta
+              zh_Hans: 马耳他
+            value: malta
+          - icon: ''
+            label:
+              en_US: Mauritania
+              ja_JP: Mauritania
+              pt_BR: Mauritania
+              zh_Hans: 毛里塔尼亚
+            value: mauritania
+          - icon: ''
+            label:
+              en_US: Mauritius
+              ja_JP: Mauritius
+              pt_BR: Mauritius
+              zh_Hans: 毛里求斯
+            value: mauritius
+          - icon: ''
+            label:
+              en_US: Mexico
+              ja_JP: Mexico
+              pt_BR: Mexico
+              zh_Hans: 墨西哥
+            value: mexico
+          - icon: ''
+            label:
+              en_US: Moldova
+              ja_JP: Moldova
+              pt_BR: Moldova
+              zh_Hans: 摩尔多瓦
+            value: moldova
+          - icon: ''
+            label:
+              en_US: Monaco
+              ja_JP: Monaco
+              pt_BR: Monaco
+              zh_Hans: 摩纳哥
+            value: monaco
+          - icon: ''
+            label:
+              en_US: Mongolia
+              ja_JP: Mongolia
+              pt_BR: Mongolia
+              zh_Hans: 蒙古
+            value: mongolia
+          - icon: ''
+            label:
+              en_US: Montenegro
+              ja_JP: Montenegro
+              pt_BR: Montenegro
+              zh_Hans: 黑山
+            value: montenegro
+          - icon: ''
+            label:
+              en_US: Morocco
+              ja_JP: Morocco
+              pt_BR: Morocco
+              zh_Hans: 摩洛哥
+            value: morocco
+          - icon: ''
+            label:
+              en_US: Mozambique
+              ja_JP: Mozambique
+              pt_BR: Mozambique
+              zh_Hans: 莫桑比克
+            value: mozambique
+          - icon: ''
+            label:
+              en_US: Myanmar
+              ja_JP: Myanmar
+              pt_BR: Myanmar
+              zh_Hans: 缅甸
+            value: myanmar
+          - icon: ''
+            label:
+              en_US: Namibia
+              ja_JP: Namibia
+              pt_BR: Namibia
+              zh_Hans: 纳米比亚
+            value: namibia
+          - icon: ''
+            label:
+              en_US: Nepal
+              ja_JP: Nepal
+              pt_BR: Nepal
+              zh_Hans: 尼泊尔
+            value: nepal
+          - icon: ''
+            label:
+              en_US: Netherlands
+              ja_JP: Netherlands
+              pt_BR: Netherlands
+              zh_Hans: 荷兰
+            value: netherlands
+          - icon: ''
+            label:
+              en_US: New Zealand
+              ja_JP: New Zealand
+              pt_BR: New Zealand
+              zh_Hans: 新西兰
+            value: new zealand
+          - icon: ''
+            label:
+              en_US: Nicaragua
+              ja_JP: Nicaragua
+              pt_BR: Nicaragua
+              zh_Hans: 尼加拉瓜
+            value: nicaragua
+          - icon: ''
+            label:
+              en_US: Niger
+              ja_JP: Niger
+              pt_BR: Niger
+              zh_Hans: 尼日尔
+            value: niger
+          - icon: ''
+            label:
+              en_US: Nigeria
+              ja_JP: Nigeria
+              pt_BR: Nigeria
+              zh_Hans: 尼日利亚
+            value: nigeria
+          - icon: ''
+            label:
+              en_US: North Korea
+              ja_JP: North Korea
+              pt_BR: North Korea
+              zh_Hans: 朝鲜
+            value: north korea
+          - icon: ''
+            label:
+              en_US: North Macedonia
+              ja_JP: North Macedonia
+              pt_BR: North Macedonia
+              zh_Hans: 北马其顿
+            value: north macedonia
+          - icon: ''
+            label:
+              en_US: Norway
+              ja_JP: Norway
+              pt_BR: Norway
+              zh_Hans: 挪威
+            value: norway
+          - icon: ''
+            label:
+              en_US: Oman
+              ja_JP: Oman
+              pt_BR: Oman
+              zh_Hans: 阿曼
+            value: oman
+          - icon: ''
+            label:
+              en_US: Pakistan
+              ja_JP: Pakistan
+              pt_BR: Pakistan
+              zh_Hans: 巴基斯坦
+            value: pakistan
+          - icon: ''
+            label:
+              en_US: Panama
+              ja_JP: Panama
+              pt_BR: Panama
+              zh_Hans: 巴拿马
+            value: panama
+          - icon: ''
+            label:
+              en_US: Papua New Guinea
+              ja_JP: Papua New Guinea
+              pt_BR: Papua New Guinea
+              zh_Hans: 巴布亚新几内亚
+            value: papua new guinea
+          - icon: ''
+            label:
+              en_US: Paraguay
+              ja_JP: Paraguay
+              pt_BR: Paraguay
+              zh_Hans: 巴拉圭
+            value: paraguay
+          - icon: ''
+            label:
+              en_US: Peru
+              ja_JP: Peru
+              pt_BR: Peru
+              zh_Hans: 秘鲁
+            value: peru
+          - icon: ''
+            label:
+              en_US: Philippines
+              ja_JP: Philippines
+              pt_BR: Philippines
+              zh_Hans: 菲律宾
+            value: philippines
+          - icon: ''
+            label:
+              en_US: Poland
+              ja_JP: Poland
+              pt_BR: Poland
+              zh_Hans: 波兰
+            value: poland
+          - icon: ''
+            label:
+              en_US: Portugal
+              ja_JP: Portugal
+              pt_BR: Portugal
+              zh_Hans: 葡萄牙
+            value: portugal
+          - icon: ''
+            label:
+              en_US: Qatar
+              ja_JP: Qatar
+              pt_BR: Qatar
+              zh_Hans: 卡塔尔
+            value: qatar
+          - icon: ''
+            label:
+              en_US: Romania
+              ja_JP: Romania
+              pt_BR: Romania
+              zh_Hans: 罗马尼亚
+            value: romania
+          - icon: ''
+            label:
+              en_US: Russia
+              ja_JP: Russia
+              pt_BR: Russia
+              zh_Hans: 俄罗斯
+            value: russia
+          - icon: ''
+            label:
+              en_US: Rwanda
+              ja_JP: Rwanda
+              pt_BR: Rwanda
+              zh_Hans: 卢旺达
+            value: rwanda
+          - icon: ''
+            label:
+              en_US: Saudi Arabia
+              ja_JP: Saudi Arabia
+              pt_BR: Saudi Arabia
+              zh_Hans: 沙特阿拉伯
+            value: saudi arabia
+          - icon: ''
+            label:
+              en_US: Senegal
+              ja_JP: Senegal
+              pt_BR: Senegal
+              zh_Hans: 塞内加尔
+            value: senegal
+          - icon: ''
+            label:
+              en_US: Serbia
+              ja_JP: Serbia
+              pt_BR: Serbia
+              zh_Hans: 塞尔维亚
+            value: serbia
+          - icon: ''
+            label:
+              en_US: Singapore
+              ja_JP: Singapore
+              pt_BR: Singapore
+              zh_Hans: 新加坡
+            value: singapore
+          - icon: ''
+            label:
+              en_US: Slovakia
+              ja_JP: Slovakia
+              pt_BR: Slovakia
+              zh_Hans: 斯洛伐克
+            value: slovakia
+          - icon: ''
+            label:
+              en_US: Slovenia
+              ja_JP: Slovenia
+              pt_BR: Slovenia
+              zh_Hans: 斯洛文尼亚
+            value: slovenia
+          - icon: ''
+            label:
+              en_US: Somalia
+              ja_JP: Somalia
+              pt_BR: Somalia
+              zh_Hans: 索马里
+            value: somalia
+          - icon: ''
+            label:
+              en_US: South Africa
+              ja_JP: South Africa
+              pt_BR: South Africa
+              zh_Hans: 南非
+            value: south africa
+          - icon: ''
+            label:
+              en_US: South Korea
+              ja_JP: South Korea
+              pt_BR: South Korea
+              zh_Hans: 韩国
+            value: south korea
+          - icon: ''
+            label:
+              en_US: South Sudan
+              ja_JP: South Sudan
+              pt_BR: South Sudan
+              zh_Hans: 南苏丹
+            value: south sudan
+          - icon: ''
+            label:
+              en_US: Spain
+              ja_JP: Spain
+              pt_BR: Spain
+              zh_Hans: 西班牙
+            value: spain
+          - icon: ''
+            label:
+              en_US: Sri Lanka
+              ja_JP: Sri Lanka
+              pt_BR: Sri Lanka
+              zh_Hans: 斯里兰卡
+            value: sri lanka
+          - icon: ''
+            label:
+              en_US: Sudan
+              ja_JP: Sudan
+              pt_BR: Sudan
+              zh_Hans: 苏丹
+            value: sudan
+          - icon: ''
+            label:
+              en_US: Sweden
+              ja_JP: Sweden
+              pt_BR: Sweden
+              zh_Hans: 瑞典
+            value: sweden
+          - icon: ''
+            label:
+              en_US: Switzerland
+              ja_JP: Switzerland
+              pt_BR: Switzerland
+              zh_Hans: 瑞士
+            value: switzerland
+          - icon: ''
+            label:
+              en_US: Syria
+              ja_JP: Syria
+              pt_BR: Syria
+              zh_Hans: 叙利亚
+            value: syria
+          - icon: ''
+            label:
+              en_US: Taiwan
+              ja_JP: Taiwan
+              pt_BR: Taiwan
+              zh_Hans: 台湾
+            value: taiwan
+          - icon: ''
+            label:
+              en_US: Tajikistan
+              ja_JP: Tajikistan
+              pt_BR: Tajikistan
+              zh_Hans: 塔吉克斯坦
+            value: tajikistan
+          - icon: ''
+            label:
+              en_US: Tanzania
+              ja_JP: Tanzania
+              pt_BR: Tanzania
+              zh_Hans: 坦桑尼亚
+            value: tanzania
+          - icon: ''
+            label:
+              en_US: Thailand
+              ja_JP: Thailand
+              pt_BR: Thailand
+              zh_Hans: 泰国
+            value: thailand
+          - icon: ''
+            label:
+              en_US: Togo
+              ja_JP: Togo
+              pt_BR: Togo
+              zh_Hans: 多哥
+            value: togo
+          - icon: ''
+            label:
+              en_US: Trinidad and Tobago
+              ja_JP: Trinidad and Tobago
+              pt_BR: Trinidad and Tobago
+              zh_Hans: 特立尼达和多巴哥
+            value: trinidad and tobago
+          - icon: ''
+            label:
+              en_US: Tunisia
+              ja_JP: Tunisia
+              pt_BR: Tunisia
+              zh_Hans: 突尼斯
+            value: tunisia
+          - icon: ''
+            label:
+              en_US: Turkey
+              ja_JP: Turkey
+              pt_BR: Turkey
+              zh_Hans: 土耳其
+            value: turkey
+          - icon: ''
+            label:
+              en_US: Turkmenistan
+              ja_JP: Turkmenistan
+              pt_BR: Turkmenistan
+              zh_Hans: 土库曼斯坦
+            value: turkmenistan
+          - icon: ''
+            label:
+              en_US: Uganda
+              ja_JP: Uganda
+              pt_BR: Uganda
+              zh_Hans: 乌干达
+            value: uganda
+          - icon: ''
+            label:
+              en_US: Ukraine
+              ja_JP: Ukraine
+              pt_BR: Ukraine
+              zh_Hans: 乌克兰
+            value: ukraine
+          - icon: ''
+            label:
+              en_US: United Arab Emirates
+              ja_JP: United Arab Emirates
+              pt_BR: United Arab Emirates
+              zh_Hans: 阿拉伯联合酋长国
+            value: united arab emirates
+          - icon: ''
+            label:
+              en_US: United Kingdom
+              ja_JP: United Kingdom
+              pt_BR: United Kingdom
+              zh_Hans: 英国
+            value: united kingdom
+          - icon: ''
+            label:
+              en_US: United States
+              ja_JP: United States
+              pt_BR: United States
+              zh_Hans: 美国
+            value: united states
+          - icon: ''
+            label:
+              en_US: Uruguay
+              ja_JP: Uruguay
+              pt_BR: Uruguay
+              zh_Hans: 乌拉圭
+            value: uruguay
+          - icon: ''
+            label:
+              en_US: Uzbekistan
+              ja_JP: Uzbekistan
+              pt_BR: Uzbekistan
+              zh_Hans: 乌兹别克斯坦
+            value: uzbekistan
+          - icon: ''
+            label:
+              en_US: Venezuela
+              ja_JP: Venezuela
+              pt_BR: Venezuela
+              zh_Hans: 委内瑞拉
+            value: venezuela
+          - icon: ''
+            label:
+              en_US: Vietnam
+              ja_JP: Vietnam
+              pt_BR: Vietnam
+              zh_Hans: 越南
+            value: vietnam
+          - icon: ''
+            label:
+              en_US: Yemen
+              ja_JP: Yemen
+              pt_BR: Yemen
+              zh_Hans: 也门
+            value: yemen
+          - icon: ''
+            label:
+              en_US: Zambia
+              ja_JP: Zambia
+              pt_BR: Zambia
+              zh_Hans: 赞比亚
+            value: zambia
+          - icon: ''
+            label:
+              en_US: Zimbabwe
+              ja_JP: Zimbabwe
+              pt_BR: Zimbabwe
+              zh_Hans: 津巴布韦
+            value: zimbabwe
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: A comma-separated list of domains to specifically include in the
+              search results.
+            ja_JP: A comma-separated list of domains to specifically include in the
+              search results.
+            pt_BR: A comma-separated list of domains to specifically include in the
+              search results.
+            zh_Hans: 要在搜索结果中特别包含的域的逗号分隔列表。
+          label:
+            en_US: Include Domains
+            ja_JP: Include Domains
+            pt_BR: Include Domains
+            zh_Hans: 包含域
+          llm_description: A comma-separated list of domains to specifically include
+            in the search results.
+          max: null
+          min: null
+          name: include_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: A comma-separated list of domains to specifically exclude from
+              the search results.
+            ja_JP: A comma-separated list of domains to specifically exclude from
+              the search results.
+            pt_BR: A comma-separated list of domains to specifically exclude from
+              the search results.
+            zh_Hans: 要从搜索结果中特别排除的域的逗号分隔列表。
+          label:
+            en_US: Exclude Domains
+            ja_JP: Exclude Domains
+            pt_BR: Exclude Domains
+            zh_Hans: 排除域
+          llm_description: A comma-separated list of domains to specifically exclude
+            from the search results.
+          max: null
+          min: null
+          name: exclude_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Optional project ID for tracking and analytics purposes. Will be
+              sent as X-Project-ID header.
+            ja_JP: Optional project ID for tracking and analytics purposes. Will be
+              sent as X-Project-ID header.
+            pt_BR: Optional project ID for tracking and analytics purposes. Will be
+              sent as X-Project-ID header.
+            zh_Hans: 用于跟踪和分析目的的可选项目 ID。将作为 X-Project-ID 标头发送。
+          label:
+            en_US: Project ID
+            ja_JP: Project ID
+            pt_BR: Project ID
+            zh_Hans: 项目 ID
+          llm_description: Optional project ID for usage tracking and analytics.
+          max: null
+          min: null
+          name: project_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          auto_parameters: ''
+          chunks_per_source: ''
+          country: ''
+          end_date: ''
+          exclude_domains: ''
+          include_answer: ''
+          include_domains: ''
+          include_favicon: ''
+          include_image_descriptions: ''
+          include_images: ''
+          include_raw_content: ''
+          include_usage: ''
+          max_results: ''
+          project_id: ''
+          query: ''
+          search_depth: ''
+          start_date: ''
+          time_range: ''
+          topic: ''
+        plugin_id: langgenius/tavily
+        plugin_unique_identifier: langgenius/tavily:0.1.7@5fce9cf01fecda9ad92e5125397d2bb5497429baed276c7f14f033e7debd0abe
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=54c54b5c-d3f1-477e-be9b-1f4a5d5fd1fd&filename=87e9610216108c07bc947745c1df5715aa276dbaa90e5d60866102c549fb5452.png
+        provider_id: langgenius/tavily/tavily
+        provider_name: langgenius/tavily/tavily
+        provider_type: builtin
+        selected: false
+        title: Tavily Search
+        tool_configurations:
+          auto_parameters:
+            type: constant
+            value: false
+          chunks_per_source:
+            type: constant
+            value: 3
+          include_answer:
+            type: constant
+            value: false
+          include_favicon:
+            type: constant
+            value: false
+          include_image_descriptions:
+            type: constant
+            value: false
+          include_images:
+            type: constant
+            value: false
+          include_raw_content:
+            type: constant
+            value: false
+          include_usage:
+            type: constant
+            value: false
+          max_results:
+            type: constant
+            value: 5
+          project_id:
+            type: mixed
+            value: null
+        tool_description: A search engine tool built specifically for AI agents (LLMs),
+          delivering real-time, accurate, and factual results at speed.
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_node_version: '2'
+        tool_parameters:
+          country:
+            type: constant
+            value: south korea
+          end_date:
+            type: mixed
+            value: null
+          exclude_domains:
+            type: mixed
+            value: null
+          include_domains:
+            type: mixed
+            value: 'law.go.kr
+
+              accident.knia.or.kr
+
+              portal.scourt.go.kr
+
+              fss.or.kr'
+          query:
+            type: mixed
+            value: "자동차보험 손해사정 판례 \n{{#1780462454065.structured_output.precedent_query#}}"
+          search_depth:
+            type: constant
+            value: basic
+          start_date:
+            type: mixed
+            value: null
+          time_range:
+            type: constant
+            value: not_specified
+          topic:
+            type: constant
+            value: general
+        type: tool
+      height: 321
+      id: '2001000000003'
+      position:
+        x: 1790.9800219656418
+        y: 437.8622824718476
+      positionAbsolute:
+        x: 1790.9800219656418
+        y: 437.8622824718476
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(auto_knowledge=None, precedents=None,\n         std25_clauses=None,\
+          \ std23_clauses=None, contract_year=\"\",\n         samsung_clauses=None,\
+          \ hyundai_clauses=None, kb_clauses=None,\n         web_results=None, insurer=\"\
+          \"):\n    def to_items(v):\n        if v is None: return []\n        if\
+          \ isinstance(v, list): return v\n        return [v]\n    out=[]\n    # 1.\
+          \ 자동차 사고 업무지식\n    out.append(\"=== [자동차 사고 업무지식] ===\")\n    ak=to_items(auto_knowledge)\n\
+          \    if ak:\n        for i,item in enumerate(ak[:5],1):\n            content=item.get(\"\
+          content\",\"\") if isinstance(item,dict) else str(item)\n            title=item.get(\"\
+          title\",\"업무지식\"+str(i)) if isinstance(item,dict) else \"업무지식\"+str(i)\n\
+          \            out.append(\"\\n[\"+str(i)+\"] \"+str(title)+\"\\n\"+content.strip())\n\
+          \    else: out.append(\"검색 결과 없음\")\n    # 2. 판례·분쟁사례\n    out.append(\"\
+          \\n\\n=== [관련 판례·분쟁사례] ===\")\n    pc=to_items(precedents)\n    if pc:\n\
+          \        for i,item in enumerate(pc[:5],1):\n            content=item.get(\"\
+          content\",\"\") if isinstance(item,dict) else str(item)\n            title=item.get(\"\
+          title\",\"판례\"+str(i)) if isinstance(item,dict) else \"판례\"+str(i)\n   \
+          \         out.append(\"\\n[판례 \"+str(i)+\"] \"+str(title)+\"\\n\"+content.strip())\n\
+          \    else: out.append(\"검색 결과 없음\")\n    # 3. 표준약관 (계약연도 기준)\n    year_str=str(contract_year\
+          \ or \"\")\n    if \"2025\" in year_str:\n        std_data=to_items(std25_clauses);\
+          \ std_label=\"표준약관 (2025년 기준)\"\n    else:\n        std_data=to_items(std23_clauses);\
+          \ std_label=\"표준약관 (2023년 기준)\"\n    out.append(\"\\n\\n=== [\"+std_label+\"\
+          ] ===\")\n    if std_data:\n        for i,item in enumerate(std_data[:4],1):\n\
+          \            content=item.get(\"content\",\"\") if isinstance(item,dict)\
+          \ else str(item)\n            out.append(\"\\n[\"+std_label+\" \"+str(i)+\"\
+          ]\\n\"+content.strip())\n    else: out.append(\"검색 결과 없음\")\n    # 4. 보험사별\
+          \ 약관\n    insurer_str=str(insurer or \"\").strip()\n    insurer_map={\"\
+          삼성화재\":(\"삼성화재\",samsung_clauses),\n                 \"현대해상\":(\"현대해상\"\
+          ,hyundai_clauses),\n                 \"KB손해보험\":(\"KB손해보험\",kb_clauses)}\n\
+          \    matched=None\n    for key,(label,data) in insurer_map.items():\n  \
+          \      if key in insurer_str: matched=(label,data); break\n    if matched:\n\
+          \        label,data=matched\n        out.append(\"\\n\\n=== [\"+label+\"\
+          \ 약관] ===\")\n        cl=to_items(data)\n        if cl:\n            for\
+          \ i,item in enumerate(cl[:3],1):\n                content=item.get(\"content\"\
+          ,\"\") if isinstance(item,dict) else str(item)\n                out.append(\"\
+          \\n[\"+label+\" 약관 \"+str(i)+\"]\\n\"+content.strip())\n        else: out.append(label+\"\
+          \ 약관에서 관련 조항이 검색되지 않음\")\n    else:\n        out.append(\"\\n\\n=== [보험사별\
+          \ 약관] ===\")\n        out.append(\"선택된 보험사 약관 없음 — 표준약관 기준으로만 검토\")\n  \
+          \  # 5. 최신 웹 정보\n    out.append(\"\\n\\n=== [최신 판례·웹 정보] ===\")\n    wr=to_items(web_results)\n\
+          \    if wr:\n        for i,item in enumerate(wr[:3],1):\n            if\
+          \ isinstance(item,dict):\n                title=item.get(\"title\",\"\"\
+          ); content=item.get(\"content\",\"\") or item.get(\"snippet\",\"\")\n  \
+          \              url=item.get(\"url\",\"\")\n                out.append(\"\
+          \\n[웹\"+str(i)+\"] \"+str(title)+\"\\n\"+str(content).strip()+\"\\n출처: \"\
+          +str(url))\n            else: out.append(\"\\n[웹\"+str(i)+\"] \"+str(item))\n\
+          \    else: out.append(\"검색 결과 없음\")\n    return {\"merged_context\": \"\\\
+          n\".join(out)}\n"
+        code_language: python3
+        outputs:
+          merged_context:
+            children: null
+            type: string
+        selected: false
+        title: 검색 컨텍스트 통합
+        type: code
+        variables:
+        - value_selector:
+          - '1780121922891'
+          - result
+          value_type: array[object]
+          variable: auto_knowledge
+        - value_selector:
+          - '2001000000001'
+          - result
+          value_type: array[object]
+          variable: precedents
+        - value_selector:
+          - '2001000000005'
+          - result
+          value_type: array[object]
+          variable: samsung_clauses
+        - value_selector:
+          - '2001000000006'
+          - result
+          value_type: array[object]
+          variable: hyundai_clauses
+        - value_selector:
+          - '2001000000007'
+          - result
+          value_type: array[object]
+          variable: kb_clauses
+        - value_selector:
+          - '2001000000003'
+          - json
+          value_type: array[object]
+          variable: web_results
+        - value_selector:
+          - '1780120071760'
+          - insurer
+          value_type: string
+          variable: insurer
+        - value_selector:
+          - '2001000000002'
+          - result
+          value_type: array[object]
+          variable: std25_clauses
+        - value_selector:
+          - '1780464297477'
+          - result
+          value_type: array[object]
+          variable: std23_clauses
+        - value_selector:
+          - '7001000000001'
+          - policy_version
+          value_type: string
+          variable: contract_year
+      height: 51
+      id: '1779897116545'
+      position:
+        x: 2916.182995974577
+        y: 611.8978791659191
+      positionAbsolute:
+        x: 2916.182995974577
+        y: 611.8978791659191
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: Authorization:KakaoAK ccb8509e73b16a594f59dd34dbc32fc8
+        method: get
+        params: query:{{#1780121110148.accident_location#}}
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 카카오 API
+        type: http-request
+        url: https://dapi.kakao.com/v2/local/search/address.json
+        variables: []
+      height: 107
+      id: '1780061143287'
+      position:
+        x: 1478.4332785252243
+        y: 1402.3263410480533
+      positionAbsolute:
+        x: 1478.4332785252243
+        y: 1402.3263410480533
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport urllib.parse\n\ndef main(response: str) -> dict:\n\
+          \    try:\n        data = json.loads(response)\n    except Exception:\n\
+          \        return {\"map_link\": \"주소를 찾을 수 없습니다.\", \"address\": \"주소를 찾을\
+          \ 수 없습니다.\"}\n\n    docs = data.get(\"documents\") or []\n    if not docs:\n\
+          \        return {\"map_link\": \"주소를 찾을 수 없습니다.\", \"address\": \"주소를 찾을\
+          \ 수 없습니다.\"}\n\n    doc = docs[0]\n    lat = doc.get(\"y\", \"\")\n    lng\
+          \ = doc.get(\"x\", \"\")\n    address = doc.get(\"address_name\", \"\")\n\
+          \n    # 장소명을 URL 인코딩해서 공백/한글로 인한 링크 깨짐 방지\n    place = urllib.parse.quote(address)\n\
+          \    # 카카오맵 link/map 포맷: 장소명,위도,경도\n    map_link = \"https://map.kakao.com/link/map/\"\
+          \ + place + \",\" + str(lat) + \",\" + str(lng)\n\n    return {\"map_link\"\
+          : map_link, \"address\": address}\n"
+        code_language: python3
+        outputs:
+          address:
+            children: null
+            type: string
+          map_link:
+            children: null
+            type: string
+        selected: false
+        title: 지도 코드
+        type: code
+        variables:
+        - value_selector:
+          - '1780061143287'
+          - body
+          value_type: string
+          variable: response
+      height: 51
+      id: '1780062729001'
+      position:
+        x: 1940.3672920700683
+        y: 1402.3263410480533
+      positionAbsolute:
+        x: 1940.3672920700683
+        y: 1402.3263410480533
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(report_clause=\"\", report_precedent=\"\", report_issue=\"\
+          \", map_link=\"\", map_address=\"\",\n         sosmyeol_status=\"\", sosmyeol_message=\"\
+          \",\n         priority=\"\", risk_score=0):\n    try:\n        # 실행된 보고서\
+          \ LLM 출력 선택 (비어있지 않은 것)\n        report_text = report_clause or report_precedent\
+          \ or report_issue or \"\"\n\n        # 보조 정보를 맨 뒤에 배치\n        footer_lines\
+          \ = []\n        footer_lines.append(\"\")\n        footer_lines.append(\"\
+          ---\")\n        footer_lines.append(\"\")\n        footer_lines.append(\"\
+          ### 보조 정보 (참고용)\")\n        footer_lines.append(\"\")\n        footer_lines.append(\"\
+          | 항목 | 내용 |\")\n        footer_lines.append(\"| :--- | :--- |\")\n     \
+          \   footer_lines.append(\"| 검토 우선순위 | \" + str(priority) + \" (위험점수 \" +\
+          \ str(risk_score) + \"/100) |\")\n        footer_lines.append(\"| 소멸시효 상태\
+          \ | \" + str(sosmyeol_status) + \" |\")\n        if sosmyeol_message:\n\
+          \            footer_lines.append(\"| 소멸시효 안내 | \" + str(sosmyeol_message)\
+          \ + \" |\")\n        if map_address and \"찾을 수 없\" not in str(map_address):\n\
+          \            footer_lines.append(\"| 사고 위치 | \" + str(map_address) + \"\
+          \ |\")\n        if map_link and \"찾을 수 없\" not in str(map_link):\n     \
+          \       footer_lines.append(\"| 위치 지도 | [카카오맵에서 보기](\" + str(map_link) +\
+          \ \") |\")\n        footer_lines.append(\"\")\n        footer_lines.append(\"\
+          > 검토 우선순위는 '청구 가능성'이 아니라, 손해사정사가 얼마나 면밀히 확인해야 하는지를 나타내는 업무 보조 지표입니다.\")\n\
+          \n        footer = \"\\n\".join(footer_lines)\n        final_result = (report_text\
+          \ or \"\") + footer\n        return {\"result\": final_result}\n    except\
+          \ Exception as e:\n        return {\"result\": (report_text or \"\") + \"\
+          \\n\\n(보조 정보 생성 중 오류: \" + str(e) + \")\"}\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 최종 보고서 통합
+        type: code
+        variables:
+        - value_selector:
+          - '1780062729001'
+          - map_link
+          value_type: string
+          variable: map_link
+        - value_selector:
+          - '1780062729001'
+          - address
+          value_type: string
+          variable: map_address
+        - value_selector:
+          - '1780039072568'
+          - status
+          value_type: string
+          variable: sosmyeol_status
+        - value_selector:
+          - '1780039072568'
+          - message
+          value_type: string
+          variable: sosmyeol_message
+        - value_selector:
+          - '1780121658026'
+          - priority
+          value_type: string
+          variable: priority
+        - value_selector:
+          - '1780121658026'
+          - risk_score
+          value_type: number
+          variable: risk_score
+        - value_selector:
+          - '5001000000004'
+          - text
+          value_type: string
+          variable: report_clause
+        - value_selector:
+          - '5001000000012'
+          - text
+          value_type: string
+          variable: report_precedent
+        - value_selector:
+          - '5001000000020'
+          - text
+          value_type: string
+          variable: report_issue
+      height: 51
+      id: '2001000000004'
+      position:
+        x: 5196.045082960782
+        y: 103.77175811781046
+      positionAbsolute:
+        x: 5196.045082960782
+        y: 103.77175811781046
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport urllib.request\nimport urllib.error\nimport ssl\n\
+          from datetime import datetime\n\n\ndef main(report_text: str, accident_date:\
+          \ str, insurance_type: str = \"자동차보험\",\n         dropbox_token: str = \"\
+          \") -> dict:\n\n    def get_ssl_ctx():\n        import ssl as _ssl\n   \
+          \     c = _ssl.create_default_context()\n        c.check_hostname = False\n\
+          \        c.verify_mode = _ssl.CERT_NONE\n        return c\n\n    if not\
+          \ dropbox_token:\n        dropbox_token = \"sl.u.AGh2IrThKfuu2RecUuuLxtWDRcjQ-uEFIf0-mOvJ-D1Vh5DFaU00ZJSCniAHXEQVh0oC27fJAdJN-iUvbyxzHm7h1UPPpIxX3S5lV-iA2T1d-U5Cs6lkPr4HIa6ON7n8exynbwttKZiBKt75UGojAYh27cBmv-mad6kG9sjwa1HAeBkQDE0xJp-zVttK_B8WWJSvTiLuCFox8Gr2wkpN34wAmpT_8phO7m1El6-mOud5UFHgtSauFYWjbQdEh4Gkt9fwG9W7RfY6LE9LOqQhuMglkgGFALcg636psRurW9ktoDFi9BEZntY05HzXgz2bVLkr7C2CGtxXsMkFJ16-_SXy4pkK7EFzeslqbvCwDKusgcUpDZUUvX_EtGHdLTRna7L4E365nVg837as_uO1HyatHUFQdQ2SexewisfirU8MEID0g76hf3e31COve9s1bUXraCayzFHK9cDuxq1lB3VndkDgsiCHmxT7VXjzqvX5_H3dbmYNMWaHvfGVcHaHzBdbUyouajLHCiGxnsbLW5bNXwXRNnbPwkLj17tuMJDruo_XYiQROT2bXKVg17aM9XrpyGWkajBVIEgHODCy6Tx32PP4Ni5ZTFRyfKsxduKdaWfUMO14PQ2fEqMzS3ly79HF_Aj8lVbI3nwP2G1g70iPomQ6gp1pBerYV6Ydw53J68fRJt7xdn6K_H9o7WwTzs0-lMMPP_E1tiV984LrGMHIKMUWR9WdEiyISjUHubim7eV37rUv0DiewCrWWskH7uAGZYgydd-OpPIn8ziEjSSGZrURuOVdgo5z7JI0tzi5RzHdyaD5LDU_44DEAVO0X0hmkNJa12pOfFNwgPDjwBjUKYwKlPAQ7GfzGMr2wY-idCjkRWePMSQm2X3qoVJWXCsmU-K8laNgVDsFtdLaqLgTerrxqdSE2QPaBgERKlVMZpa3hDfsQNmZ10pKzQrmDORQW-C4PNfulJsAYzZ6HQwdJc7WyF6foffMet_hScz2CQskLZoGcwWJaKmowwsoYNPPT7lGIUBJRqWbSRGQ3iGymVYYCKtG1akp6jLDUroOaUrC5BSsT3Utvf_pm-tveQ2XlW8Qx5e5R2U4evbeuxMSdph6VA5l2S109tOOTGb69rQUP_q50SFGhMSYW6bqhtbaQ3RaNl3Xw1YOiGfDFpwHGSrr_eav5b1o0s4tGx6et3XesTVCOLfUqcOKPoYl52D_kTTg3P1w6ljwAjI_PmhJml-jA1TSSNMKEuUPiOXZ87Bv4A7zLSeV9N_vGKFUuU-efhYbWrjR4XC0EdzUrgd-\"\
+          \n\n    ssl_ctx = get_ssl_ctx()\n    timeout_sec = 30\n\n    try:\n    \
+          \    head = report_text[:300]\n        if \"약관\" in head:\n            kind\
+          \ = \"clause\"\n        elif \"판례\" in head or \"분쟁\" in head:\n       \
+          \     kind = \"precedent\"\n        elif \"쟁점\" in head:\n            kind\
+          \ = \"issue\"\n        else:\n            kind = \"etc\"\n\n        html_body\
+          \ = md_to_html(report_text, kind)\n        today = datetime.now().strftime(\"\
+          %Y-%m-%d %H:%M\")\n\n        report_title = {\"clause\": \"약관 보고서\",\n \
+          \                       \"precedent\": \"판례분쟁 보고서\",\n                 \
+          \       \"issue\": \"핵심쟁점 보고서\",\n                        \"etc\": \"손해사정\
+          \ 업무 보조 보고서\"}[kind]\n\n        CSS = \"\"\"\n@page { size: A4; margin:\
+          \ 2cm 1.8cm; }\nbody { font-family: '맑은 고딕','Malgun Gothic',sans-serif;\n\
+          \       font-size: 10.5pt; line-height: 1.75; color: #222; }\nh1 { font-size:\
+          \ 17pt; text-align: center; color: #1a1a2e;\n     border-bottom: 2px solid\
+          \ #2c3e50; padding-bottom: 10px; margin: 10px 0 6px; }\nh2 { font-size:\
+          \ 11.5pt; color: #c0392b; font-weight: bold;\n     margin-top: 24px; margin-bottom:\
+          \ 8px; }\nh3 { font-size: 11pt; color: #34495e; margin-top: 18px; margin-bottom:\
+          \ 8px; }\np  { margin: 6px 0; }\nul, ol { margin: 6px 0; padding-left: 22px;\
+          \ }\nli { margin: 5px 0; }\nstrong { color: #c0392b; font-weight: bold;\
+          \ }\nblockquote { border-left: 3px solid #aab; margin: 10px 0; padding:\
+          \ 7px 14px;\n             background: #f5f5f5; color: #555; font-size: 9.5pt;\
+          \ }\nhr { border: none; border-top: 1px solid #ccc; margin: 16px 0; }\n\
+          .doc-header { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom:\
+          \ 20px; }\n.doc-title  { font-size: 17pt; font-weight: bold; text-align:\
+          \ center;\n              color: #1a2a4a; margin-bottom: 4px; }\n.doc-meta\
+          \   { text-align: right; color: #888; font-size: 9pt; }\n.summary-box {\
+          \ margin: 8px 0 18px; padding: 11px 15px;\n               background: #f9f9f9;\
+          \ border: 1px solid #ddd; line-height: 2.1; }\n.s-lbl { font-weight: bold;\
+          \ color: #333; }\n.item-list  { margin: 8px 0 20px; }\n.item-block { border:\
+          \ 1px solid #ddd; margin-bottom: 12px; page-break-inside: avoid; }\n.item-no\
+          \    { background: #f2f2f2; color: #888; font-weight: bold;\n          \
+          \    font-size: 9.5pt; padding: 4px 10px; }\n.item-row   { display: table;\
+          \ width: 100%; border-top: 1px solid #eee; }\n.item-label { display: table-cell;\
+          \ width: 24%; background: #f4f4f4;\n              font-weight: bold; color:\
+          \ #333; padding: 5px 9px; font-size: 9.5pt;\n              border-right:\
+          \ 1px solid #ddd; vertical-align: top; white-space: nowrap; }\n.item-val\
+          \   { display: table-cell; padding: 5px 9px; font-size: 10pt; vertical-align:\
+          \ top; }\ntable { table-layout: fixed; width: 100%; border-collapse: collapse;\n\
+          \        margin: 10px 0 20px; page-break-inside: avoid; }\nth { border:\
+          \ 1px solid #bbb; padding: 6px 8px; background: #f0f3f6;\n     text-align:\
+          \ left; font-weight: bold; font-size: 10pt;\n     word-wrap: break-word;\
+          \ white-space: normal; }\ntd { border: 1px solid #bbb; padding: 6px 8px;\
+          \ vertical-align: top;\n     font-size: 10pt; word-wrap: break-word; white-space:\
+          \ normal; }\n.footer-note { text-align: center; font-style: italic; color:\
+          \ #999;\n               font-size: 8.5pt; margin-top: 36px; padding-top:\
+          \ 12px;\n               border-top: 1px solid #ddd; }\n\"\"\"\n\n      \
+          \  TMPL = \"\"\"<!DOCTYPE html>\n<html xmlns:o=\"urn:schemas-microsoft-com:office:office\"\
+          \n      xmlns:w=\"urn:schemas-microsoft-com:office:word\"\n      xmlns=\"\
+          http://www.w3.org/TR/REC-html40\">\n<head><meta charset=\"UTF-8\"><title>__TITLE__</title>\n\
+          <style>__CSS__</style></head>\n<body>\n<div class=\"doc-header\">\n  <div\
+          \ class=\"doc-title\">__TITLE__</div>\n  <div class=\"doc-meta\">생성일시: __TODAY__&nbsp;|&nbsp;보험\
+          \ 유형: __ITYPE__</div>\n</div>\n__BODY__\n<div class=\"footer-note\">본 보고서는\
+          \ AI가 정리한 자료 초안이며, 모든 판단과 결정은 손해사정사의 검토를 거쳐야 합니다.</div>\n</body></html>\"\
+          \"\"\n\n        html_doc = (TMPL\n            .replace(\"__CSS__\",   CSS)\n\
+          \            .replace(\"__TITLE__\", report_title)\n            .replace(\"\
+          __TODAY__\", today)\n            .replace(\"__ITYPE__\", insurance_type)\n\
+          \            .replace(\"__BODY__\",  html_body))\n\n        file_bytes =\
+          \ html_doc.encode(\"utf-8\")\n        ts = datetime.now().strftime(\"%Y%m%d_%H%M%S\"\
+          )\n        filename = \"손해사정의견서_\" + insurance_type + \"_\" + accident_date\
+          \ + \"_\" + ts + \".doc\"\n        dropbox_path = \"/\" + filename\n\n \
+          \       up_hdrs = {\n            \"Authorization\": \"Bearer \" + dropbox_token,\n\
+          \            \"Content-Type\": \"application/octet-stream\",\n         \
+          \   \"Dropbox-API-Arg\": json.dumps({\"path\": dropbox_path, \"mode\": \"\
+          add\",\n                                           \"autorename\": True,\
+          \ \"mute\": False})\n        }\n        req = urllib.request.Request(\n\
+          \            \"https://content.dropboxapi.com/2/files/upload\",\n      \
+          \      data=file_bytes, headers=up_hdrs, method=\"POST\")\n        with\
+          \ urllib.request.urlopen(req, timeout=timeout_sec, context=ssl_ctx) as r:\n\
+          \            actual_path = json.loads(r.read().decode()).get(\"path_display\"\
+          , dropbox_path)\n\n        sh_hdrs = {\"Authorization\": \"Bearer \" + dropbox_token,\n\
+          \                   \"Content-Type\": \"application/json\"}\n        raw_url\
+          \ = \"\"\n        try:\n            req2 = urllib.request.Request(\n   \
+          \             \"https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings\"\
+          ,\n                data=json.dumps({\"path\": actual_path}).encode(), headers=sh_hdrs,\
+          \ method=\"POST\")\n            with urllib.request.urlopen(req2, timeout=timeout_sec,\
+          \ context=ssl_ctx) as r:\n                raw_url = json.loads(r.read().decode()).get(\"\
+          url\", \"\")\n        except urllib.error.HTTPError as e:\n            if\
+          \ e.code == 409:\n                req3 = urllib.request.Request(\n     \
+          \               \"https://api.dropboxapi.com/2/sharing/list_shared_links\"\
+          ,\n                    data=json.dumps({\"path\": actual_path}).encode(),\
+          \ headers=sh_hdrs, method=\"POST\")\n                with urllib.request.urlopen(req3,\
+          \ timeout=timeout_sec, context=ssl_ctx) as r:\n                    links\
+          \ = json.loads(r.read().decode()).get(\"links\", [])\n                 \
+          \   raw_url = links[0].get(\"url\", \"\") if links else \"\"\n         \
+          \   else:\n                return {\"status\": \"failed\", \"filename\"\
+          : filename, \"download_url\": \"\",\n                        \"message\"\
+          : \"공유 링크 생성 실패: HTTP \" + str(e.code)}\n\n        if not raw_url:\n   \
+          \         return {\"status\": \"failed\", \"filename\": filename, \"download_url\"\
+          : \"\",\n                    \"message\": \"공유 링크를 가져오지 못했습니다.\"}\n\n  \
+          \      import re as _re\n        url = _re.sub(r\"[?&]dl=\\d\", \"\", raw_url)\n\
+          \        url = url.replace(\"www.dropbox.com\", \"dl.dropboxusercontent.com\"\
+          )\n        if \"raw=1\" not in url:\n            url += (\"&\" if \"?\"\
+          \ in url else \"?\") + \"raw=1\"\n\n        return {\"status\": \"success\"\
+          , \"filename\": filename, \"download_url\": url,\n                \"message\"\
+          : \"의견서 생성 완료. 미리보기: \" + url}\n\n    except Exception as e:\n        return\
+          \ {\"status\": \"failed\", \"filename\": \"\", \"download_url\": \"\",\n\
+          \                \"message\": \"오류 발생: \" + str(e)}\n\n\n# ─────────────────────────────────────────────────────────────────────────────\n\
+          # 마크다운 → HTML\n#\n# 소주제(빨간 볼드 h2) 결정 우선순위:\n#   1) LLM이 **소주제** / ## 소주제\
+          \ 를 출력했으면 그대로 사용\n#   2) 표 앞에 소주제가 없으면 → \"표 헤더 첫 칸\"으로 소주제 자동 판별\n#   \
+          \   (LLM이 소주제를 빼먹어도 헤더만 보면 어느 섹션인지 알 수 있어 순서 밀림 없음)\n#\n# HEADER_TO_TITLE:\
+          \ 헤더 첫 칸 키워드 → 소주제\n# ─────────────────────────────────────────────────────────────────────────────\n\
+          def md_to_html(text: str, kind: str = \"etc\") -> str:\n    import re as\
+          \ _re\n    lines = text.split(\"\\n\")\n    out = []\n    in_ul = in_ol\
+          \ = False\n    last_block = \"\"\n    summary_done = False\n    h1_done\
+          \ = False\n\n    # 표 헤더 첫 칸 키워드 → 소주제 (순서 무관, 헤더로 직접 판별)\n    HEADER_TITLE\
+          \ = [\n        (\"핵심 쟁점\", \"손해사정 핵심 쟁점\"),\n        (\"쟁점\",      \"손해사정\
+          \ 핵심 쟁점\"),\n        (\"우선순위\",  \"준비해야 할 서류\"),\n        (\"서류\",     \
+          \ \"준비해야 할 서류\"),\n        (\"담보\",      \"담보별 확인 포인트\"),\n        (\"약관\
+          \ 조항\", \"관련 약관 조항\"),\n        (\"판례\",      \"관련 판례·분쟁사례\"),\n       \
+          \ (\"유사도\",    \"관련 판례·분쟁사례\"),\n    ]\n\n    def title_from_header(header):\n\
+          \        joined = \" \".join(header)\n        for key, title in HEADER_TITLE:\n\
+          \            if key in joined:\n                return title\n        return\
+          \ \"\"\n\n    def close_lists():\n        nonlocal in_ul, in_ol\n      \
+          \  if in_ul: out.append(\"</ul>\"); in_ul = False\n        if in_ol: out.append(\"\
+          </ol>\"); in_ol = False\n\n    def is_sep(s):\n        st = s.strip()\n\
+          \        if \"|\" not in st: return False\n        for cell in st.strip(\"\
+          |\").split(\"|\"):\n            for ch in cell.strip():\n              \
+          \  if ch not in \"-: \": return False\n        return True\n\n    def split_row(s):\n\
+          \        return [c.strip() for c in s.strip().strip(\"|\").split(\"|\")]\n\
+          \n    def fmt(t):\n        t = _re.sub(r\"\\[([^\\]]+)\\]\\(([^)]+)\\)\"\
+          ,\n                    lambda m: '<a href=\"' + m.group(2).strip() + '\"\
+          >' + m.group(1) + \"</a>\", t)\n        parts = t.split(\"**\")\n      \
+          \  return \"\".join(\"<strong>\" + p + \"</strong>\" if i % 2 == 1 else\
+          \ p\n                       for i, p in enumerate(parts))\n\n    TH = ('border:1px\
+          \ solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;'\n    \
+          \      'font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;'\n\
+          \          'white-space:normal;font-size:10pt;')\n    TD = ('border:1px\
+          \ solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;'\n\
+          \          'overflow-wrap:break-word;white-space:normal;font-size:10pt;')\n\
+          \    TS = 'border-collapse:collapse;width:100%;table-layout:fixed;margin:12px\
+          \ 0;'\n\n    def build_summary(header, rows):\n        h = ['<div class=\"\
+          summary-box\">']\n        for row in rows:\n            lbl = fmt(row[0])\
+          \ if row else \"\"\n            val = fmt(row[1]) if len(row) > 1 else \"\
+          \"\n            h.append('<p style=\"margin:3px 0;\">'\n               \
+          \      '<span class=\"s-lbl\">' + lbl + '&nbsp;&nbsp;</span>' + val + '</p>')\n\
+          \        h.append(\"</div>\")\n        return h\n\n    def build_items(header,\
+          \ rows):\n        h = ['<div class=\"item-list\">']\n        for idx, row\
+          \ in enumerate(rows):\n            while len(row) < len(header): row.append(\"\
+          \")\n            row = row[:len(header)]\n            h.append('<div class=\"\
+          item-block\">')\n            h.append('<div class=\"item-no\">● ' + str(idx\
+          \ + 1) + '</div>')\n            for lbl, val in zip(header, row):\n    \
+          \            h.append('<div class=\"item-row\">'\n                     \
+          \    '<span class=\"item-label\">' + fmt(lbl) + '</span>'\n            \
+          \             '<span class=\"item-val\">' + fmt(val) + '</span></div>')\n\
+          \            h.append(\"</div>\")\n        h.append(\"</div>\")\n      \
+          \  return h\n\n    def build_table(header, rows):\n        h = ['<table\
+          \ style=\"' + TS + '\"><thead><tr>']\n        for c in header:\n       \
+          \     h.append('<th style=\"' + TH + '\">' + fmt(c) + '</th>')\n       \
+          \ h.append('</tr></thead><tbody>')\n        for row in rows:\n         \
+          \   while len(row) < len(header): row.append(\"\")\n            row = row[:len(header)]\n\
+          \            h.append('<tr>')\n            for c in row: h.append('<td style=\"\
+          ' + TD + '\">' + fmt(c) + '</td>')\n            h.append('</tr>')\n    \
+          \    h.append('</tbody></table>')\n        return h\n\n    i = 0\n    while\
+          \ i < len(lines):\n        line = lines[i].rstrip()\n\n        if line.strip().startswith(\"\
+          |\") and i + 1 < len(lines) and is_sep(lines[i + 1]):\n            close_lists()\n\
+          \            header = split_row(line)\n            i += 2\n            body\
+          \ = []\n            while i < len(lines) and lines[i].strip().startswith(\"\
+          |\"):\n                body.append(split_row(lines[i]))\n              \
+          \  i += 1\n\n            # 보조 정보 표(h3 직후 2열) → 일반 표\n            if last_block\
+          \ == \"h3\":\n                out.extend(build_table(header, body))\n  \
+          \              last_block = \"table\"\n                continue\n\n    \
+          \        # 첫 2열 표 → 사건 요약 (소주제 누락 시 보강)\n            if len(header) == 2\
+          \ and not summary_done and title_from_header(header) == \"\":\n        \
+          \        if last_block != \"h2\":\n                    out.append(\"<h2>사건\
+          \ 요약</h2>\")\n                out.extend(build_summary(header, body))\n\
+          \                summary_done = True\n                last_block = \"summary\"\
+          \n            else:\n                # 소주제가 직전에 없으면 헤더 첫 칸으로 판별해서 보강\n \
+          \               title = title_from_header(header)\n                if last_block\
+          \ != \"h2\" and title:\n                    out.append(\"<h2>\" + title\
+          \ + \"</h2>\")\n                # 표 헤더 첫 칸이 소주제와 동일하면(예: \"손해사정 핵심 쟁점\"\
+          )\n                # 빨간 소주제와 글자가 중복되므로 헤더를 짧게 치환\n                if header\
+          \ and header[0].strip() == title and \"쟁점\" in header[0]:\n            \
+          \        header = [\"쟁점\"] + header[1:]\n                # \"준비해야 할 서류\"\
+          는 3열 이상이어도 가로 표(컴팩트)로 표시\n                # 그 외 3열 이상 → 카드, 2열 → 일반 표\n\
+          \                if title == \"준비해야 할 서류\":\n                    out.extend(build_table(header,\
+          \ body))\n                    last_block = \"table\"\n                elif\
+          \ len(header) >= 3:\n                    out.extend(build_items(header,\
+          \ body))\n                    last_block = \"items\"\n                else:\n\
+          \                    out.extend(build_table(header, body))\n           \
+          \         last_block = \"table\"\n            continue\n\n        if not\
+          \ line:\n            i += 1; continue\n\n        if line.startswith(\"###\
+          \ \"):\n            close_lists(); out.append(\"<h3>\" + fmt(line[4:]) +\
+          \ \"</h3>\"); last_block = \"h3\"\n        elif line.startswith(\"## \"\
+          ):\n            close_lists(); out.append(\"<h2>\" + fmt(line[3:]) + \"\
+          </h2>\"); last_block = \"h2\"\n        elif line.startswith(\"# \"):\n \
+          \           close_lists()\n            if not h1_done:\n               \
+          \ h1_done = True\n            else:\n                out.append(\"<h1>\"\
+          \ + fmt(line[2:]) + \"</h1>\")\n            last_block = \"h1\"\n      \
+          \  elif _re.fullmatch(r'\\*\\*[^*]+\\*\\*', line.strip()):\n           \
+          \ close_lists()\n            out.append(\"<h2>\" + line.strip()[2:-2] +\
+          \ \"</h2>\"); last_block = \"h2\"\n        elif line.startswith(\"- \")\
+          \ or line.startswith(\"* \"):\n            if in_ol: out.append(\"</ol>\"\
+          ); in_ol = False\n            if not in_ul: out.append(\"<ul>\"); in_ul\
+          \ = True\n            out.append(\"<li>\" + fmt(line[2:]) + \"</li>\");\
+          \ last_block = \"ul\"\n        elif len(line) >= 3 and line[0].isdigit()\
+          \ and line[1] == \".\" and line[2] == \" \":\n            if in_ul: out.append(\"\
+          </ul>\"); in_ul = False\n            if not in_ol: out.append(\"<ol>\");\
+          \ in_ol = True\n            rest = line[line.find(\".\") + 2:]\n       \
+          \     out.append(\"<li>\" + fmt(rest) + \"</li>\")\n            last_block\
+          \ = \"ol\"\n        elif line.startswith(\"> \"):\n            close_lists();\
+          \ out.append(\"<blockquote>\" + fmt(line[2:]) + \"</blockquote>\"); last_block\
+          \ = \"blockquote\"\n        elif line.strip() == \"---\":\n            close_lists();\
+          \ out.append('<hr style=\"border:none;border-top:1px solid #ccc;margin:16px\
+          \ 0;\">'); last_block = \"hr\"\n        else:\n            if last_block\
+          \ == \"h2\" and _re.fullmatch(r'\\(.*\\)', line.strip()):\n            \
+          \    i += 1\n                continue\n            close_lists(); out.append(\"\
+          <p>\" + fmt(line) + \"</p>\"); last_block = \"p\"\n        i += 1\n\n  \
+          \  close_lists()\n    return \"\\n\".join(out)\n"
+        code_language: python3
+        outputs:
+          download_url:
+            children: null
+            type: string
+          filename:
+            children: null
+            type: string
+          message:
+            children: null
+            type: string
+          status:
+            children: null
+            type: string
+        selected: false
+        title: 최종 보고서 Dropbox 저장
+        type: code
+        variables:
+        - value_selector:
+          - '2001000000004'
+          - result
+          value_type: string
+          variable: report_text
+        - value_selector:
+          - '1780121110148'
+          - accident_date
+          value_type: string
+          variable: accident_date
+      height: 51
+      id: '1780040487628'
+      position:
+        x: 5515.859577852628
+        y: 103.77175811781046
+      positionAbsolute:
+        x: 5515.859577852628
+        y: 103.77175811781046
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - 5T7X+2q9ANeCf3EGbZaNZaJIdAJoArniknYFVppdG3JTKaQ/9OVt33w1AQWXr9xF
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: 삼성화재 약관 검색
+        type: knowledge-retrieval
+      height: 89
+      id: '2001000000005'
+      position:
+        x: 1802.2495467737301
+        y: 1052.6870603625453
+      positionAbsolute:
+        x: 1802.2495467737301
+        y: 1052.6870603625453
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - Mt8dlE7URx0S/fBifo9lYL+nOqQPyJIP7ilxdDRK4Gu2h5uFgpWmWyq+iat29lVd
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: 현대해상 약관 검색
+        type: knowledge-retrieval
+      height: 89
+      id: '2001000000006'
+      position:
+        x: 1802.2495467737301
+        y: 1165.238088054574
+      positionAbsolute:
+        x: 1802.2495467737301
+        y: 1165.238088054574
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - /b89nKwxt1ngMacafRPn9yOhu6NV14AwW0aHdQVrbNqOnjO5VRu9ZU5506kFxJ88
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1780121110148'
+        - search_query
+        retrieval_mode: multiple
+        selected: false
+        title: KB손해보험 약관 검색
+        type: knowledge-retrieval
+      height: 89
+      id: '2001000000007'
+      position:
+        x: 1802.2495467737301
+        y: 1289.1922662248098
+      positionAbsolute:
+        x: 1802.2495467737301
+        y: 1289.1922662248098
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: clause
+          conditions:
+          - comparison_operator: contains
+            id: c1
+            value: 약관
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - report_type
+          id: clause
+          logical_operator: and
+        - case_id: precedent
+          conditions:
+          - comparison_operator: contains
+            id: c2
+            value: 판례
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - report_type
+          id: precedent
+          logical_operator: and
+        - case_id: issue
+          conditions:
+          - comparison_operator: contains
+            id: c3
+            value: 핵심 쟁점
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - report_type
+          id: issue
+          logical_operator: and
+        selected: false
+        title: 보고서 유형 분기
+        type: if-else
+      height: 243
+      id: '5001000000001'
+      position:
+        x: 3214.815214673509
+        y: 514.0791394245169
+      positionAbsolute:
+        x: 3214.815214673509
+        y: 514.0791394245169
+      selected: false
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: fe5ec8a7-0a87-4452-8089-2a856ec1252d
+          role: system
+          text: '너는 자동차 손해사정사의 업무 보조 AI다.
+
+            약관 조항 정리 보고서를 작성한다. 판례, 쟁점 목록, 서류 안내는 포함하지 않는다.
+
+
+            작성 규칙:
+
+            - 검색된 약관에 실제로 있는 내용만 인용. 없는 조항 추론·생성 금지.
+
+            - 각 조항: 출처 명시 + 본 사건과의 관련성 1문장. 충족/불충족 단정 금지.
+
+            - 보험금 지급 여부·과실비율·면책 확정 금지.
+
+            - 문체: 서두·어미·수식어 제거. "~임", "~해야 함", "~필요" 수준으로 간결하게.
+
+            - 반드시 표 형식으로 출력. 나열 형식 사용 금지.
+
+
+            [사건 정보]
+
+            사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+            손해 유형: {{#1780121110148.damage_type#}}
+
+            담보 후보: {{#1780121110148.coverage_candidates#}}
+
+            쟁점: {{#1780121110148.possible_issues#}}
+
+            소멸시효: {{#1780039072568.status#}} / {{#1780039072568.message#}}
+
+
+            [검색된 약관 자료]
+
+            {{#1779897116545.merged_context#}}
+
+
+            # 약관 조항 정리
+
+
+            **사건 요약**
+
+            | 항목 | 내용 |
+
+            |---|---|
+
+            | 사고 개요 | (일자 + 사고유형 + 손해유형 1줄) |
+
+            | 담보 후보 | (해당 담보 나열) |
+
+            | 소멸시효 | (상태 + 남은 기간) |
+
+
+            ---
+
+
+            **관련 약관 조항**
+
+
+            | 약관 조항 (출처) | 핵심 내용 | 본 사건과의 관련성 |
+
+            |---|---|---|
+
+            | (조항명, 출처: 표준약관/보험사명) | (핵심 문구만. 1~2줄) | (연결 이유 1문장) |
+
+
+            ---
+
+
+            **약관 원문 확인 필요 사항**
+
+            | 항목 | 확인이 필요한 이유 |
+
+            |---|---|
+
+            | (표준약관과 보험사 약관이 다를 수 있는 항목) | |
+
+            | (검색으로 확인되지 않아 원문 확인이 필요한 항목) | |
+
+
+            ---
+
+            AI 약관 정리 초안. 최종 판단은 손해사정사가 함.
+
+            '
+        selected: false
+        title: 약관 보고서 LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000004'
+      position:
+        x: 4330.914975318387
+        y: 103.77175811781046
+      positionAbsolute:
+        x: 4330.914975318387
+        y: 103.77175811781046
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - role: system
+          text: '약관 조항 정리를 요청했으나, 연결된 약관 지식베이스에서 이 사건과 관련된 조항이 검색되지 않았다.
+
+            아래 형식으로 간결하게 안내한다. 서두·어미 제거.
+
+
+            # 약관 조항 정리 — 관련 자료 없음
+
+
+            **사건 요약**
+
+            - 사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+            - 손해 유형: {{#1780121110148.damage_type#}}
+
+
+            **검색 결과**
+
+            - 연결된 약관 지식베이스에서 관련 조항 검색되지 않음
+
+            - 가능한 이유: 해당 쟁점이 지식베이스 범위 밖이거나 검색어와 약관 표현이 불일치
+
+
+            **권고**
+
+            - 보험사 약관 원문 직접 확인 필요
+
+            - 쟁점을 더 구체적으로 입력하면 검색 정확도 향상 가능
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 유사사례없음 (약관)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000005'
+      position:
+        x: 4330.914975318387
+        y: 203.98056836250748
+      positionAbsolute:
+        x: 4330.914975318387
+        y: 203.98056836250748
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - role: system
+          text: '사고 정보가 부족하여 손해사정 검토가 어렵다.
+
+            아래 형식으로 간결하게 안내한다.
+
+
+            # 추가 정보 필요
+
+
+            **현재 입력 상태**
+
+            - 사고 일자: {{#1780121110148.accident_date#}}
+
+            - 사고 경위: {{#1780121110148.accident_summary#}}
+
+            - 손해 유형: {{#1780121110148.damage_type#}}
+
+
+            **보완이 필요한 정보** (우선순위순)
+
+            ▸ [상] 구체적 사고 경위 — 언제, 어디서, 어떻게 발생했는지
+
+            ▸ [상] 손해 유형 — 대인(부상)/대물(차량파손)/자차 중 해당 항목
+
+            ▸ [중] 진단명·증상 또는 차량 파손 내용
+
+            ▸ [중] 보험사 쟁점 또는 거절·삭감 사유
+
+            ▸ [하] 청구 금액, 제출 서류
+
+
+            **안내**
+
+            - 위 정보를 보완해서 다시 입력하면 약관·판례·쟁점 보고서 작성 가능
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 정보부족 (약관)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000006'
+      position:
+        x: 4330.914975318387
+        y: 308.44500820612006
+      positionAbsolute:
+        x: 4330.914975318387
+        y: 308.44500820612006
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000005'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(약관-유사없음)
+        type: end
+      height: 88
+      id: '5001000000008'
+      position:
+        x: 4738.830040358659
+        y: 203.98056836250748
+      positionAbsolute:
+        x: 4738.830040358659
+        y: 203.98056836250748
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000006'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(약관-정보부족)
+        type: end
+      height: 88
+      id: '5001000000009'
+      position:
+        x: 4738.830040358659
+        y: 313.44500820612006
+      positionAbsolute:
+        x: 4738.830040358659
+        y: 313.44500820612006
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 0644570e-30ef-4a9d-a87d-0d9d4264bbfd
+          role: system
+          text: '너는 자동차 손해사정사의 업무 보조 AI다.
+
+            판례·분쟁사례 정리 보고서를 작성한다. 약관 조항, 쟁점 목록, 서류 안내는 포함하지 않는다.
+
+            작성 규칙:
+
+            검색된 판례·분쟁사례에 실제로 있는 내용만 인용. 없는 판례 생성 금지.
+
+            판례 결론은 "그 판례의 결과"로만 인용. 본 사건 결론으로 옮기지 않음.
+
+            유리/불리 판단 금지.
+
+            문체: 서두·어미·수식어 제거. 간결하게.
+
+            반드시 표 형식으로 출력. 나열 형식 사용 금지.
+
+
+            유사도 점수는 판례·분쟁사례의 참고 우선순위를 정하기 위한 내부 보조 지표로만 사용.
+
+            유사도 점수를 보험금 지급 가능성, 승패 가능성, 유리/불리 판단으로 해석하지 않음.
+
+            유사도 점수가 높은 사례를 관련 판례·분쟁사례 표의 상단에 배치.
+
+            유사도 점수와 검색된 판례·분쟁사례의 출처가 명확히 연결되는 경우에만 점수 표시.
+
+            출처가 명확히 연결되지 않는 경우 유사도는 "점수 없음"으로 표시.
+
+            유사도 75점 이상은 "우선 참고", 50점 이상 75점 미만은 "보통 참고", 50점 미만은 "제한적 참고"로 표시.
+
+            유사한 점과 다른 점을 반드시 분리해서 작성.
+
+
+            [사건 정보]
+
+            사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+            손해 유형: {{#1780121110148.damage_type#}}
+
+            쟁점: {{#1780121110148.possible_issues#}}
+
+            소멸시효: {{#1780039072568.status#}}
+
+            [검색된 판례·분쟁사례]
+
+            {{#1779897116545.merged_context#}}
+
+            [유사사례 매칭 점수]
+
+            {{#1780450625227.matched_cases_report#}}
+
+            작성 시 반영 규칙:
+
+            관련 판례·분쟁사례 표에는 반드시 "유사도"와 "참고 수준"을 포함한다.
+
+            유사도 점수가 높은 사례를 표의 상단에 배치한다.
+
+            유사도 점수는 본 사건의 승패 또는 보험금 지급 가능성을 의미하지 않는다.
+
+            유사도 점수는 손해사정 검토 시 참고 우선순위를 정하기 위한 보조 지표다.
+
+            유사한 점과 다른 점을 반드시 분리해서 작성한다.
+
+            유사도 낮음 또는 50점 미만 사례는 "제한적 참고"로 표현한다.
+
+            유사사례 매칭 점수표에 있는 출처와 검색된 판례·분쟁사례의 출처가 명확히 일치하는 경우에만 점수를 연결한다.
+
+            출처가 불명확하거나 점수를 연결할 수 없는 경우 유사도는 "점수 없음", 참고 수준은 "점수 없음"으로 표시한다.
+
+            검색된 판례·분쟁사례에 없는 사건번호, 분쟁사례 번호, 결정 결과, 사실관계는 생성하지 않는다.
+
+            # 판례·분쟁사례 정리
+
+
+            **사건 요약**
+
+            | 항목 | 내용 |
+
+            |---|---|
+
+            | 사고 개요 | (사고 일자 + 사고유형 + 손해유형. 1줄. "확인 필요" 등 부족 정보 표기 금지) |
+
+            | 소멸시효 | (상태) |
+
+
+            ---
+
+
+            **관련 판례·분쟁사례**
+
+
+            | 유사도 | 참고 수준 | 출처 | 사안 요지 | 결정 결과 | 본 사건 유사점 | 본 사건 차이점 |
+
+            |---|---|---|---|---|---|---|
+
+            | (82점 / 점수 없음) | (우선 참고 / 보통 참고 / 제한적 참고 / 점수 없음) | (금감원 분쟁사례 N호 / 대법원
+            20XX다XXXXX 등) | (검색된 사례의 핵심 사실관계 1줄) | (그 판례·분쟁사례의 결과 1줄) | (본 사건과 같은
+            점 1줄) | (본 사건과 다른 점 1줄) |
+
+
+            ---
+
+
+            **추가로 필요한 판례 유형**
+
+            | 필요한 판례 유형 | 왜 필요한가 |
+
+            |---|---|
+
+            | (지식베이스에 없지만 이 사건 쟁점 판단에 필요한 유형. 실제 판례 생성 금지) | (필요한 이유 1줄) |
+
+
+            ---
+
+            AI 판례 정리 초안. 최종 판단은 손해사정사가 함.
+
+            '
+        selected: false
+        title: 판례 보고서 LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000012'
+      position:
+        x: 4738.830040358659
+        y: 468.05648346476823
+      positionAbsolute:
+        x: 4738.830040358659
+        y: 468.05648346476823
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 70e11d23-5416-46c2-b70a-c06829a9f29e
+          role: system
+          text: '판례·분쟁사례 정리를 요청했으나, 연결된 지식베이스에서 관련 판례·분쟁사례가 검색되지 않았다.
+
+            아래 형식으로 간결하게 안내한다.
+
+
+            # 판례·분쟁사례 정리 — 관련 자료 없음
+
+
+            **사건 요약**
+
+            - 사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+            - 쟁점: {{#1780121110148.possible_issues#}}
+
+
+            **검색 결과**
+
+            - 연결된 판례·분쟁사례 지식베이스에서 관련 사례 검색되지 않음
+
+            - 가능한 이유: 쟁점이 특수하거나 지식베이스에 해당 유형 데이터 부족
+
+
+            **권고**
+
+            - 금감원 분쟁조정 사례집 직접 검색 필요
+
+            - 대법원 종합법률정보(glaw.go.kr)에서 사건 유형으로 검색 권장
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 유사사례없음 (판례)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000013'
+      position:
+        x: 4350.47350294372
+        y: 594.6198072975441
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 594.6198072975441
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 7c95ecf8-d82c-4331-9176-d28b8b888c97
+          role: system
+          text: '사고 정보가 부족하여 손해사정 검토가 어렵다.
+
+            아래 형식으로 간결하게 안내한다.
+
+
+            # 추가 정보 필요
+
+
+            **현재 입력 상태**
+
+            - 사고 일자: {{#1780121110148.accident_date#}}
+
+            - 사고 경위: {{#1780121110148.accident_summary#}}
+
+            - 손해 유형: {{#1780121110148.damage_type#}}
+
+
+            **보완이 필요한 정보** (우선순위순)
+
+            ▸ [상] 구체적 사고 경위 — 언제, 어디서, 어떻게 발생했는지
+
+            ▸ [상] 손해 유형 — 대인(부상)/대물(차량파손)/자차 중 해당 항목
+
+            ▸ [중] 진단명·증상 또는 차량 파손 내용
+
+            ▸ [중] 보험사 쟁점 또는 거절·삭감 사유
+
+            ▸ [하] 청구 금액, 제출 서류
+
+
+            **안내**
+
+            - 위 정보를 보완해서 다시 입력하면 약관·판례·쟁점 보고서 작성 가능
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 정보부족 (판례)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000014'
+      position:
+        x: 4350.47350294372
+        y: 703.3413294274708
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 703.3413294274708
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000013'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(판례-유사없음)
+        type: end
+      height: 88
+      id: '5001000000016'
+      position:
+        x: 4738.830040358659
+        y: 587.4993471486326
+      positionAbsolute:
+        x: 4738.830040358659
+        y: 587.4993471486326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000014'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(판례-정보부족)
+        type: end
+      height: 88
+      id: '5001000000017'
+      position:
+        x: 4744.149659826177
+        y: 703.3413294274708
+      positionAbsolute:
+        x: 4744.149659826177
+        y: 703.3413294274708
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - role: system
+          text: '너는 자동차 손해사정사의 업무 보조 AI다.
+
+            핵심 쟁점 및 준비 서류 보고서를 작성한다. 약관 조항 인용, 판례 비교는 포함하지 않는다.
+
+
+            작성 규칙:
+
+            - 손해사정 범위 안 쟁점만: 손해액 산정, 치료·인과관계, 담보 적용 범위. 과실비율·사고조사 제외.
+
+            - 서류는 이미 첨부된 것과 없는 것을 구분해서 표시.
+
+            - 우선순위: 상(없으면 판단 불가) / 중(있으면 판단 명확) / 하(보완적).
+
+            - 보험금 지급·과실·면책 확정 금지.
+
+            - 문체: 서두·어미·수식어 제거. 간결하게.
+
+            - 반드시 표 형식으로 출력. 나열 형식 사용 금지.
+
+            - ''손해사정 핵심 쟁점''은 이 보고서의 가장 중요한 부분이다. 반드시 3개 이상 구체적으로 작성한다. 비워두거나 생략 금지.
+
+            - ''준비해야 할 서류''는 이 사건 판단에 꼭 필요한 핵심 서류 최대 5개까지만. 부차적 서류 나열 금지.
+
+            - 핵심 쟁점은 업무지식 검색 결과가 없어도 사건 정보(손해 유형, 진단명, 청구 금액, 담보 후보)만으로 손해사정사가 검토할
+            쟁점을 직접 도출해서 작성한다.
+
+            - 핵심 쟁점 예시: 치료비와 사고의 인과관계, 기왕증 기여도, 향후치료비 산정, 수리비 적정성, 미수선수리비, 시세하락손해,
+            휴업손해 산정, 과잉진료 여부 등 중 해당되는 것.
+
+
+            [사건 정보]
+
+            사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+            손해 유형: {{#1780121110148.damage_type#}}
+
+            진단명: {{#1780121110148.injury_diagnosis#}}
+
+            치료: {{#1780121110148.treatment_info#}}
+
+            차량 파손: {{#1780121110148.vehicle_damage#}}
+
+            청구 금액: {{#1780121110148.claimed_amount#}}
+
+            제출 서류: {{#1780121110148.submitted_documents#}}
+
+            쟁점: {{#1780121110148.possible_issues#}}
+
+            부족 정보: {{#1780121110148.missing_information#}}
+
+            담보 후보: {{#1780121110148.coverage_candidates#}}
+
+            소멸시효: {{#1780039072568.status#}} / {{#1780039072568.message#}}
+
+            검토 우선순위: {{#1780121658026.priority#}} (점수 {{#1780121658026.risk_score#}}/100)
+
+            중점 검토사항: {{#1780121658026.review_focus#}}
+
+
+            [검색된 업무지식]
+
+            {{#1779897116545.merged_context#}}
+
+
+            # 핵심 쟁점 및 준비 서류
+
+
+            **사건 요약**
+
+            | 항목 | 내용 |
+
+            |---|---|
+
+            | 사고 개요 | (사고 일자 + 사고유형 + 손해유형. 1줄로 요약. "확인 필요" 등 부족 정보 표기 금지) |
+
+            | 청구 금액 | (금액) |
+
+            | 검토 우선순위 | (높음/보통/낮음, 점수) |
+
+            | 소멸시효 | (상태 + 남은 기간) |
+
+
+            ---
+
+
+            **손해사정 핵심 쟁점**
+
+            | 쟁점 | 이유 |
+
+            |---|---|
+
+            | (쟁점명1) | (왜 쟁점인지 1줄) |
+
+            | (쟁점명2) | (1줄) |
+
+            | (쟁점명3) | (1줄) |
+
+
+            ---
+
+
+            **준비해야 할 서류**
+
+            | 우선순위 | 서류명 | 확인 목적 | 현재 상태 |
+
+            |---|---|---|---|
+
+            | 상 | (서류명) | (확인 목적 1줄) | 확보 필요 / 첨부 완료 |
+
+            | 상 | (서류명) | (1줄) | 확보 필요 |
+
+            | 중 | (서류명) | (1줄) | 확보 필요 |
+
+
+            ---
+
+
+            **담보별 확인 포인트**
+
+            | 담보 | 핵심 확인 포인트 |
+
+            |---|---|
+
+            | (주요 담보1) | (1줄) |
+
+            | (주요 담보2) | (1줄) |
+
+            | (주요 담보3) | (1줄) |
+
+
+            ---
+
+            AI 검토 초안. 최종 판단은 손해사정사가 함.
+
+            '
+        selected: false
+        title: 쟁점 보고서 LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000020'
+      position:
+        x: 4350.47350294372
+        y: 898.81553267828
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 898.81553267828
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - role: system
+          text: '핵심 쟁점 및 준비 서류 정리를 시도했으나, 입력된 사고 정보로 쟁점 파악이 어렵거나 관련 업무지식이 검색되지 않았다.
+
+
+            # 핵심 쟁점 — 관련 자료 없음
+
+
+            **사건 요약**
+
+            - 사고: {{#1780121110148.accident_date#}} / {{#1780121110148.accident_summary#}}
+
+
+            **상황**
+
+            - 입력 정보로는 손해사정 쟁점 특정 어려움
+
+            - 또는 연결된 업무지식 베이스에서 관련 내용 미검색
+
+
+            **권고**
+
+            - 사고 유형, 손해 내용, 보험사 쟁점을 더 구체적으로 입력하면 재시도 가능
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 유사사례없음 (쟁점)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000021'
+      position:
+        x: 4350.47350294372
+        y: 1017.6714916567901
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 1017.6714916567901
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - role: system
+          text: '사고 정보가 부족하여 손해사정 검토가 어렵다.
+
+            아래 형식으로 간결하게 안내한다.
+
+
+            # 추가 정보 필요
+
+
+            **현재 입력 상태**
+
+            - 사고 일자: {{#1780121110148.accident_date#}}
+
+            - 사고 경위: {{#1780121110148.accident_summary#}}
+
+            - 손해 유형: {{#1780121110148.damage_type#}}
+
+
+            **보완이 필요한 정보** (우선순위순)
+
+            ▸ [상] 구체적 사고 경위 — 언제, 어디서, 어떻게 발생했는지
+
+            ▸ [상] 손해 유형 — 대인(부상)/대물(차량파손)/자차 중 해당 항목
+
+            ▸ [중] 진단명·증상 또는 차량 파손 내용
+
+            ▸ [중] 보험사 쟁점 또는 거절·삭감 사유
+
+            ▸ [하] 청구 금액, 제출 서류
+
+
+            **안내**
+
+            - 위 정보를 보완해서 다시 입력하면 약관·판례·쟁점 보고서 작성 가능
+
+
+            ---
+
+            최종 판단은 손해사정사가 함.'
+        selected: false
+        title: 정보부족 (쟁점)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '5001000000022'
+      position:
+        x: 4350.47350294372
+        y: 1125.7537748516802
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 1125.7537748516802
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000021'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(쟁점-유사없음)
+        type: end
+      height: 88
+      id: '5001000000024'
+      position:
+        x: 4784.933409077151
+        y: 1025.0305988356442
+      positionAbsolute:
+        x: 4784.933409077151
+        y: 1025.0305988356442
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '5001000000022'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: 출력(쟁점-정보부족)
+        type: end
+      height: 88
+      id: '5001000000025'
+      position:
+        x: 4784.933409077151
+        y: 1140.2057079872254
+      positionAbsolute:
+        x: 4784.933409077151
+        y: 1140.2057079872254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\n\ndef main(\n    precedents=None,\n    web_results=None,\n\
+          \    accident_summary=\"\",\n    damage_type=None,\n    injury_diagnosis=\"\
+          \",\n    treatment_info=\"\",\n    vehicle_damage=\"\",\n    possible_issues=None,\n\
+          \    claimed_amount=0,\n    **kwargs\n):\n    precedents = precedents or\
+          \ []\n    web_results = web_results or []\n\n    def to_list(value):\n \
+          \       if value is None:\n            return []\n        if isinstance(value,\
+          \ list):\n            return [str(v).strip() for v in value if str(v).strip()]\n\
+          \        if isinstance(value, str):\n            return [v.strip() for v\
+          \ in re.split(r\"[,/\\n]\", value) if v.strip()]\n        return [str(value).strip()]\n\
+          \n    def item_to_text(item):\n        if isinstance(item, dict):\n    \
+          \        content = (\n                item.get(\"content\")\n          \
+          \      or item.get(\"text\")\n                or item.get(\"snippet\")\n\
+          \                or item.get(\"description\")\n                or \"\"\n\
+          \            )\n            title = item.get(\"title\") or item.get(\"name\"\
+          ) or \"\"\n            metadata = item.get(\"metadata\") or {}\n       \
+          \     if isinstance(metadata, dict):\n                meta_text = \" \"\
+          .join([str(v) for v in metadata.values()])\n            else:\n        \
+          \        meta_text = str(metadata)\n            return f\"{title}\\n{content}\\\
+          n{meta_text}\".strip()\n        return str(item)\n\n    def get_title(item,\
+          \ idx, source_name):\n        if isinstance(item, dict):\n            title\
+          \ = item.get(\"title\") or item.get(\"name\")\n            metadata = item.get(\"\
+          metadata\") or {}\n            if not title and isinstance(metadata, dict):\n\
+          \                title = metadata.get(\"document_name\") or metadata.get(\"\
+          source\") or metadata.get(\"title\")\n            return title or f\"{source_name}\
+          \ {idx}\"\n        return f\"{source_name} {idx}\"\n\n    damage_list =\
+          \ to_list(damage_type)\n    issue_list = to_list(possible_issues)\n\n  \
+          \  base_text = \" \".join([\n        str(accident_summary),\n        \"\
+          \ \".join(damage_list),\n        str(injury_diagnosis),\n        str(treatment_info),\n\
+          \        str(vehicle_damage),\n        \" \".join(issue_list)\n    ])\n\n\
+          \    accident_keywords = [\n        \"후방추돌\", \"추돌\", \"측면충돌\", \"교차로\"\
+          , \"주차장\", \"고속도로\",\n        \"차선변경\", \"접촉사고\", \"단독사고\", \"횡단보도\", \"\
+          보행자\",\n        \"신호위반\", \"불법유턴\", \"음주\"\n    ]\n\n    damage_keywords\
+          \ = [\n        \"대인\", \"대물\", \"자차\", \"치료비\", \"수리비\", \"휴업손해\",\n   \
+          \     \"위자료\", \"렌트비\", \"자동차상해\", \"자기신체사고\", \"자기차량손해\"\n    ]\n\n   \
+          \ diagnosis_keywords = [\n        \"경추\", \"요추\", \"염좌\", \"타박상\", \"골절\"\
+          , \"디스크\",\n        \"두통\", \"어지러움\", \"후유장해\", \"상해\"\n    ]\n\n    treatment_keywords\
+          \ = [\n        \"통원\", \"입원\", \"물리치료\", \"MRI\", \"X-ray\", \"CT\", \"\
+          약 처방\",\n        \"도수치료\", \"주사치료\"\n    ]\n\n    vehicle_keywords = [\n\
+          \        \"범퍼\", \"전면\", \"후면\", \"문짝\", \"휀더\", \"사이드미러\",\n        \"\
+          전손\", \"파손\", \"수리\", \"견적\", \"정비\"\n    ]\n\n    issue_keywords = [\n\
+          \        \"인과관계\", \"기왕증\", \"기존 질환\", \"치료기간\", \"치료 적정성\",\n        \"\
+          수리비 과다\", \"과실\", \"면책\", \"손해액\", \"후유장해\"\n    ]\n\n    def matched_keywords(source_text,\
+          \ keyword_list):\n        return [kw for kw in keyword_list if kw in base_text\
+          \ and kw in source_text]\n\n    candidates = []\n\n    all_items = []\n\
+          \    for i, item in enumerate(precedents[:8], 1):\n        all_items.append((\"\
+          판례·분쟁사례\", i, item))\n\n    for i, item in enumerate(web_results[:5], 1):\n\
+          \        all_items.append((\"웹검색\", i, item))\n\n    for source_name, idx,\
+          \ item in all_items:\n        text = item_to_text(item)\n\n        accident_match\
+          \ = matched_keywords(text, accident_keywords)\n        damage_match = matched_keywords(text,\
+          \ damage_keywords)\n        diagnosis_match = matched_keywords(text, diagnosis_keywords)\n\
+          \        treatment_match = matched_keywords(text, treatment_keywords)\n\
+          \        vehicle_match = matched_keywords(text, vehicle_keywords)\n    \
+          \    issue_match = matched_keywords(text, issue_keywords)\n\n        score\
+          \ = 0\n        reasons = []\n\n        if accident_match:\n            score\
+          \ += 25\n            reasons.append(\"사고유형 유사: \" + \", \".join(accident_match[:3]))\n\
+          \n        if damage_match:\n            score += 20\n            reasons.append(\"\
+          손해유형 유사: \" + \", \".join(damage_match[:3]))\n\n        if diagnosis_match:\n\
+          \            score += 15\n            reasons.append(\"진단·상해내용 유사: \" +\
+          \ \", \".join(diagnosis_match[:3]))\n\n        if treatment_match:\n   \
+          \         score += 10\n            reasons.append(\"치료내용 유사: \" + \", \"\
+          .join(treatment_match[:3]))\n\n        if vehicle_match:\n            score\
+          \ += 10\n            reasons.append(\"차량손해 유사: \" + \", \".join(vehicle_match[:3]))\n\
+          \n        if issue_match:\n            score += 20\n            reasons.append(\"\
+          쟁점 유사: \" + \", \".join(issue_match[:3]))\n\n        if score > 100:\n \
+          \           score = 100\n\n        if score > 0:\n            candidates.append({\n\
+          \                \"source\": source_name,\n                \"title\": get_title(item,\
+          \ idx, source_name),\n                \"score\": score,\n              \
+          \  \"reasons\": reasons,\n                \"summary\": text[:180].replace(\"\
+          \\n\", \" \")\n            })\n\n    candidates = sorted(candidates, key=lambda\
+          \ x: x[\"score\"], reverse=True)\n    top_cases = candidates[:5]\n\n   \
+          \ if not top_cases:\n        report = \"관련 판례·분쟁사례와의 유사도 점수를 산정할 수 없습니다.\"\
+          \n        return {\n            \"matched_cases_report\": report,\n    \
+          \        \"top_similarity_score\": 0,\n            \"similarity_grade\"\
+          : \"낮음\",\n            \"top_case_count\": 0\n        }\n\n    top_score\
+          \ = top_cases[0][\"score\"]\n\n    if top_score >= 75:\n        grade =\
+          \ \"높음\"\n    elif top_score >= 50:\n        grade = \"보통\"\n    else:\n\
+          \        grade = \"낮음\"\n\n    lines = []\n    lines.append(\"## 유사사례 매칭\
+          \ 점수\")\n    lines.append(\"\")\n    lines.append(f\"- 최고 유사도 점수: {top_score}/100\"\
+          )\n    lines.append(f\"- 유사도 등급: {grade}\")\n    lines.append(\"\")\n  \
+          \  lines.append(\"| 순위 | 출처 | 유사도 | 유사한 이유 | 사례 요약 |\")\n    lines.append(\"\
+          |---|---|---:|---|---|\")\n\n    for idx, case in enumerate(top_cases, 1):\n\
+          \        reason_text = \"<br>\".join(case[\"reasons\"]) if case[\"reasons\"\
+          ] else \"키워드 일부 유사\"\n        summary = case[\"summary\"].replace(\"|\"\
+          , \" \")\n        title = str(case[\"title\"]).replace(\"|\", \" \")\n \
+          \       lines.append(\n            f\"| {idx} | {case['source']} - {title}\
+          \ | {case['score']}점 | {reason_text} | {summary} |\"\n        )\n\n    lines.append(\"\
+          \")\n    lines.append(\"> 유사도 점수는 판례 결론을 본 사건에 그대로 적용한다는 의미가 아니라, 손해사정 검토\
+          \ 시 참고 우선순위를 정하기 위한 내부 보조 지표입니다.\")\n\n    return {\n    \"matched_cases_report\"\
+          : \"\\n\".join(lines),\n    \"top_similarity_score\": str(top_score),\n\
+          \    \"similarity_grade\": grade,\n    \"top_case_count\": str(len(top_cases))\n\
+          }"
+        code_language: python3
+        outputs:
+          matched_cases_report:
+            children: null
+            type: string
+          similarity_grade:
+            children: null
+            type: string
+          top_case_count:
+            children: null
+            type: string
+          top_similarity_score:
+            children: null
+            type: string
+        selected: false
+        title: 유사사례매칭점수 LLM
+        type: code
+        variables:
+        - value_selector:
+          - '2001000000001'
+          - result
+          value_type: array[object]
+          variable: precedents
+        - value_selector:
+          - '2001000000003'
+          - json
+          value_type: array[object]
+          variable: web_results
+        - value_selector:
+          - '1780121110148'
+          - accident_summary
+          value_type: string
+          variable: accident_summary
+        - value_selector:
+          - '1780121110148'
+          - damage_type
+          value_type: array[string]
+          variable: damage_type
+        - value_selector:
+          - '1780121110148'
+          - injury_diagnosis
+          value_type: string
+          variable: injury_diagnosis
+        - value_selector:
+          - '1780121110148'
+          - treatment_info
+          value_type: string
+          variable: treatment_info
+        - value_selector:
+          - '1780121110148'
+          - vehicle_damage
+          value_type: string
+          variable: vehicle_damage
+        - value_selector:
+          - '1780121110148'
+          - possible_issues
+          value_type: array[string]
+          variable: possible_issues
+        - value_selector:
+          - '1780121110148'
+          - claimed_amount
+          value_type: number
+          variable: claimed_amount
+      height: 51
+      id: '1780450625227'
+      position:
+        x: 4350.47350294372
+        y: 514.0791394245169
+      positionAbsolute:
+        x: 4350.47350294372
+        y: 514.0791394245169
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 7bf2717e-d38f-44e0-a2b9-8c62fb899b7a
+            value: 삼성화재
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - insurer
+          id: 'true'
+          logical_operator: and
+        - case_id: 973f3587-9e81-424d-85c4-18a4ac3a27ef
+          conditions:
+          - comparison_operator: contains
+            id: 3c998721-1038-47e2-952d-7235714f05ed
+            value: 현대해상
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - insurer
+          logical_operator: and
+        - case_id: fa2a999d-4718-464a-9296-e885911857db
+          conditions:
+          - comparison_operator: contains
+            id: ada3437b-d207-49d3-ae91-3ffc6f14aed6
+            value: KB손해보험
+            varType: string
+            variable_selector:
+            - '1780120071760'
+            - insurer
+          logical_operator: and
+        selected: false
+        title: 보험사 분기
+        type: if-else
+      height: 243
+      id: '1780461777439'
+      position:
+        x: 1471.1636391579477
+        y: 945.9192775970895
+      positionAbsolute:
+        x: 1471.1636391579477
+        y: 945.9192775970895
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: f78d9a41-a92e-40ca-8821-6ffe180fa316
+          role: system
+          text: '너는 자동차보험 손해사정 업무를 지원하기 위한 검색어 생성 AI이다.
+
+            앞 단계에서 추출된 자동차 사고 구조화 정보를 바탕으로, 자동차보험 손해사정에 필요한 판례, 과실비율 기준, 손해배상 판단 사례를
+            검색하기 위한 검색어 1개를 생성하라.
+
+            ---
+
+            목적:
+
+            - 자동차보험 손해사정 관련 판례 검색
+
+            - 과실비율 인정기준 검색
+
+            - 대인배상·대물배상 관련 손해배상 사례 검색
+
+            - 보험금 지급 판단 사례 검색
+
+
+            ---
+
+            규칙:
+
+            - 사고 유형을 반드시 포함한다.
+
+            예: (후방추돌, 교차로 충돌, 차선변경 사고, 우회전 사고, 보행자 사고, 주차장 사고)
+
+
+            - 손해 유형을 포함한다.
+
+            예: (대인배상, 대물배상, 차량수리비, 위자료, 휴업손해)
+
+
+            - 진단명 또는 부상이 확인되면 포함한다.
+
+            예: (경추염좌, 요추염좌, 골절, 타박상)
+
+
+            - 치료 내용이 중요하면 포함한다.
+
+            예: (통원치료, 입원치료)
+
+
+            다음 키워드 중 가장 적합한 것을 1~3개 포함한다.
+
+            - 과실비율
+
+            - 손해배상
+
+            - 위자료
+
+            - 인과관계
+
+            - 대인배상
+
+            - 대물배상
+
+
+            판례
+
+            - 형사처벌, 벌금, 음주운전 처벌 등 손해사정과 직접 관련 없는 내용은 포함하지 않는다.
+
+            - 정보가 불명확하면 해당 내용은 제외한다.
+
+            - 검색어는 15 단어 이내로 작성한다.
+
+            - 설명하지 말고 **검색어만** 출력한다.
+
+
+            예시 1
+
+            입력: 사고유형: 후방추돌
+
+            진단명: 경추염좌
+
+            치료내용: 통원치료
+
+            손해유형: 대인피해
+
+            출력: 후방추돌 경추염좌 통원치료 대인배상 위자료 과실비율 판례
+
+
+            예시 2
+
+            입력: 사고유형: 교차로 충돌
+
+            차량손해: 전면부 파손
+
+            손해유형: 대물피해
+
+            출력: 교차로 충돌 차량수리비 대물배상 과실비율 손해배상 판례
+
+
+            예시 3
+
+            입력: 사고유형: 보행자 사고
+
+            진단명: 골절
+
+            치료내용: 입원치료
+
+            출력: 보행자 사고 골절 입원치료 대인배상 손해배상 인과관계 판례'
+        - id: 0636b02f-c810-46d3-87d5-40cf2d69e96c
+          role: user
+          text: '다음 자동차 사고 정보를 바탕으로 판례 검색에 적합한 검색어 1개를 생성하라.
+
+
+            사고요약:
+
+            {{#1780121110148.accident_summary#}}
+
+
+            부상:
+
+            {{#1780121110148.injury_diagnosis#}}
+
+
+            치료:
+
+            {{#1780121110148.treatment_info#}}
+
+
+            차량손해:
+
+            {{#1780121110148.vehicle_damage#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              precedent_query:
+                type: string
+            required:
+            - precedent_query
+            type: object
+        structured_output_enabled: true
+        title: 검색어 선정
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1780462454065'
+      position:
+        x: 1471.1636391579477
+        y: 468.05648346476823
+      positionAbsolute:
+        x: 1471.1636391579477
+        y: 468.05648346476823
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: pv1
+            value: '2025'
+            varType: string
+            variable_selector:
+            - '7001000000001'
+            - policy_version
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 계약연도 약관 분기
+        type: if-else
+      height: 147
+      id: '1780464108447'
+      position:
+        x: 1783.8483295291442
+        y: 793.6901582495462
+      positionAbsolute:
+        x: 1783.8483295291442
+        y: 793.6901582495462
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - ja3fBJ5SV7+yKo7gEwDxl5RCt9cuSWmougUQwEpY+SX4eSaq0AGFABUJp/qq6B3o
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-v4.0-pro
+            provider: langgenius/cohere/cohere
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector: []
+        retrieval_mode: multiple
+        selected: false
+        title: 표준약관 지식검색 23년도
+        type: knowledge-retrieval
+      height: 89
+      id: '1780464297477'
+      position:
+        x: 2128.9866132933043
+        y: 866.1249855843148
+      positionAbsolute:
+        x: 2128.9866132933043
+        y: 866.1249855843148
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\n\ndef main(contract_year_text: str = \"\") -> dict:\n  \
+          \  text = str(contract_year_text or \"\").strip()\n    # 4자리 연도 추출\n   \
+          \ m = re.search(r\"(\\d{4})\", text)\n    if m:\n        year = int(m.group(1))\n\
+          \    else:\n        year = 2025  # 기본값: 입력 없으면 최신 약관\n\n    # 2025 이상이면\
+          \ 25년 약관, 미만이면 23년 약관\n    if year >= 2025:\n        policy_version = \"\
+          2025\"\n    else:\n        policy_version = \"2023\"\n\n    return {\n \
+          \       \"contract_year_int\": year,\n        \"policy_version\": policy_version\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          contract_year_int:
+            children: null
+            type: number
+          policy_version:
+            children: null
+            type: string
+        selected: false
+        title: 계약 연도 추출
+        type: code
+        variables:
+        - value_selector:
+          - '1780120071760'
+          - contract_year
+          value_type: string
+          variable: contract_year_text
+      height: 51
+      id: '7001000000001'
+      position:
+        x: 1478.4332785252243
+        y: 786.5973322928552
+      positionAbsolute:
+        x: 1478.4332785252243
+        y: 786.5973322928552
+      selected: false
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 978e8279-950c-4bf4-90fd-ac2dce5cc8cc
+          role: system
+          text: "너는 자동차 사고 손해사정 업무 보조 Agent의 검색 결과 검증 담당자다.\n너의 역할은 사용자의 사고 정보와 검색\
+            \ 결과를 비교하여, 다음 단계로 어떤 경로로 가야 하는지 판단하는 것이다.\n\n중요 원칙:\n1. 검색 결과를 무조건 신뢰하지\
+            \ 않는다.\n2. 검색 결과에 없는 약관·판례·분쟁사례를 만들지 않는다.\n3. 보험금 지급 여부·면책 여부·과실비율·손해액을\
+            \ 확정하지 않는다.\n4. 최종 보고서를 작성하지 말고, 분기 판단 키워드 하나만 출력한다.\n---\n\n[사전 처리 규칙\
+            \ — 평가 전 반드시 적용]\n아래 각 필드를 읽기 전에 먼저 다음 규칙을 적용한다.\n- 필드 값이 비어 있거나, \"없음\"\
+            , \"모름\", \"미입력\", \"해당없음\", \"-\", \"N/A\", 공백만 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 변수명 형태의 텍스트(예: {{...}} 형식)가 그대로 남아 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 단순 부정이나 일반적인 진술만 있는 경우(예: \"사고 있었음\", \"보험 접수 예정\") →\
+            \ 구체적인 내용이 없으므로 \"미입력\"으로 간주한다.\n\n---\n\n★ 판단 순서 (반드시 이 순서로 평가한다):\n\n\
+            [1단계] 입력 정보 품질 평가 — 검색 결과를 보기 전에 반드시 먼저 수행한다.\n\n내부적으로 아래 A~D를 하나씩 순서대로\
+            \ 평가하되, 각 항목마다 반드시 판정 근거(어떤 값이 있었는지 또는 없었는지)를 확인한 뒤 O/X를 결정한다. 애매한 경우\
+            \ X로 처리한다.\n\n  A. 사고 경위\n     판단 질문: 아래 세 가지 중 하나라도 구체적 내용이 명시되어 있는가?\n\
+            \       - 충돌 형태 (예: 추돌, 측면충돌, 단독사고 등)\n       - 사고 장소 (예: 교차로, 고속도로, 주차장\
+            \ 등)\n       - 상대방 유무 (예: 상대 차량 있음/없음 명시)\n     ※ \"사고 발생\", \"사고 있었음\"\
+            , \"사고 접수\" 등 단순 진술은 X로 처리한다.\n     O = 위 중 하나라도 구체적으로 기재됨 / X = 구체적 내용\
+            \ 없거나 미입력\n\n  B. 손해 유형\n     판단 질문: 대인, 대물, 자차 중 하나라도 명시적으로 특정되어 있는가?\n\
+            \     ※ 단순히 \"보험 접수\" 또는 \"사고 신고\" 수준은 X로 처리한다.\n     O = 손해 유형이 하나라도\
+            \ 명시됨 / X = 미입력이거나 특정 불가\n\n  C. 피해 내용\n     판단 질문: 아래 중 하나라도 구체적으로 기재되어\
+            \ 있는가?\n       - 진단명 또는 증상 (예: 경추 염좌, 무릎 타박상 등)\n       - 차량 파손 내용 (예:\
+            \ 앞범퍼 파손, 에어백 전개 등)\n     ※ \"부상 있음\", \"차 손상됨\" 등 단순 표현은 X로 처리한다.\n \
+            \    O = 구체적인 피해 내용이 하나라도 있음 / X = 둘 다 미입력이거나 모호함\n\n  D. 주요 쟁점\n    \
+            \ 판단 질문: 분쟁 또는 분석이 필요한 쟁점이 하나라도 구체적으로 입력되어 있는가?\n     ※ \"쟁점 없음\", \"\
+            미정\", 빈 값은 X로 처리한다.\n     O = 쟁점 있음 / X = 없음\n\n→ A~D 중 X가 2개 이상이면 즉시\
+            \ \"정보부족\"을 출력한다. 이 경우 검색 결과는 확인하지 않는다.\n[2단계] 약관 검색 결과 관련성 평가 — 1단계 통과(X가\
+            \ 1개 이하)인 경우에만 수행한다.\n- 검색된 약관 중 이 사건 손해 유형·담보·쟁점과 직접 관련된 조항이 하나라도 있으면\
+            \ → \"정상분석\"\n- 입력 정보는 충분하지만 관련 약관 조항이 전혀 검색되지 않거나 관련성이 매우 낮으면 → \"유사사례없음\"\
+            \n\n[검색 결과 통합본]\n{{#1779897116545.merged_context#}}\n---\n\n출력 형식 (매우\
+            \ 중요):\n- 위 세 키워드 중 정확히 하나만 출력한다.\n- 다른 설명·문장·기호를 절대 덧붙이지 않는다.\n- 오직 아래\
+            \ 셋 중 하나만 출력한다:\n  \"정상분석\"\n  \"유사사례없음\"\n  \"정보부족\"\n\n---\n\n[사고 정보]\n\
+            사고 일자: {{#1780121110148.accident_date#}}\n사고 경위: {{#1780121110148.accident_summary#}}\n\
+            손해 유형: {{#1780121110148.damage_type#}}\n진단명/증상: {{#1780121110148.injury_diagnosis#}}\n\
+            차량 파손: {{#1780121110148.vehicle_damage#}}\n주요 쟁점: {{#1780121110148.possible_issues#}}\n\
+            부족 정보: {{#1780121110148.missing_information#}}"
+        selected: false
+        title: 검증 LLM (약관)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17804851611560'
+      position:
+        x: 3609.4725925694834
+        y: 308.44500820612006
+      positionAbsolute:
+        x: 3609.4725925694834
+        y: 308.44500820612006
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_1
+            value: 정상분석
+            varType: string
+            variable_selector:
+            - '17804851611560'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: nomatch
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_2
+            value: 유사사례없음
+            varType: string
+            variable_selector:
+            - '17804851611560'
+            - text
+          id: nomatch
+          logical_operator: and
+        - case_id: insuff
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_3
+            value: 정보부족
+            varType: string
+            variable_selector:
+            - '17804851611560'
+            - text
+          id: insuff
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 검증 분기 (약관) (1)
+        type: if-else
+      height: 291
+      id: '17804852105480'
+      position:
+        x: 3935.7425865772725
+        y: 169.02261570385937
+      positionAbsolute:
+        x: 3935.7425865772725
+        y: 169.02261570385937
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_1
+            value: 정상분석
+            varType: string
+            variable_selector:
+            - '17804853035690'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: nomatch
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_2
+            value: 유사사례없음
+            varType: string
+            variable_selector:
+            - '17804853035690'
+            - text
+          id: nomatch
+          logical_operator: and
+        - case_id: insuff
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000003_3
+            value: 정보부족
+            varType: string
+            variable_selector:
+            - '17804853035690'
+            - text
+          id: insuff
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: '검증 분기 (약관) '
+        type: if-else
+      height: 291
+      id: '17804852953960'
+      position:
+        x: 3935.7425865772725
+        y: 527.2103265167585
+      positionAbsolute:
+        x: 3935.7425865772725
+        y: 527.2103265167585
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: fa574302-4f0a-47ba-b7d2-bebf15011a8e
+          role: system
+          text: "너는 자동차 사고 손해사정 업무 보조 Agent의 검색 결과 검증 담당자다.\n너의 역할은 사용자의 사고 정보와 검색\
+            \ 결과를 비교하여, 다음 단계로 어떤 경로로 가야 하는지 판단하는 것이다.\n\n중요 원칙:\n1. 검색 결과를 무조건 신뢰하지\
+            \ 않는다.\n2. 검색 결과에 없는 약관·판례·분쟁사례를 만들지 않는다.\n3. 보험금 지급 여부·면책 여부·과실비율·손해액을\
+            \ 확정하지 않는다.\n4. 최종 보고서를 작성하지 말고, 분기 판단 키워드 하나만 출력한다.\n---\n\n[사전 처리 규칙\
+            \ — 평가 전 반드시 적용]\n아래 각 필드를 읽기 전에 먼저 다음 규칙을 적용한다.\n- 필드 값이 비어 있거나, \"없음\"\
+            , \"모름\", \"미입력\", \"해당없음\", \"-\", \"N/A\", 공백만 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 변수명 형태의 텍스트(예: {{...}} 형식)가 그대로 남아 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 단순 부정이나 일반적인 진술만 있는 경우(예: \"사고 있었음\", \"보험 접수 예정\") →\
+            \ 구체적인 내용이 없으므로 \"미입력\"으로 간주한다.\n\n---\n\n★ 판단 순서 (반드시 이 순서로 평가한다):\n\n\
+            [1단계] 입력 정보 품질 평가 — 검색 결과를 보기 전에 반드시 먼저 수행한다.\n\n내부적으로 아래 A~D를 하나씩 순서대로\
+            \ 평가하되, 각 항목마다 반드시 판정 근거(어떤 값이 있었는지 또는 없었는지)를 확인한 뒤 O/X를 결정한다. 애매한 경우\
+            \ X로 처리한다.\n\n  A. 사고 경위\n     판단 질문: 아래 세 가지 중 하나라도 구체적 내용이 명시되어 있는가?\n\
+            \       - 충돌 형태 (예: 추돌, 측면충돌, 단독사고 등)\n       - 사고 장소 (예: 교차로, 고속도로, 주차장\
+            \ 등)\n       - 상대방 유무 (예: 상대 차량 있음/없음 명시)\n     ※ \"사고 발생\", \"사고 있었음\"\
+            , \"사고 접수\" 등 단순 진술은 X로 처리한다.\n     O = 위 중 하나라도 구체적으로 기재됨 / X = 구체적 내용\
+            \ 없거나 미입력\n\n  B. 손해 유형\n     판단 질문: 대인, 대물, 자차 중 하나라도 명시적으로 특정되어 있는가?\n\
+            \     ※ 단순히 \"보험 접수\" 또는 \"사고 신고\" 수준은 X로 처리한다.\n     O = 손해 유형이 하나라도\
+            \ 명시됨 / X = 미입력이거나 특정 불가\n\n  C. 피해 내용\n     판단 질문: 아래 중 하나라도 구체적으로 기재되어\
+            \ 있는가?\n       - 진단명 또는 증상 (예: 경추 염좌, 무릎 타박상 등)\n       - 차량 파손 내용 (예:\
+            \ 앞범퍼 파손, 에어백 전개 등)\n     ※ \"부상 있음\", \"차 손상됨\" 등 단순 표현은 X로 처리한다.\n \
+            \    O = 구체적인 피해 내용이 하나라도 있음 / X = 둘 다 미입력이거나 모호함\n\n  D. 주요 쟁점\n    \
+            \ 판단 질문: 분쟁 또는 분석이 필요한 쟁점이 하나라도 구체적으로 입력되어 있는가?\n     ※ \"쟁점 없음\", \"\
+            미정\", 빈 값은 X로 처리한다.\n     O = 쟁점 있음 / X = 없음\n\n→ A~D 중 X가 2개 이상이면 즉시\
+            \ \"정보부족\"을 출력한다. 이 경우 검색 결과는 확인하지 않는다.\n[2단계] 판례·분쟁사례 검색 결과 관련성 평가 —\
+            \ 1단계 통과(X가 1개 이하)인 경우에만 수행한다.\n- 검색된 판례·분쟁사례 중 이 사건 사고 유형·쟁점과 사실관계가 유사한\
+            \ 것이 하나라도 있으면 → \"정상분석\"\n- 입력 정보는 충분하지만 관련 판례·분쟁사례가 전혀 없거나 관련성이 매우 낮으면\
+            \ → \"유사사례없음\"\n\n[검색 결과 통합본]\n{{#1779897116545.merged_context#}}\n---\n\
+            \n출력 형식 (매우 중요):\n- 위 세 키워드 중 정확히 하나만 출력한다.\n- 다른 설명·문장·기호를 절대 덧붙이지 않는다.\n\
+            - 오직 아래 셋 중 하나만 출력한다:\n  \"정상분석\"\n  \"유사사례없음\"\n  \"정보부족\"\n\n---\n\n\
+            [사고 정보]\n사고 일자: {{#1780121110148.accident_date#}}\n사고 경위: {{#1780121110148.accident_summary#}}\n\
+            손해 유형: {{#1780121110148.damage_type#}}\n진단명/증상: {{#1780121110148.injury_diagnosis#}}\n\
+            차량 파손: {{#1780121110148.vehicle_damage#}}\n주요 쟁점: {{#1780121110148.possible_issues#}}\n\
+            부족 정보: {{#1780121110148.missing_information#}}"
+        selected: false
+        title: 검증 LLM (판례)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17804853035690'
+      position:
+        x: 3609.4725925694834
+        y: 603.4582055511876
+      positionAbsolute:
+        x: 3609.4725925694834
+        y: 603.4582055511876
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000019_1
+            value: 정상분석
+            varType: string
+            variable_selector:
+            - '17804853236310'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: nomatch
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000019_2
+            value: 유사사례없음
+            varType: string
+            variable_selector:
+            - '17804853236310'
+            - text
+          id: nomatch
+          logical_operator: and
+        - case_id: insuff
+          conditions:
+          - comparison_operator: contains
+            id: c_5001000000019_3
+            value: 정보부족
+            varType: string
+            variable_selector:
+            - '17804853236310'
+            - text
+          id: insuff
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 검증 분기 (쟁점)
+        type: if-else
+      height: 291
+      id: '17804853166150'
+      position:
+        x: 3935.7425865772725
+        y: 839.2946686111657
+      positionAbsolute:
+        x: 3935.7425865772725
+        y: 839.2946686111657
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: gpt-5-mini-2025-08-07
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: cb8d17bb-3665-4464-9a50-3308d0554ff7
+          role: system
+          text: "너는 자동차 사고 손해사정 업무 보조 Agent의 검색 결과 검증 담당자다.\n너의 역할은 사용자의 사고 정보와 검색\
+            \ 결과를 비교하여, 다음 단계로 어떤 경로로 가야 하는지 판단하는 것이다.\n\n중요 원칙:\n1. 검색 결과를 무조건 신뢰하지\
+            \ 않는다.\n2. 검색 결과에 없는 약관·판례·분쟁사례를 만들지 않는다.\n3. 보험금 지급 여부·면책 여부·과실비율·손해액을\
+            \ 확정하지 않는다.\n4. 최종 보고서를 작성하지 말고, 분기 판단 키워드 하나만 출력한다.\n---\n\n[사전 처리 규칙\
+            \ — 평가 전 반드시 적용]\n아래 각 필드를 읽기 전에 먼저 다음 규칙을 적용한다.\n- 필드 값이 비어 있거나, \"없음\"\
+            , \"모름\", \"미입력\", \"해당없음\", \"-\", \"N/A\", 공백만 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 변수명 형태의 텍스트(예: {{...}} 형식)가 그대로 남아 있는 경우 → 해당 필드는 \"미입력\"\
+            으로 간주한다.\n- 필드에 단순 부정이나 일반적인 진술만 있는 경우(예: \"사고 있었음\", \"보험 접수 예정\") →\
+            \ 구체적인 내용이 없으므로 \"미입력\"으로 간주한다.\n\n---\n\n★ 판단 순서 (반드시 이 순서로 평가한다):\n\n\
+            [1단계] 입력 정보 품질 평가 — 검색 결과를 보기 전에 반드시 먼저 수행한다.\n\n내부적으로 아래 A~D를 하나씩 순서대로\
+            \ 평가하되, 각 항목마다 반드시 판정 근거(어떤 값이 있었는지 또는 없었는지)를 확인한 뒤 O/X를 결정한다. 애매한 경우\
+            \ X로 처리한다.\n\n  A. 사고 경위\n     판단 질문: 아래 세 가지 중 하나라도 구체적 내용이 명시되어 있는가?\n\
+            \       - 충돌 형태 (예: 추돌, 측면충돌, 단독사고 등)\n       - 사고 장소 (예: 교차로, 고속도로, 주차장\
+            \ 등)\n       - 상대방 유무 (예: 상대 차량 있음/없음 명시)\n     ※ \"사고 발생\", \"사고 있었음\"\
+            , \"사고 접수\" 등 단순 진술은 X로 처리한다.\n     O = 위 중 하나라도 구체적으로 기재됨 / X = 구체적 내용\
+            \ 없거나 미입력\n\n  B. 손해 유형\n     판단 질문: 대인, 대물, 자차 중 하나라도 명시적으로 특정되어 있는가?\n\
+            \     ※ 단순히 \"보험 접수\" 또는 \"사고 신고\" 수준은 X로 처리한다.\n     O = 손해 유형이 하나라도\
+            \ 명시됨 / X = 미입력이거나 특정 불가\n\n  C. 피해 내용\n     판단 질문: 아래 중 하나라도 구체적으로 기재되어\
+            \ 있는가?\n       - 진단명 또는 증상 (예: 경추 염좌, 무릎 타박상 등)\n       - 차량 파손 내용 (예:\
+            \ 앞범퍼 파손, 에어백 전개 등)\n     ※ \"부상 있음\", \"차 손상됨\" 등 단순 표현은 X로 처리한다.\n \
+            \    O = 구체적인 피해 내용이 하나라도 있음 / X = 둘 다 미입력이거나 모호함\n\n  D. 주요 쟁점\n    \
+            \ 판단 질문: 분쟁 또는 분석이 필요한 쟁점이 하나라도 구체적으로 입력되어 있는가?\n     ※ \"쟁점 없음\", \"\
+            미정\", 빈 값은 X로 처리한다.\n     O = 쟁점 있음 / X = 없음\n\n→ A~D 중 X가 2개 이상이면 즉시\
+            \ \"정보부족\"을 출력한다. 이 경우 검색 결과는 확인하지 않는다.\n[2단계] 쟁점·서류 검토 가능성 평가 — 1단계 통과(X가\
+            \ 1개 이하)인 경우에만 수행한다.\n- 입력된 사고 정보로 손해사정 쟁점을 3개 이상 특정할 수 있고, 필요 서류를 도출할\
+            \ 수 있는 수준이면 → \"정상분석\"\n- 입력 정보는 있으나 쟁점·서류 도출이 어렵거나 업무지식 검색 결과가 전혀 없으면\
+            \ → \"유사사례없음\"\n\n[검색 결과 통합본]\n{{#1779897116545.merged_context#}}\n---\n\
+            \n출력 형식 (매우 중요):\n- 위 세 키워드 중 정확히 하나만 출력한다.\n- 다른 설명·문장·기호를 절대 덧붙이지 않는다.\n\
+            - 오직 아래 셋 중 하나만 출력한다:\n  \"정상분석\"\n  \"유사사례없음\"\n  \"정보부족\"\n\n---\n\n\
+            [사고 정보]\n사고 일자: {{#1780121110148.accident_date#}}\n사고 경위: {{#1780121110148.accident_summary#}}\n\
+            손해 유형: {{#1780121110148.damage_type#}}\n진단명/증상: {{#1780121110148.injury_diagnosis#}}\n\
+            차량 파손: {{#1780121110148.vehicle_damage#}}\n주요 쟁점: {{#1780121110148.possible_issues#}}\n\
+            부족 정보: {{#1780121110148.missing_information#}}"
+        selected: false
+        title: 검증 LLM (쟁점) (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17804853236310'
+      position:
+        x: 3609.4725925694834
+        y: 820
+      positionAbsolute:
+        x: 3609.4725925694834
+        y: 820
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -755.1447360499919
+      y: 287.3583630166843
+      zoom: 0.3259132283072489
+  rag_pipeline_variables: []

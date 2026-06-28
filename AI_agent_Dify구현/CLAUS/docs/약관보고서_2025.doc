@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="UTF-8"><title>약관 보고서</title>
+<style>
+@page { size: A4; margin: 2cm 1.8cm; }
+body { font-family: '맑은 고딕','Malgun Gothic',sans-serif;
+       font-size: 10.5pt; line-height: 1.75; color: #222; }
+h1 { font-size: 17pt; text-align: center; color: #1a1a2e;
+     border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin: 10px 0 6px; }
+h2 { font-size: 11.5pt; color: #c0392b; font-weight: bold;
+     margin-top: 24px; margin-bottom: 8px; }
+h3 { font-size: 11pt; color: #34495e; margin-top: 18px; margin-bottom: 8px; }
+p  { margin: 6px 0; }
+ul, ol { margin: 6px 0; padding-left: 22px; }
+li { margin: 5px 0; }
+strong { color: #c0392b; font-weight: bold; }
+blockquote { border-left: 3px solid #aab; margin: 10px 0; padding: 7px 14px;
+             background: #f5f5f5; color: #555; font-size: 9.5pt; }
+hr { border: none; border-top: 1px solid #ccc; margin: 16px 0; }
+.doc-header { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; }
+.doc-title  { font-size: 17pt; font-weight: bold; text-align: center;
+              color: #1a2a4a; margin-bottom: 4px; }
+.doc-meta   { text-align: right; color: #888; font-size: 9pt; }
+.summary-box { margin: 8px 0 18px; padding: 11px 15px;
+               background: #f9f9f9; border: 1px solid #ddd; line-height: 2.1; }
+.s-lbl { font-weight: bold; color: #333; }
+.item-list  { margin: 8px 0 20px; }
+.item-block { border: 1px solid #ddd; margin-bottom: 12px; page-break-inside: avoid; }
+.item-no    { background: #f2f2f2; color: #888; font-weight: bold;
+              font-size: 9.5pt; padding: 4px 10px; }
+.item-row   { display: table; width: 100%; border-top: 1px solid #eee; }
+.item-label { display: table-cell; width: 24%; background: #f4f4f4;
+              font-weight: bold; color: #333; padding: 5px 9px; font-size: 9.5pt;
+              border-right: 1px solid #ddd; vertical-align: top; white-space: nowrap; }
+.item-val   { display: table-cell; padding: 5px 9px; font-size: 10pt; vertical-align: top; }
+table { table-layout: fixed; width: 100%; border-collapse: collapse;
+        margin: 10px 0 20px; page-break-inside: avoid; }
+th { border: 1px solid #bbb; padding: 6px 8px; background: #f0f3f6;
+     text-align: left; font-weight: bold; font-size: 10pt;
+     word-wrap: break-word; white-space: normal; }
+td { border: 1px solid #bbb; padding: 6px 8px; vertical-align: top;
+     font-size: 10pt; word-wrap: break-word; white-space: normal; }
+.footer-note { text-align: center; font-style: italic; color: #999;
+               font-size: 8.5pt; margin-top: 36px; padding-top: 12px;
+               border-top: 1px solid #ddd; }
+</style></head>
+<body>
+<div class="doc-header">
+  <div class="doc-title">약관 보고서</div>
+  <div class="doc-meta">생성일시: 2026-06-05 08:25&nbsp;|&nbsp;보험 유형: 자동차보험</div>
+</div>
+<h2>사건 요약</h2>
+<div class="summary-box">
+<p style="margin:3px 0;"><span class="s-lbl">사고 개요&nbsp;&nbsp;</span>신호 대기 중 정차 차량이 뒤따르던 차량의 제동 실패로 후방 추돌당함; 가해 차량 100% 과실 접수됨</p>
+<p style="margin:3px 0;"><span class="s-lbl">담보 후보&nbsp;&nbsp;</span>대인배상, 자기차량손해, 자기신체사고, 자동차상해</p>
+<p style="margin:3px 0;"><span class="s-lbl">소멸시효&nbsp;&nbsp;</span>시효 여유(사고일로부터 약 0.6년 경과, 소멸시효까지 약 29개월 남음)</p>
+</div>
+<h2>관련 약관 조항</h2>
+<div class="item-list">
+<div class="item-block">
+<div class="item-no">● 1</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">자동차보험 표준약관 <별표1> 대인배상 지급기준 (출처: 표준약관, 2025)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">상해급별 치료관계비 정의 및, 상해등급 12~14급인 경우 사고일로부터 4주 경과 후에는 의료법상 진단서의 향후치료 소견 범위에 기재된 치료기간 내 소요비용만 인정함</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">상해 12급~14급 해당 여부 및 4주 초과 치료비 인정범위 검토와 직접 관련됨</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 2</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">자동차보험 표준약관 <별표1> 위자료 지급기준 (출처: 표준약관, 2025)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">상해등급별 위자료 액수 표준화(예: 12급 15, 단위: 만원) 명시됨</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">상해 등급이 12급으로 인정될 경우 위자료 산정 기준과 관련됨</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 3</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">자동차보험 표준약관 <별표1> 간병비 지급기준 (출처: 표준약관, 2025)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">간병비 인정대상·한도·간병인원 기준 및 상해등급별 인정일수 규정됨</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">입원·간병 발생 시 간병비 인정 범위 산정과 관련됨</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 4</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">RAG 지식베이스 - 자동차보험 주요담보(대인배상Ⅱ) (출처: AUTO_CLAIM_005)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">대인배상Ⅰ 한도를 초과하거나 추가적 대인손해가 있는 경우 대인배상Ⅱ 검토 대상임</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">치료비가 대인배상Ⅰ 한도 초과 가능성 있는 본 사건의 추가보상 검토와 관련됨</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 5</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">삼성화재 약관 (출처: 삼성화재 약관 자료)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">경상환자(상해등급 12~14급)는 사고일로부터 4주(28일)를 초과하여 치료를 받으려면 의료기관의 진단서를 제출해야 하며, 진단서에 근거하여 치료비 인정함(23.1.1 이후 사고부터 적용)</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">경과기간에 따른 진단서 제출 요구 여부 및 지급보증 유지 검토와 관련됨</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 6</div>
+<div class="item-row"><span class="item-label">약관 조항 (출처)</span><span class="item-val">삼성화재 약관 (출처: 삼성화재 약관 자료)</span></div>
+<div class="item-row"><span class="item-label">핵심 내용</span><span class="item-val">대인배상Ⅱ 관련으로 경상환자가 본인 과실이 있는 경우 대인배상Ⅰ 한도 초과분 중 본인 과실만큼 본인이 부담하도록 규정함; 본인 부담분은 자기신체사고 또는 자동차상해로 청구 가능하다고 명시됨</span></div>
+<div class="item-row"><span class="item-label">본 사건과의 관련성</span><span class="item-val">과실 관련 자기부담금 적용 가능성 및 자기담보 청구 여지 검토와 관련됨</span></div>
+</div>
+</div>
+<table style="border-collapse:collapse;width:100%;table-layout:fixed;margin:12px 0;"><thead><tr>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">약관 원문 확인 필요 사항</th>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">확인이 필요한 이유</th>
+</tr></thead><tbody>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">적용 약관의 시행일·버전 확인 필요(사고 발생일 기준 어떤 약관이 적용되는지 확인)</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">23.1.1 등 시행일에 따라 진단서 제출 의무 등 적용여부가 달라질 가능성 있음</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">대인배상Ⅰ 한도액 및 대인배상Ⅱ 적용 여부(피보험사별 세부 규정) 확인 필요</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">한도 초과 시 대인배상Ⅱ 적용 여부 및 과실상계 방식이 보험사별로 상이할 수 있음</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">상해등급(예: 12급) 인정 여부 및 향후치료비 산정 기준(진단서의 소견 범위 등) 원문 확인 필요</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">4주 경과 후 진단서 기재 치료기간 내 비용 인정 등 향후치료비 범위 산정에 영향이 있음</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">자기신체사고·자동차상해 담보 약관 문구 확인 필요(대인Ⅱ 초과분 보전 가능성 관련)</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">대인Ⅱ 초과분에 대한 자기담보 청구 가능성 및 청구절차·제한 여부 파악 필요</td>
+</tr>
+</tbody></table>
+<hr style="border:none;border-top:1px solid #ccc;margin:16px 0;">
+<h3>보조 정보 (참고용)</h3>
+<table style="border-collapse:collapse;width:100%;table-layout:fixed;margin:12px 0;"><thead><tr>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">항목</th>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">내용</th>
+</tr></thead><tbody>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">검토 우선순위</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">높음 (위험점수 100/100)</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">소멸시효 상태</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">🟢 시효 여유</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">소멸시효 안내</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">사고일로부터 0.6년 경과. 소멸시효까지 약 29개월 남음.</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">사고 위치</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">서울 강남구 테헤란로 152</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">위치 지도</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;"><a href="https://map.kakao.com/link/map/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%ED%85%8C%ED%97%A4%EB%9E%80%EB%A1%9C%20152,37.5000242405515,127.036508620542">카카오맵에서 보기</a></td>
+</tr>
+</tbody></table>
+<blockquote>검토 우선순위는 '청구 가능성'이 아니라, 손해사정사가 얼마나 면밀히 확인해야 하는지를 나타내는 업무 보조 지표입니다.</blockquote>
+<div class="footer-note">본 보고서는 AI가 정리한 자료 초안이며, 모든 판단과 결정은 손해사정사의 검토를 거쳐야 합니다.</div>
+</body></html>

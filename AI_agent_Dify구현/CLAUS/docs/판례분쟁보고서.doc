@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="UTF-8"><title>판례분쟁 보고서</title>
+<style>
+@page { size: A4; margin: 2cm 1.8cm; }
+body { font-family: '맑은 고딕','Malgun Gothic',sans-serif;
+       font-size: 10.5pt; line-height: 1.75; color: #222; }
+h1 { font-size: 17pt; text-align: center; color: #1a1a2e;
+     border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin: 10px 0 6px; }
+h2 { font-size: 11.5pt; color: #c0392b; font-weight: bold;
+     margin-top: 24px; margin-bottom: 8px; }
+h3 { font-size: 11pt; color: #34495e; margin-top: 18px; margin-bottom: 8px; }
+p  { margin: 6px 0; }
+ul, ol { margin: 6px 0; padding-left: 22px; }
+li { margin: 5px 0; }
+strong { color: #c0392b; font-weight: bold; }
+blockquote { border-left: 3px solid #aab; margin: 10px 0; padding: 7px 14px;
+             background: #f5f5f5; color: #555; font-size: 9.5pt; }
+hr { border: none; border-top: 1px solid #ccc; margin: 16px 0; }
+.doc-header { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; }
+.doc-title  { font-size: 17pt; font-weight: bold; text-align: center;
+              color: #1a2a4a; margin-bottom: 4px; }
+.doc-meta   { text-align: right; color: #888; font-size: 9pt; }
+.summary-box { margin: 8px 0 18px; padding: 11px 15px;
+               background: #f9f9f9; border: 1px solid #ddd; line-height: 2.1; }
+.s-lbl { font-weight: bold; color: #333; }
+.item-list  { margin: 8px 0 20px; }
+.item-block { border: 1px solid #ddd; margin-bottom: 12px; page-break-inside: avoid; }
+.item-no    { background: #f2f2f2; color: #888; font-weight: bold;
+              font-size: 9.5pt; padding: 4px 10px; }
+.item-row   { display: table; width: 100%; border-top: 1px solid #eee; }
+.item-label { display: table-cell; width: 24%; background: #f4f4f4;
+              font-weight: bold; color: #333; padding: 5px 9px; font-size: 9.5pt;
+              border-right: 1px solid #ddd; vertical-align: top; white-space: nowrap; }
+.item-val   { display: table-cell; padding: 5px 9px; font-size: 10pt; vertical-align: top; }
+table { table-layout: fixed; width: 100%; border-collapse: collapse;
+        margin: 10px 0 20px; page-break-inside: avoid; }
+th { border: 1px solid #bbb; padding: 6px 8px; background: #f0f3f6;
+     text-align: left; font-weight: bold; font-size: 10pt;
+     word-wrap: break-word; white-space: normal; }
+td { border: 1px solid #bbb; padding: 6px 8px; vertical-align: top;
+     font-size: 10pt; word-wrap: break-word; white-space: normal; }
+.footer-note { text-align: center; font-style: italic; color: #999;
+               font-size: 8.5pt; margin-top: 36px; padding-top: 12px;
+               border-top: 1px solid #ddd; }
+</style></head>
+<body>
+<div class="doc-header">
+  <div class="doc-title">판례분쟁 보고서</div>
+  <div class="doc-meta">생성일시: 2026-06-05 08:46&nbsp;|&nbsp;보험 유형: 자동차보험</div>
+</div>
+<h2>사건 요약</h2>
+<div class="summary-box">
+<p style="margin:3px 0;"><span class="s-lbl">사고 개요&nbsp;&nbsp;</span>주차장에서 후진 중 주차된 상대 차량을 충격함; 손해유형: 대물 피해·차량 수리비(3,800,000원)·시세하락손해(대상 차량 출고 6개월, 사고직전 시세 28,000,000원)</p>
+<p style="margin:3px 0;"><span class="s-lbl">소멸시효&nbsp;&nbsp;</span>시효 여유</p>
+</div>
+<h2>관련 판례·분쟁사례</h2>
+<div class="item-list">
+<div class="item-block">
+<div class="item-no">● 1</div>
+<div class="item-row"><span class="item-label">유사도</span><span class="item-val">30</span></div>
+<div class="item-row"><span class="item-label">참고 수준</span><span class="item-val">제한적 참고</span></div>
+<div class="item-row"><span class="item-label">출처</span><span class="item-val">금융감독원 분쟁사례(등록일: 2024-07-11, 사례번호: 32)</span></div>
+<div class="item-row"><span class="item-label">사안 요지</span><span class="item-val">출고 후 5년 이하 차량의 시세하락손해는 수리비가 사고 직전 시세의 20%를 초과하는 경우에만 보험금 지급 대상으로 정한 약관 적용 여부 분쟁</span></div>
+<div class="item-row"><span class="item-label">그 판례의 결과</span><span class="item-val">그 판례의 결과: 약관상 지급요건(출고 후 5년 이하·수리비가 사고직전 시세의 20% 초과)을 충족하지 않으면 보험금 지급이 어렵다고 안내(보험사 처리 적정)</span></div>
+<div class="item-row"><span class="item-label">본 사건 유사점</span><span class="item-val">쟁점(시세하락손해 인정 여부 및 20% 기준 적용)이 동일함</span></div>
+<div class="item-row"><span class="item-label">본 사건 차이점</span><span class="item-val">본 사건 수리비(3,800,000원) 대비 사고직전 시세(28,000,000원)는 약관의 20% 기준 미달 여부가 핵심이라는 점에서 사례와 사실관계 유사하나, 금감원 사례의 구체적 금액·비율과는 차이 있음</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 2</div>
+<div class="item-row"><span class="item-label">유사도</span><span class="item-val">30</span></div>
+<div class="item-row"><span class="item-label">참고 수준</span><span class="item-val">제한적 참고</span></div>
+<div class="item-row"><span class="item-label">출처</span><span class="item-val">금융감독원 분쟁사례(등록일: 2026-01-09, 사례번호: 9)</span></div>
+<div class="item-row"><span class="item-label">사안 요지</span><span class="item-val">출고 6개월 차량에 대해 수리비가 사고직전 시세의 20%에 미달하자 시세하락손해 지급 거부된 사례</span></div>
+<div class="item-row"><span class="item-label">그 판례의 결과</span><span class="item-val">그 판례의 결과: 약관상 조건(출고 후 5년 이하 해당하나 수리비가 시세의 20% 미달)을 충족하지 못하면 시세하락손해 보상 대상이 아니므로 보험사 거절을 부당하다고 보기 어렵다고 결정</span></div>
+<div class="item-row"><span class="item-label">본 사건 유사점</span><span class="item-val">본 사건의 차량 출고 6개월 및 보험사의 거절 사유(수리비가 시세의 20% 미달)와 쟁점이 동일</span></div>
+<div class="item-row"><span class="item-label">본 사건 차이점</span><span class="item-val">본 사건의 구체적 수리비·시세(3,800,000원/28,000,000원)의 비율은 사례의 예시 수치와 다름</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 3</div>
+<div class="item-row"><span class="item-label">유사도</span><span class="item-val">30</span></div>
+<div class="item-row"><span class="item-label">참고 수준</span><span class="item-val">제한적 참고</span></div>
+<div class="item-row"><span class="item-label">출처</span><span class="item-val">금융감독원 분쟁사례(등록일: 2026-01-09, 사례번호: 8)</span></div>
+<div class="item-row"><span class="item-label">사안 요지</span><span class="item-val">출고 후 5년 초과 차량에 대해 시세하락손해 지급 거부된 사례</span></div>
+<div class="item-row"><span class="item-label">그 판례의 결과</span><span class="item-val">그 판례의 결과: 약관이 ‘출고 후 5년 이하’로 보상대상을 한정하고 있어 출고 후 5년 초과 차량은 보상대상이 아니므로 보험사 처리 적정</span></div>
+<div class="item-row"><span class="item-label">본 사건 유사점</span><span class="item-val">본 사건과의 공통점: 시세하락손해에 관한 약관 적용 여부가 핵심 쟁점</span></div>
+<div class="item-row"><span class="item-label">본 사건 차이점</span><span class="item-val">본 사건과의 차이: 본 사건은 출고 6개월으로 ‘5년 이하’ 조건에는 해당하므로 이 사례와는 적용요건 측면에서 차이가 있음</span></div>
+</div>
+<div class="item-block">
+<div class="item-no">● 4</div>
+<div class="item-row"><span class="item-label">유사도</span><span class="item-val">점수 없음</span></div>
+<div class="item-row"><span class="item-label">참고 수준</span><span class="item-val">점수 없음</span></div>
+<div class="item-row"><span class="item-label">출처</span><span class="item-val">대법원 2016다1687 (선고일자: 2019.07.25)</span></div>
+<div class="item-row"><span class="item-label">사안 요지</span><span class="item-val">불법행위로 인한 손해의 발생 시점과 손해배상청구권 소멸시효 기산점 판단 관련 사건(장기 치료·장애 진단 관련)</span></div>
+<div class="item-row"><span class="item-label">그 판례의 결과</span><span class="item-val">그 판례의 결과: 불법행위에 기한 손해배상채권의 소멸시효 기산점은 사례별로 ‘손해를 안 날’의 의미를 적절히 정하여야 한다고 판시(치료 경과 중 이후에 손해가 현실화된 경우 기산점 재검토 가능)</span></div>
+<div class="item-row"><span class="item-label">본 사건 유사점</span><span class="item-val">본 사건의 소멸시효 기산일(사고일 또는 치료 종결일) 판단과 직접 관련된 법리적 참고자료가 됨</span></div>
+<div class="item-row"><span class="item-label">본 사건 차이점</span><span class="item-val">해당 판례는 장기 치료 및 장애 발생이 문제된 사안으로, 본 사건의 사실관계(경미한 대물 피해·치료 관련 없음 또는 경미한 경우)와 사실관계 차이가 존재함</span></div>
+</div>
+</div>
+<h2>관련 판례·분쟁사례</h2>
+<table style="border-collapse:collapse;width:100%;table-layout:fixed;margin:12px 0;"><thead><tr>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">필요한 판례 유형</th>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">왜 필요한가</th>
+</tr></thead><tbody>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">시세하락손해 산정기준(수리비 외의 증거를 통한 시세하락 인정 사례)</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">수리비가 20% 미만인 경우에도 별도의 증거로 시세하락을 인정한 판례 확인 필요</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">손해배상청구권 소멸시효의 기산일 관련 대법원 판례(교통사고·대물 중심)</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">사고일·치료 종결일 중 어느 시점을 기산점으로 볼지 관련 법리와 적용 사례 확보 필요</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">약관 해석 관련 대법원 판례(보험약관의 적용범위·문언 해석)</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">약관 문언에 따라 시세하락손해 지급요건의 해석 쟁점 정리 필요</td>
+</tr>
+</tbody></table>
+<hr style="border:none;border-top:1px solid #ccc;margin:16px 0;">
+<h3>보조 정보 (참고용)</h3>
+<table style="border-collapse:collapse;width:100%;table-layout:fixed;margin:12px 0;"><thead><tr>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">항목</th>
+<th style="border:1px solid #bbb;padding:6px 8px;background:#f0f3f6;text-align:left;font-weight:bold;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">내용</th>
+</tr></thead><tbody>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">검토 우선순위</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">높음 (위험점수 100/100)</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">소멸시효 상태</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">🟢 시효 여유</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">소멸시효 안내</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">사고일로부터 0.8년 경과. 소멸시효까지 약 26개월 남음.</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">사고 위치</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">서울 마포구 양화로 45</td>
+</tr>
+<tr>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;">위치 지도</td>
+<td style="border:1px solid #bbb;padding:6px 8px;vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;white-space:normal;font-size:10pt;"><a href="https://map.kakao.com/link/map/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%96%91%ED%99%94%EB%A1%9C%2045,37.5515008030203,126.91395024016">카카오맵에서 보기</a></td>
+</tr>
+</tbody></table>
+<blockquote>검토 우선순위는 '청구 가능성'이 아니라, 손해사정사가 얼마나 면밀히 확인해야 하는지를 나타내는 업무 보조 지표입니다.</blockquote>
+<div class="footer-note">본 보고서는 AI가 정리한 자료 초안이며, 모든 판단과 결정은 손해사정사의 검토를 거쳐야 합니다.</div>
+</body></html>
