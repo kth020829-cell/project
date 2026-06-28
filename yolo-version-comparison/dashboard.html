@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOLO Benchmark · NEU-DET Industrial Defect</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@300;600;800&family=Barlow:wght@300;400;600&display=swap');
+:root {
+  --bg:#09090e;--surface:#111118;--card:#16161f;--border:#22222e;
+  --v8:#00e5c3;--v11:#ff5c8a;--v26:#c8a8ff;
+  --text:#d8dce8;--muted:#52526a;--bright:#f0f2ff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,195,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,195,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+header{position:relative;z-index:1;padding:56px 64px 44px;border-bottom:1px solid var(--border);}
+header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--v8),var(--v11) 50%,var(--v26));}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(56px,9vw,108px);font-weight:800;line-height:.9;color:var(--bright);}
+h1 em{font-style:normal;background:linear-gradient(120deg,var(--v8),var(--v11) 55%,var(--v26));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header-meta{margin-top:16px;display:flex;gap:24px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
+.chip{padding:4px 12px;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;border:1px solid;}
+.c8{color:var(--v8);border-color:var(--v8);background:rgba(0,229,195,.08);}
+.c11{color:var(--v11);border-color:var(--v11);background:rgba(255,92,138,.08);}
+.c26{color:var(--v26);border-color:var(--v26);background:rgba(200,168,255,.08);}
+main{position:relative;z-index:1;padding:44px 64px 80px;}
+.load-box{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
+.load-label{cursor:pointer;display:flex;align-items:center;gap:12px;flex:1;min-width:200px;padding:12px 16px;background:var(--surface);border:1px dashed var(--border);border-radius:4px;transition:border-color .2s;}
+.load-label:hover{border-color:var(--v8);}
+.load-label input{display:none;}
+.load-label span{font-size:12px;color:var(--muted);line-height:1.5;}
+.load-label strong{color:var(--text);display:block;font-weight:600;}
+.btn{padding:12px 20px;border-radius:3px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;border:1px solid;transition:background .2s;white-space:nowrap;background:rgba(0,229,195,.08);color:var(--v8);border-color:var(--v8);}
+.btn:hover{background:rgba(0,229,195,.2);}
+.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.sec::after{content:'';flex:1;height:1px;background:var(--border);}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px;}
+.card-title{font-weight:600;font-size:13px;color:var(--bright);margin-bottom:18px;}
+.win-card{padding:22px 24px;border-radius:6px;border:1px solid;position:relative;}
+.win-cat{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
+.win-model{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;letter-spacing:.03em;line-height:1;}
+.win-val{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:4px;}
+.win-icon{position:absolute;right:18px;top:14px;font-size:26px;opacity:.35;}
+.bar-list{display:flex;flex-direction:column;gap:14px;}
+.bar-row{display:flex;align-items:center;gap:10px;}
+.bar-name{font-family:'IBM Plex Mono',monospace;font-size:10px;width:70px;text-align:right;flex-shrink:0;}
+.bar-track{flex:1;height:6px;background:var(--border);border-radius:1px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:1px;transform-origin:left;animation:grow .65s cubic-bezier(.22,1,.36,1) forwards;}
+.bar-val{font-family:'IBM Plex Mono',monospace;font-size:10px;width:56px;text-align:right;flex-shrink:0;}
+@keyframes grow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+.heatmap{width:100%;border-collapse:collapse;font-size:11px;}
+.heatmap th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);}
+.heatmap th:first-child{text-align:left;}
+.heatmap td{padding:10px;border-bottom:1px solid rgba(255,255,255,.03);text-align:center;}
+.heatmap td:first-child{text-align:left;font-size:11px;color:var(--muted);}
+.heatmap tr:last-child td{border-bottom:none;}
+.cell{display:inline-block;padding:4px 10px;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;}
+.cmp{width:100%;border-collapse:collapse;font-size:12px;}
+.cmp th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);}
+.cmp td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.03);}
+.cmp tr:last-child td{border-bottom:none;}
+.cmp .mn{font-family:'IBM Plex Mono',monospace;}
+.best{font-weight:700;}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+@media(max-width:900px){.insight-grid{grid-template-columns:1fr;}}
+.insight-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:18px;border-left:3px solid;}
+.ins-title{font-size:12px;font-weight:600;color:var(--bright);margin-bottom:6px;}
+.ins-body{font-size:12px;color:var(--muted);line-height:1.6;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--border);}
+.hidden{display:none!important;}
+.fade{animation:fadeUp .45s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Industrial Defect Detection · NEU-DET Benchmark · YOLOv8 vs v11 vs v26</div>
+  <h1>YOLO <em>COMPARE</em></h1>
+  <div class="header-meta">
+    <span>Dataset: NEU-DET (1,799 images · 6 defect classes)</span>
+    <span>Epochs: 50 · imgsz: 640 · GPU: Tesla T4</span>
+  </div>
+  <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
+    <span class="chip c8">YOLOv8n</span>
+    <span class="chip c11">YOLOv11n</span>
+    <span class="chip c26">YOLOv26n</span>
+  </div>
+</header>
+
+<main>
+  <div class="load-box">
+    <label class="load-label"><input type="file" id="mapFile" accept=".json"><span>📂</span><span><strong>map_results.json</strong>mAP 결과 파일 로드</span></label>
+    <label class="load-label"><input type="file" id="benchFile" accept=".json"><span>⚡</span><span><strong>benchmark.json</strong>속도 결과 파일 로드</span></label>
+    <button class="btn" id="demoBtn">▶ 실제 결과로 보기</button>
+  </div>
+
+  <div class="sec">WINNERS</div>
+  <div class="g3 hidden" id="winRow"></div>
+
+  <div class="sec">ACCURACY — mAP on NEU-DET</div>
+  <div class="g2 hidden" id="accRow">
+    <div class="card fade"><div class="card-title">mAP@50 — 높을수록 정확</div><div class="bar-list" id="barMap50"></div></div>
+    <div class="card fade"><div class="card-title">mAP@50-95 — 엄격한 기준 (논문 표준)</div><div class="bar-list" id="barMap95"></div></div>
+  </div>
+
+  <div class="sec">SPEED — Inference on Tesla T4</div>
+  <div class="g2 hidden" id="speedRow">
+    <div class="card fade"><div class="card-title">FPS — 높을수록 빠름</div><div class="bar-list" id="barFps"></div></div>
+    <div class="card fade"><div class="card-title">추론 시간 (ms) — 낮을수록 빠름</div><div class="bar-list" id="barMs"></div></div>
+  </div>
+
+  <div class="sec">SPEED vs ACCURACY TRADEOFF</div>
+  <div class="card hidden fade" id="scatterCard" style="margin-bottom:24px;">
+    <div class="card-title">FPS vs mAP@50 산점도 — 속도·정확도 트레이드오프</div>
+    <div style="position:relative;width:100%;height:300px;">
+      <canvas id="scatterCanvas" role="img" aria-label="Scatter plot comparing FPS and mAP50 across YOLO versions">FPS vs mAP@50 비교 차트</canvas>
+    </div>
+  </div>
+
+  <div class="sec">PER-CLASS AP HEATMAP</div>
+  <div class="card hidden fade" id="heatCard" style="margin-bottom:24px;">
+    <div class="card-title">결함 유형별 AP@50 — 어떤 결함을 잘 잡는가 (★ = 해당 결함 1위)</div>
+    <table class="heatmap" id="heatTable"></table>
+  </div>
+
+  <div class="sec">PER-CLASS RADAR</div>
+  <div class="card hidden fade" id="radarCard" style="margin-bottom:24px;">
+    <div class="card-title">결함 유형별 종합 레이더</div>
+    <div style="position:relative;width:100%;height:320px;">
+      <canvas id="radarCanvas" role="img" aria-label="Radar chart of per-class AP for each model">클래스별 AP 레이더</canvas>
+    </div>
+  </div>
+
+  <div class="sec">KEY INSIGHTS</div>
+  <div class="insight-grid hidden" id="insightRow"></div>
+
+  <div class="sec">FULL COMPARISON TABLE</div>
+  <div class="card hidden fade" id="tableCard" style="margin-bottom:24px;">
+    <table class="cmp" id="cmpTable"></table>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const COLOR = { YOLOv8n:'#00e5c3', YOLOv11n:'#ff5c8a', YOLOv26n:'#c8a8ff' };
+const BG    = { YOLOv8n:'rgba(0,229,195,.15)', YOLOv11n:'rgba(255,92,138,.15)', YOLOv26n:'rgba(200,168,255,.15)' };
+const CLS   = ['crazing','inclusion','patches','pitted_surface','rolled-in_scale','scratches'];
+const CLSLABEL = { crazing:'Crazing', inclusion:'Inclusion', patches:'Patches', pitted_surface:'Pitted Surface', 'rolled-in_scale':'Rolled-in Scale', scratches:'Scratches' };
+
+const REAL_MAP = {
+  YOLOv8n:  { mAP50:.7354, mAP50_95:.4282, precision:.6629, recall:.7092, per_class:{ crazing:.1618, inclusion:.4453, patches:.6029, pitted_surface:.5515, 'rolled-in_scale':.2883, scratches:.5195 }},
+  YOLOv11n: { mAP50:.7491, mAP50_95:.4300, precision:.7074, recall:.6880, per_class:{ crazing:.1661, inclusion:.4720, patches:.5977, pitted_surface:.5370, 'rolled-in_scale':.2833, scratches:.5235 }},
+  YOLOv26n: { mAP50:.7107, mAP50_95:.4222, precision:.6951, recall:.6712, per_class:{ crazing:.1532, inclusion:.4503, patches:.5770, pitted_surface:.5605, 'rolled-in_scale':.2382, scratches:.5539 }},
+};
+const REAL_BENCH = [
+  { model:'YOLOv8n',  load_ms:76.9,  avg_ms:14.4, std_ms:0.9, fps:69.4, params_M:3.15 },
+  { model:'YOLOv11n', load_ms:47.4,  avg_ms:15.5, std_ms:1.1, fps:64.7, params_M:2.62 },
+  { model:'YOLOv26n', load_ms:61.4,  avg_ms:17.0, std_ms:1.4, fps:58.7, params_M:2.41 },
+];
+
+let mapData=null, benchData=null, scatterChart=null, radarChart=null;
+
+function readJSON(file, cb) {
+  const r = new FileReader();
+  r.onload = e => { try { cb(JSON.parse(e.target.result)); } catch { alert('JSON 파싱 오류'); } };
+  r.readAsText(file);
+}
+
+document.getElementById('mapFile').addEventListener('change', e => {
+  if (!e.target.files[0]) return;
+  readJSON(e.target.files[0], d => { mapData = Array.isArray(d) ? Object.fromEntries(d.map(x=>[x.model,x])) : d; tryRender(); });
+});
+document.getElementById('benchFile').addEventListener('change', e => {
+  if (!e.target.files[0]) return;
+  readJSON(e.target.files[0], d => { benchData = d; tryRender(); });
+});
+document.getElementById('demoBtn').addEventListener('click', () => { mapData=REAL_MAP; benchData=REAL_BENCH; render(); });
+
+function tryRender() { if (mapData && benchData) render(); }
+
+function render() {
+  if (Array.isArray(mapData)) mapData = Object.fromEntries(mapData.map(x=>[x.model,x]));
+  const models = Object.keys(mapData);
+  const bm = Object.fromEntries(benchData.map(d=>[d.model,d]));
+  renderWinners(models, bm);
+  renderAccBars(models);
+  renderSpeedBars(models, bm);
+  renderScatter(models, bm);
+  renderHeatmap(models);
+  renderRadar(models);
+  renderInsights(models, bm);
+  renderTable(models, bm);
+  ['winRow','accRow','speedRow','scatterCard','heatCard','radarCard','insightRow','tableCard']
+    .forEach(id => document.getElementById(id).classList.remove('hidden'));
+}
+
+function renderWinners(models, bm) {
+  const byMap  = [...models].sort((a,b)=>mapData[b].mAP50-mapData[a].mAP50);
+  const byFps  = [...models].sort((a,b)=>(bm[b]?.fps||0)-(bm[a]?.fps||0));
+  const byPar  = [...models].sort((a,b)=>(bm[a]?.params_M||99)-(bm[b]?.params_M||99));
+  const defs = [
+    { icon:'🎯', cat:'MOST ACCURATE', m:byMap[0],  val:`mAP@50 = ${(mapData[byMap[0]].mAP50*100).toFixed(1)}%` },
+    { icon:'🚀', cat:'FASTEST',       m:byFps[0],  val:`${bm[byFps[0]]?.fps} FPS` },
+    { icon:'🪶', cat:'LIGHTEST',      m:byPar[0],  val:`${bm[byPar[0]]?.params_M}M params` },
+  ];
+  document.getElementById('winRow').innerHTML = defs.map(d => {
+    const c=COLOR[d.m];
+    return `<div class="win-card fade" style="border-color:${c}22;background:${c}08;"><div class="win-icon">${d.icon}</div><div class="win-cat">${d.cat}</div><div class="win-model" style="color:${c}">${d.m}</div><div class="win-val">${d.val}</div></div>`;
+  }).join('');
+}
+
+function makeBar(id, models, getVal, fmt, invert=false) {
+  const vals=models.map(m=>getVal(m)), max=Math.max(...vals), min=Math.min(...vals);
+  document.getElementById(id).innerHTML = models.map((m,i)=>{
+    const v=getVal(m), range=max-min||1;
+    const pct=invert ? (1-(v-min)/range)*.8+.2 : (max?v/max:0);
+    const c=COLOR[m];
+    return `<div class="bar-row fade" style="animation-delay:${i*.08}s"><div class="bar-name" style="color:${c}">${m}</div><div class="bar-track"><div class="bar-fill" style="width:${pct*100}%;background:${c};animation-delay:${i*.1}s"></div></div><div class="bar-val" style="color:${c}">${fmt(v)}</div></div>`;
+  }).join('');
+}
+
+function renderAccBars(models) {
+  makeBar('barMap50', models, m=>mapData[m].mAP50,    v=>`${(v*100).toFixed(1)}%`);
+  makeBar('barMap95', models, m=>mapData[m].mAP50_95, v=>`${(v*100).toFixed(1)}%`);
+}
+function renderSpeedBars(models, bm) {
+  makeBar('barFps', models, m=>bm[m]?.fps||0,    v=>`${v}`, false);
+  makeBar('barMs',  models, m=>bm[m]?.avg_ms||0, v=>`${v}ms`, true);
+}
+
+function renderScatter(models, bm) {
+  if (scatterChart) scatterChart.destroy();
+  scatterChart = new Chart(document.getElementById('scatterCanvas'), {
+    type: 'scatter',
+    data: { datasets: models.map(m=>({
+      label:m,
+      data:[{ x:bm[m]?.fps||0, y:parseFloat((mapData[m].mAP50*100).toFixed(2)) }],
+      backgroundColor:BG[m], borderColor:COLOR[m], borderWidth:2,
+      pointRadius:16, pointHoverRadius:20,
+    }))},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins: {
+        legend:{ display:false },
+        tooltip:{ callbacks:{ label: ctx=>`${ctx.dataset.label}  FPS: ${ctx.parsed.x}  mAP@50: ${ctx.parsed.y}%` }}
+      },
+      scales: {
+        x:{ title:{display:true,text:'FPS (높을수록 빠름)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10}}, grid:{color:'rgba(255,255,255,.04)'}, min:50, max:80 },
+        y:{ title:{display:true,text:'mAP@50 % (높을수록 정확)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10},callback:v=>v+'%'}, grid:{color:'rgba(255,255,255,.04)'}, min:68, max:78 },
+      },
+      layout:{padding:24},
+    },
+    plugins:[{ id:'lbl', afterDatasetsDraw(chart) {
+      const ctx2=chart.ctx;
+      chart.data.datasets.forEach((ds,i)=>{
+        const pt=chart.getDatasetMeta(i).data[0];
+        ctx2.fillStyle=COLOR[ds.label];
+        ctx2.font='600 11px IBM Plex Mono,monospace';
+        ctx2.textAlign='center';
+        ctx2.fillText(ds.label, pt.x, pt.y-22);
+      });
+    }}]
+  });
+}
+
+function renderHeatmap(models) {
+  const thead=`<thead><tr><th>결함 유형</th>${models.map(m=>`<th style="color:${COLOR[m]}">${m}</th>`).join('')}<th>평균</th></tr></thead>`;
+  const rows=CLS.map(cls=>{
+    const vals=models.map(m=>mapData[m].per_class[cls]||0);
+    const maxV=Math.max(...vals), avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+    const cells=models.map((m,i)=>{
+      const v=vals[i], isBest=v===maxV;
+      const alpha=Math.max(.1,Math.min(.8,v/0.65));
+      const hex=Math.round(alpha*255).toString(16).padStart(2,'0');
+      const c=COLOR[m];
+      return `<td><span class="cell" style="background:${c}${hex};color:${c};${isBest?'outline:1px solid '+c:''}">${(v*100).toFixed(1)}%${isBest?' ★':''}</span></td>`;
+    }).join('');
+    return `<tr><td>${CLSLABEL[cls]}</td>${cells}<td style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)">${(avg*100).toFixed(1)}%</td></tr>`;
+  }).join('');
+  document.getElementById('heatTable').innerHTML=thead+`<tbody>${rows}</tbody>`;
+}
+
+function renderRadar(models) {
+  if (radarChart) radarChart.destroy();
+  radarChart = new Chart(document.getElementById('radarCanvas'), {
+    type:'radar',
+    data:{ labels:CLS.map(c=>CLSLABEL[c]), datasets:models.map(m=>({
+      label:m, data:CLS.map(c=>parseFloat(((mapData[m].per_class[c]||0)*100).toFixed(1))),
+      borderColor:COLOR[m], backgroundColor:BG[m], borderWidth:2,
+      pointBackgroundColor:COLOR[m], pointRadius:4,
+    }))},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ display:false } },
+      scales:{ r:{
+        min:0, max:70,
+        ticks:{color:'#52526a',backdropColor:'transparent',font:{size:9},stepSize:20,callback:v=>v+'%'},
+        grid:{color:'rgba(255,255,255,.06)'}, angleLines:{color:'rgba(255,255,255,.06)'},
+        pointLabels:{color:'#8888a8',font:{size:11}},
+      }}
+    }
+  });
+}
+
+function renderInsights(models, bm) {
+  const v8=mapData['YOLOv8n'], v11=mapData['YOLOv11n'], v26=mapData['YOLOv26n'];
+  const ins=[
+    { color:COLOR['YOLOv11n'], title:'v11이 전반적 mAP 1위',
+      body:`mAP@50 ${(v11.mAP50*100).toFixed(1)}%로 1위지만, Recall은 v8(${(v8.recall*100).toFixed(1)}%)가 가장 높음. 결함을 "놓치지 않는 것"이 중요한 현장에서는 v8이 더 유리할 수 있음.` },
+    { color:COLOR['YOLOv26n'], title:'v26은 특정 결함에 특화',
+      body:`Pitted Surface(${(v26.per_class.pitted_surface*100).toFixed(1)}%), Scratches(${(v26.per_class.scratches*100).toFixed(1)}%)에서 단독 1위. 전반적 성능은 낮지만 특정 결함 탐지가 목적이면 v26이 선택지가 됨.` },
+    { color:'#ffd060', title:'Crazing는 모든 모델이 취약',
+      body:`3모델 모두 AP 15~17% 수준으로 최하위. 미세 균열은 nano 모델의 한계. Medium 이상 모델(v8m, v11m)로 실험 확장 시 유의미한 개선 가능성 있음.` },
+  ];
+  document.getElementById('insightRow').innerHTML = ins.map(d=>`
+    <div class="insight-card fade" style="border-left-color:${d.color}">
+      <div class="ins-title" style="color:${d.color}">${d.title}</div>
+      <div class="ins-body">${d.body}</div>
+    </div>`).join('');
+}
+
+function renderTable(models, bm) {
+  const cols=[
+    {label:'모델',       get:m=>m,                   fmt:v=>v,                        better:null},
+    {label:'mAP@50',    get:m=>mapData[m].mAP50,    fmt:v=>`${(v*100).toFixed(1)}%`, better:'max'},
+    {label:'mAP@50-95', get:m=>mapData[m].mAP50_95, fmt:v=>`${(v*100).toFixed(1)}%`, better:'max'},
+    {label:'Precision', get:m=>mapData[m].precision, fmt:v=>`${(v*100).toFixed(1)}%`, better:'max'},
+    {label:'Recall',    get:m=>mapData[m].recall,    fmt:v=>`${(v*100).toFixed(1)}%`, better:'max'},
+    {label:'FPS',       get:m=>bm[m]?.fps||0,        fmt:v=>`${v}`,                   better:'max'},
+    {label:'추론(ms)',   get:m=>bm[m]?.avg_ms||0,    fmt:v=>`${v}ms`,                 better:'min'},
+    {label:'파라미터',   get:m=>bm[m]?.params_M||0,  fmt:v=>`${v}M`,                  better:'min'},
+  ];
+  const best={};
+  cols.filter(c=>c.better).forEach(c=>{
+    const vals=models.map(m=>c.get(m));
+    best[c.label]=c.better==='max'?Math.max(...vals):Math.min(...vals);
+  });
+  const thead=`<thead><tr>${cols.map(c=>`<th>${c.label}</th>`).join('')}</tr></thead>`;
+  const tbody=`<tbody>${models.map(m=>{
+    const col=COLOR[m];
+    return `<tr>${cols.map(c=>{
+      const v=c.get(m), isB=c.better&&v===best[c.label];
+      return `<td class="mn${isB?' best':''}" style="${isB?'color:'+col+';':''}">${c.label==='모델'?`<span class="dot" style="background:${col}"></span>`:''}${c.fmt(v)}${isB?' ★':''}</td>`;
+    }).join('')}</tr>`;
+  }).join('')}</tbody>`;
+  document.getElementById('cmpTable').innerHTML=thead+tbody;
+  document.getElementById('tableCard').classList.remove('hidden');
+}
+</script>
+</body>
+</html>

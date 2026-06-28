@@ -1,0 +1,26 @@
+[
+  {
+    "model": "YOLOv8n",
+    "load_ms": 76.9,
+    "avg_ms": 14.4,
+    "std_ms": 0.9,
+    "fps": 69.4,
+    "params_M": 3.15
+  },
+  {
+    "model": "YOLOv11n",
+    "load_ms": 47.4,
+    "avg_ms": 15.5,
+    "std_ms": 1.1,
+    "fps": 64.7,
+    "params_M": 2.62
+  },
+  {
+    "model": "YOLOv26n",
+    "load_ms": 61.4,
+    "avg_ms": 17.0,
+    "std_ms": 1.4,
+    "fps": 58.7,
+    "params_M": 2.41
+  }
+]
