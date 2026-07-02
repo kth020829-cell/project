@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-YOLO v8 vs v11 vs v26 — NEU-DET Fine-tuning & mAP Benchmark
+YOLO v8 vs v11 vs v26 — NEU-DET Fine-tuning & mAP Benchmark (n + s 사이즈)
 =============================================================
 Google Colab에서 순서대로 실행하세요.
 Runtime > Change runtime type > GPU 설정 필수
+6개 모델(버전 3 x 사이즈 2) x 50 epochs 학습 → 약 1~2시간 소요 (Colab 무료 GPU 기준)
 """
 
 # ────────────────────────────────────────────────────────────
@@ -64,15 +65,18 @@ print(open(YAML_PATH).read())
 
 
 # ────────────────────────────────────────────────────────────
-# CELL 5 | 파인튜닝 + mAP 측정 (메인 실험 / 약 1시간 소요)
+# CELL 5 | 파인튜닝 + mAP 측정 (메인 실험 / 6모델 x 50 epochs, 약 1~2시간 소요)
 # ────────────────────────────────────────────────────────────
 from ultralytics import YOLO
 import json
 
 MODELS = {
     "YOLOv8n":  "yolov8n.pt",
+    "YOLOv8s":  "yolov8s.pt",
     "YOLOv11n": "yolo11n.pt",
+    "YOLOv11s": "yolo11s.pt",
     "YOLOv26n": "yolo26n.pt",
+    "YOLOv26s": "yolo26s.pt",
 }
 
 CLASS_NAMES = ["crazing", "inclusion", "patches",

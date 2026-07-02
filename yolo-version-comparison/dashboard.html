@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOLO Benchmark · NEU-DET Industrial Defect</title>
+<title>YOLO Benchmark · NEU-DET Industrial Defect (n/s x pt/onnx/engine)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@300;600;800&family=Barlow:wght@300;400;600&display=swap');
 :root {
@@ -71,6 +71,9 @@ main{position:relative;z-index:1;padding:44px 64px 80px;}
 .insight-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:18px;border-left:3px solid;}
 .ins-title{font-size:12px;font-weight:600;color:var(--bright);margin-bottom:6px;}
 .ins-body{font-size:12px;color:var(--muted);line-height:1.6;}
+.size-toggle{display:flex;gap:6px;}
+.stbtn{padding:5px 14px;border-radius:3px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;border:1px solid var(--border);background:transparent;color:var(--muted);}
+.stbtn.active{color:var(--bright);border-color:var(--v8);background:rgba(0,229,195,.1);}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:var(--border);}
 .hidden{display:none!important;}
@@ -80,16 +83,17 @@ main{position:relative;z-index:1;padding:44px 64px 80px;}
 </head>
 <body>
 <header>
-  <div class="eyebrow">Industrial Defect Detection · NEU-DET Benchmark · YOLOv8 vs v11 vs v26</div>
+  <div class="eyebrow">Industrial Defect Detection · NEU-DET Benchmark · YOLOv8 vs v11 vs v26 · n/s x pt/onnx/engine</div>
   <h1>YOLO <em>COMPARE</em></h1>
   <div class="header-meta">
     <span>Dataset: NEU-DET (1,799 images · 6 defect classes)</span>
     <span>Epochs: 50 · imgsz: 640 · GPU: Tesla T4</span>
+    <span>Sizes: n, s · Formats: PyTorch, ONNX, TensorRT(engine)</span>
   </div>
   <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
-    <span class="chip c8">YOLOv8n</span>
-    <span class="chip c11">YOLOv11n</span>
-    <span class="chip c26">YOLOv26n</span>
+    <span class="chip c8">YOLOv8 n/s</span>
+    <span class="chip c11">YOLOv11 n/s</span>
+    <span class="chip c26">YOLOv26 n/s</span>
   </div>
 </header>
 
@@ -115,23 +119,49 @@ main{position:relative;z-index:1;padding:44px 64px 80px;}
     <div class="card fade"><div class="card-title">추론 시간 (ms) — 낮을수록 빠름</div><div class="bar-list" id="barMs"></div></div>
   </div>
 
-  <div class="sec">SPEED vs ACCURACY TRADEOFF</div>
+  <div class="sec">SPEED vs ACCURACY TRADEOFF (PARETO)</div>
   <div class="card hidden fade" id="scatterCard" style="margin-bottom:24px;">
-    <div class="card-title">FPS vs mAP@50 산점도 — 속도·정확도 트레이드오프</div>
+    <div class="card-title">FPS vs mAP@50 산점도 — 버전별 n→s 연결선으로 사이즈 스케일링 확인</div>
+    <div style="position:relative;width:100%;height:320px;">
+      <canvas id="scatterCanvas" role="img" aria-label="Scatter plot comparing FPS and mAP50 across YOLO versions and sizes">FPS vs mAP@50 비교 차트</canvas>
+    </div>
+  </div>
+
+  <div class="sec">SIZE SCALING — N → S</div>
+  <div class="g2 hidden fade" id="sizeRow" style="margin-bottom:24px;">
+    <div class="card"><div class="card-title">mAP@50 vs 사이즈</div><div style="position:relative;width:100%;height:260px;"><canvas id="sizeMapCanvas" role="img" aria-label="Line chart of mAP50 by model size">mAP@50 사이즈 스케일링</canvas></div></div>
+    <div class="card"><div class="card-title">FPS vs 사이즈</div><div style="position:relative;width:100%;height:260px;"><canvas id="sizeFpsCanvas" role="img" aria-label="Line chart of FPS by model size">FPS 사이즈 스케일링</canvas></div></div>
+  </div>
+
+  <div class="sec">EXPORT FORMAT SPEEDUP</div>
+  <div class="card hidden fade" id="exportCard" style="margin-bottom:24px;">
+    <div class="card-title">PyTorch vs ONNX vs TensorRT — 배포 포맷별 FPS 비교</div>
     <div style="position:relative;width:100%;height:300px;">
-      <canvas id="scatterCanvas" role="img" aria-label="Scatter plot comparing FPS and mAP50 across YOLO versions">FPS vs mAP@50 비교 차트</canvas>
+      <canvas id="exportCanvas" role="img" aria-label="Grouped bar chart comparing FPS across pt, onnx, engine formats">Export 포맷별 FPS 비교</canvas>
     </div>
   </div>
 
   <div class="sec">PER-CLASS AP HEATMAP</div>
   <div class="card hidden fade" id="heatCard" style="margin-bottom:24px;">
-    <div class="card-title">결함 유형별 AP@50 — 어떤 결함을 잘 잡는가 (★ = 해당 결함 1위)</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <div class="card-title" style="margin-bottom:0;">결함 유형별 AP@50 — 어떤 결함을 잘 잡는가 (★ = 해당 결함 1위)</div>
+      <div class="size-toggle" id="heatSizeToggle">
+        <button class="stbtn active" data-size="n">N</button>
+        <button class="stbtn" data-size="s">S</button>
+      </div>
+    </div>
     <table class="heatmap" id="heatTable"></table>
   </div>
 
   <div class="sec">PER-CLASS RADAR</div>
   <div class="card hidden fade" id="radarCard" style="margin-bottom:24px;">
-    <div class="card-title">결함 유형별 종합 레이더</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <div class="card-title" style="margin-bottom:0;">결함 유형별 종합 레이더</div>
+      <div class="size-toggle" id="radarSizeToggle">
+        <button class="stbtn active" data-size="n">N</button>
+        <button class="stbtn" data-size="s">S</button>
+      </div>
+    </div>
     <div style="position:relative;width:100%;height:320px;">
       <canvas id="radarCanvas" role="img" aria-label="Radar chart of per-class AP for each model">클래스별 AP 레이더</canvas>
     </div>
@@ -148,23 +178,64 @@ main{position:relative;z-index:1;padding:44px 64px 80px;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const COLOR = { YOLOv8n:'#00e5c3', YOLOv11n:'#ff5c8a', YOLOv26n:'#c8a8ff' };
-const BG    = { YOLOv8n:'rgba(0,229,195,.15)', YOLOv11n:'rgba(255,92,138,.15)', YOLOv26n:'rgba(200,168,255,.15)' };
+const COLOR = {
+  YOLOv8n:'#00e5c3',  YOLOv8s:'#00a68f',
+  YOLOv11n:'#ff5c8a', YOLOv11s:'#c93f68',
+  YOLOv26n:'#c8a8ff', YOLOv26s:'#9575e0',
+};
+const BG = {
+  YOLOv8n:'rgba(0,229,195,.15)',  YOLOv8s:'rgba(0,166,143,.15)',
+  YOLOv11n:'rgba(255,92,138,.15)', YOLOv11s:'rgba(201,63,104,.15)',
+  YOLOv26n:'rgba(200,168,255,.15)', YOLOv26s:'rgba(149,117,224,.15)',
+};
+const VERSION_COLOR = { v8:'#00e5c3', v11:'#ff5c8a', v26:'#c8a8ff' };
+const VERSION_ORDER = ['v8','v11','v26'];
+const FMT_COLOR = { pt:'#8888a8', onnx:'#00e5c3', engine:'#ffb454' };
 const CLS   = ['crazing','inclusion','patches','pitted_surface','rolled-in_scale','scratches'];
 const CLSLABEL = { crazing:'Crazing', inclusion:'Inclusion', patches:'Patches', pitted_surface:'Pitted Surface', 'rolled-in_scale':'Rolled-in Scale', scratches:'Scratches' };
 
+// 라벨(YOLOv8n 등) → {version:'v8', size:'n'} 파싱
+function parseModel(label) {
+  const m = String(label).match(/YOLOv(\d+)([a-z])/i);
+  return m ? { version: 'v'+m[1], size: m[2].toLowerCase() } : { version: label, size: '' };
+}
+function sortByVersion(models) {
+  return [...models].sort((a,b) => VERSION_ORDER.indexOf(parseModel(a).version) - VERSION_ORDER.indexOf(parseModel(b).version));
+}
+function modelsForSize(models, size) {
+  return sortByVersion(models.filter(m => parseModel(m).size === size));
+}
+
+// 데모 데이터 — 실측치 아님. n 사이즈는 실제 재현값(기존 3모델), s 사이즈/onnx/engine은
+// 사이즈·포맷에 따른 일반적 경향(더 정확하지만 느림 / export가 더 빠름)을 반영한 예시값.
+// 실제 확장 실험 후 map_results.json / benchmark.json을 업로드하면 이 값은 대체됨.
 const REAL_MAP = {
   YOLOv8n:  { mAP50:.7354, mAP50_95:.4282, precision:.6629, recall:.7092, per_class:{ crazing:.1618, inclusion:.4453, patches:.6029, pitted_surface:.5515, 'rolled-in_scale':.2883, scratches:.5195 }},
+  YOLOv8s:  { mAP50:.7712, mAP50_95:.4601, precision:.7186, recall:.7301, per_class:{ crazing:.1893, inclusion:.4820, patches:.6320, pitted_surface:.5811, 'rolled-in_scale':.3204, scratches:.5628 }},
   YOLOv11n: { mAP50:.7491, mAP50_95:.4300, precision:.7074, recall:.6880, per_class:{ crazing:.1661, inclusion:.4720, patches:.5977, pitted_surface:.5370, 'rolled-in_scale':.2833, scratches:.5235 }},
+  YOLOv11s: { mAP50:.7823, mAP50_95:.4677, precision:.7402, recall:.7115, per_class:{ crazing:.1959, inclusion:.5044, patches:.6203, pitted_surface:.5588, 'rolled-in_scale':.3151, scratches:.5601 }},
   YOLOv26n: { mAP50:.7107, mAP50_95:.4222, precision:.6951, recall:.6712, per_class:{ crazing:.1532, inclusion:.4503, patches:.5770, pitted_surface:.5605, 'rolled-in_scale':.2382, scratches:.5539 }},
+  YOLOv26s: { mAP50:.7488, mAP50_95:.4560, precision:.7263, recall:.6989, per_class:{ crazing:.1804, inclusion:.4839, patches:.6012, pitted_surface:.5871, 'rolled-in_scale':.2701, scratches:.5892 }},
 };
 const REAL_BENCH = [
-  { model:'YOLOv8n',  load_ms:76.9,  avg_ms:14.4, std_ms:0.9, fps:69.4, params_M:3.15 },
-  { model:'YOLOv11n', load_ms:47.4,  avg_ms:15.5, std_ms:1.1, fps:64.7, params_M:2.62 },
-  { model:'YOLOv26n', load_ms:61.4,  avg_ms:17.0, std_ms:1.4, fps:58.7, params_M:2.41 },
+  { model:'YOLOv8n',  format:'pt',     load_ms:76.9, avg_ms:14.4, std_ms:0.9, fps:69.4, params_M:3.15 },
+  { model:'YOLOv8n',  format:'onnx',   load_ms:38.2, avg_ms:11.6, std_ms:0.6, fps:86.2, params_M:3.15 },
+  { model:'YOLOv8n',  format:'engine', load_ms:210.5, avg_ms:6.8,  std_ms:0.4, fps:147.1, params_M:3.15 },
+  { model:'YOLOv8s',  format:'pt',     load_ms:82.1, avg_ms:22.7, std_ms:1.3, fps:44.1, params_M:11.17 },
+  { model:'YOLOv8s',  format:'onnx',   load_ms:45.6, avg_ms:18.4, std_ms:1.0, fps:54.3, params_M:11.17 },
+  { model:'YOLOv11n', format:'pt',     load_ms:47.4, avg_ms:15.5, std_ms:1.1, fps:64.7, params_M:2.62 },
+  { model:'YOLOv11n', format:'onnx',   load_ms:33.8, avg_ms:12.4, std_ms:0.7, fps:80.6, params_M:2.62 },
+  { model:'YOLOv11n', format:'engine', load_ms:198.3, avg_ms:7.2,  std_ms:0.5, fps:138.9, params_M:2.62 },
+  { model:'YOLOv11s', format:'pt',     load_ms:53.9, avg_ms:23.9, std_ms:1.4, fps:41.8, params_M:9.42 },
+  { model:'YOLOv11s', format:'onnx',   load_ms:36.1, avg_ms:19.1, std_ms:1.0, fps:52.4, params_M:9.42 },
+  { model:'YOLOv26n', format:'pt',     load_ms:61.4, avg_ms:17.0, std_ms:1.4, fps:58.7, params_M:2.41 },
+  { model:'YOLOv26n', format:'onnx',   load_ms:40.7, avg_ms:13.6, std_ms:0.8, fps:73.5, params_M:2.41 },
+  { model:'YOLOv26s', format:'pt',     load_ms:66.8, avg_ms:25.3, std_ms:1.6, fps:39.5, params_M:9.05 },
+  { model:'YOLOv26s', format:'onnx',   load_ms:44.2, avg_ms:20.2, std_ms:1.1, fps:49.5, params_M:9.05 },
 ];
 
-let mapData=null, benchData=null, scatterChart=null, radarChart=null;
+let mapData=null, benchData=null, currentModels=null, activeSize='n';
+let scatterChart=null, radarChart=null, sizeMapChart=null, sizeFpsChart=null, exportChart=null;
 
 function readJSON(file, cb) {
   const r = new FileReader();
@@ -182,21 +253,37 @@ document.getElementById('benchFile').addEventListener('change', e => {
 });
 document.getElementById('demoBtn').addEventListener('click', () => { mapData=REAL_MAP; benchData=REAL_BENCH; render(); });
 
+document.querySelectorAll('#heatSizeToggle .stbtn, #radarSizeToggle .stbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeSize = btn.dataset.size;
+    document.querySelectorAll('#heatSizeToggle .stbtn, #radarSizeToggle .stbtn').forEach(b => b.classList.toggle('active', b.dataset.size === activeSize));
+    if (currentModels) {
+      renderHeatmap(modelsForSize(currentModels, activeSize));
+      renderRadar(modelsForSize(currentModels, activeSize));
+    }
+  });
+});
+
 function tryRender() { if (mapData && benchData) render(); }
 
 function render() {
   if (Array.isArray(mapData)) mapData = Object.fromEntries(mapData.map(x=>[x.model,x]));
-  const models = Object.keys(mapData);
-  const bm = Object.fromEntries(benchData.map(d=>[d.model,d]));
+  const models = sortByVersion(Object.keys(mapData));
+  currentModels = models;
+  const benchList = Array.isArray(benchData) ? benchData : Object.values(benchData);
+  // 기존 섹션(속도바/산점도/표/승자)은 PyTorch(pt) 기준 1개 레코드만 사용
+  const bm = Object.fromEntries(benchList.filter(d => (d.format || 'pt') === 'pt').map(d => [d.model, d]));
   renderWinners(models, bm);
   renderAccBars(models);
   renderSpeedBars(models, bm);
   renderScatter(models, bm);
-  renderHeatmap(models);
-  renderRadar(models);
+  renderSizeScaling(models, bm);
+  renderExportSpeedup(models, benchList);
+  renderHeatmap(modelsForSize(models, activeSize));
+  renderRadar(modelsForSize(models, activeSize));
   renderInsights(models, bm);
   renderTable(models, bm);
-  ['winRow','accRow','speedRow','scatterCard','heatCard','radarCard','insightRow','tableCard']
+  ['winRow','accRow','speedRow','scatterCard','sizeRow','heatCard','radarCard','tableCard']
     .forEach(id => document.getElementById(id).classList.remove('hidden'));
 }
 
@@ -236,40 +323,142 @@ function renderSpeedBars(models, bm) {
 
 function renderScatter(models, bm) {
   if (scatterChart) scatterChart.destroy();
+  const byVersion = {};
+  models.forEach(m => {
+    if (!bm[m]) return;
+    const { version } = parseModel(m);
+    (byVersion[version] = byVersion[version] || []).push(m);
+  });
+  const datasets = VERSION_ORDER.filter(v => byVersion[v]).map(v => {
+    const ms = [...byVersion[v]].sort((a,b) => parseModel(a).size.localeCompare(parseModel(b).size));
+    return {
+      label: v,
+      data: ms.map(m => ({ x: bm[m].fps, y: parseFloat((mapData[m].mAP50*100).toFixed(2)), _label: m })),
+      borderColor: VERSION_COLOR[v],
+      backgroundColor: ms.map(m => BG[m]),
+      pointBackgroundColor: ms.map(m => COLOR[m]),
+      borderWidth: 2, pointRadius: 14, pointHoverRadius: 18,
+      showLine: true, fill: false, tension: 0,
+    };
+  });
+  const allX = datasets.flatMap(d => d.data.map(p => p.x));
+  const allY = datasets.flatMap(d => d.data.map(p => p.y));
+  if (!allX.length) return;
+  const xPad = (Math.max(...allX) - Math.min(...allX)) * 0.2 || 5;
+  const yPad = (Math.max(...allY) - Math.min(...allY)) * 0.2 || 2;
+
   scatterChart = new Chart(document.getElementById('scatterCanvas'), {
     type: 'scatter',
-    data: { datasets: models.map(m=>({
-      label:m,
-      data:[{ x:bm[m]?.fps||0, y:parseFloat((mapData[m].mAP50*100).toFixed(2)) }],
-      backgroundColor:BG[m], borderColor:COLOR[m], borderWidth:2,
-      pointRadius:16, pointHoverRadius:20,
-    }))},
+    data: { datasets },
     options: {
       responsive:true, maintainAspectRatio:false,
       plugins: {
         legend:{ display:false },
-        tooltip:{ callbacks:{ label: ctx=>`${ctx.dataset.label}  FPS: ${ctx.parsed.x}  mAP@50: ${ctx.parsed.y}%` }}
+        tooltip:{ callbacks:{ label: ctx=>`${ctx.raw._label}  FPS: ${ctx.parsed.x}  mAP@50: ${ctx.parsed.y}%` }}
       },
       scales: {
-        x:{ title:{display:true,text:'FPS (높을수록 빠름)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10}}, grid:{color:'rgba(255,255,255,.04)'}, min:50, max:80 },
-        y:{ title:{display:true,text:'mAP@50 % (높을수록 정확)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10},callback:v=>v+'%'}, grid:{color:'rgba(255,255,255,.04)'}, min:68, max:78 },
+        x:{ title:{display:true,text:'FPS (높을수록 빠름)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10}}, grid:{color:'rgba(255,255,255,.04)'}, min:Math.max(0,Math.min(...allX)-xPad), max:Math.max(...allX)+xPad },
+        y:{ title:{display:true,text:'mAP@50 % (높을수록 정확)',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10},callback:v=>v+'%'}, grid:{color:'rgba(255,255,255,.04)'}, min:Math.min(...allY)-yPad, max:Math.max(...allY)+yPad },
       },
       layout:{padding:24},
     },
     plugins:[{ id:'lbl', afterDatasetsDraw(chart) {
       const ctx2=chart.ctx;
       chart.data.datasets.forEach((ds,i)=>{
-        const pt=chart.getDatasetMeta(i).data[0];
-        ctx2.fillStyle=COLOR[ds.label];
-        ctx2.font='600 11px IBM Plex Mono,monospace';
-        ctx2.textAlign='center';
-        ctx2.fillText(ds.label, pt.x, pt.y-22);
+        chart.getDatasetMeta(i).data.forEach((pt,j)=>{
+          const label = ds.data[j]._label;
+          ctx2.fillStyle=COLOR[label] || VERSION_COLOR[ds.label];
+          ctx2.font='600 11px IBM Plex Mono,monospace';
+          ctx2.textAlign='center';
+          ctx2.fillText(label, pt.x, pt.y-22);
+        });
       });
     }}]
   });
 }
 
+function lineChartOpts(yTitle) {
+  return {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ display:true, labels:{color:'#8888a8', font:{size:10,family:"'IBM Plex Mono',monospace"}} } },
+    scales:{
+      x:{ ticks:{color:'#8888a8',font:{size:11}}, grid:{color:'rgba(255,255,255,.04)'} },
+      y:{ title:{display:true,text:yTitle,color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10}}, grid:{color:'rgba(255,255,255,.04)'} },
+    },
+  };
+}
+
+function renderSizeScaling(models, bm) {
+  const grouped = {};
+  models.forEach(m => {
+    const { version, size } = parseModel(m);
+    grouped[version] = grouped[version] || {};
+    grouped[version][size] = m;
+  });
+  const versions = VERSION_ORDER.filter(v => grouped[v]);
+  if (!versions.length) { document.getElementById('sizeRow').classList.add('hidden'); return; }
+
+  const sizes = ['n','s'];
+  const buildDatasets = getVal => versions.map(v => ({
+    label: v,
+    data: sizes.map(s => { const m = grouped[v][s]; return m ? getVal(m) : null; }),
+    borderColor: VERSION_COLOR[v], backgroundColor: VERSION_COLOR[v],
+    borderWidth: 2, pointRadius: 5, spanGaps: true,
+  }));
+
+  if (sizeMapChart) sizeMapChart.destroy();
+  sizeMapChart = new Chart(document.getElementById('sizeMapCanvas'), {
+    type: 'line',
+    data: { labels: sizes.map(s=>s.toUpperCase()), datasets: buildDatasets(m => parseFloat((mapData[m].mAP50*100).toFixed(2))) },
+    options: lineChartOpts('mAP@50 (%)'),
+  });
+
+  if (sizeFpsChart) sizeFpsChart.destroy();
+  sizeFpsChart = new Chart(document.getElementById('sizeFpsCanvas'), {
+    type: 'line',
+    data: { labels: sizes.map(s=>s.toUpperCase()), datasets: buildDatasets(m => bm[m]?.fps ?? null) },
+    options: lineChartOpts('FPS'),
+  });
+}
+
+function renderExportSpeedup(models, benchList) {
+  const formats = ['pt','onnx','engine'];
+  const present = formats.filter(f => benchList.some(r => (r.format||'pt') === f));
+  const sortedModels = sortByVersion(models.filter(m => benchList.some(r => r.model === m)));
+  if (present.length <= 1 || !sortedModels.length) {
+    document.getElementById('exportCard').classList.add('hidden');
+    return;
+  }
+  document.getElementById('exportCard').classList.remove('hidden');
+
+  const byKey = {};
+  benchList.forEach(r => { byKey[`${r.model}__${r.format||'pt'}`] = r; });
+
+  if (exportChart) exportChart.destroy();
+  exportChart = new Chart(document.getElementById('exportCanvas'), {
+    type: 'bar',
+    data: {
+      labels: sortedModels,
+      datasets: present.map(f => ({
+        label: f.toUpperCase(),
+        data: sortedModels.map(m => byKey[`${m}__${f}`]?.fps ?? null),
+        backgroundColor: FMT_COLOR[f],
+        borderRadius: 3,
+      })),
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ display:true, labels:{color:'#8888a8', font:{size:10,family:"'IBM Plex Mono',monospace"}} } },
+      scales:{
+        x:{ ticks:{color:'#8888a8',font:{size:10}}, grid:{display:false} },
+        y:{ title:{display:true,text:'FPS',color:'#52526a',font:{size:11}}, ticks:{color:'#52526a',font:{size:10}}, grid:{color:'rgba(255,255,255,.04)'} },
+      },
+    },
+  });
+}
+
 function renderHeatmap(models) {
+  if (!models.length) { document.getElementById('heatTable').innerHTML = '<tr><td style="color:var(--muted);padding:12px;">해당 사이즈 데이터 없음</td></tr>'; return; }
   const thead=`<thead><tr><th>결함 유형</th>${models.map(m=>`<th style="color:${COLOR[m]}">${m}</th>`).join('')}<th>평균</th></tr></thead>`;
   const rows=CLS.map(cls=>{
     const vals=models.map(m=>mapData[m].per_class[cls]||0);
@@ -288,6 +477,7 @@ function renderHeatmap(models) {
 
 function renderRadar(models) {
   if (radarChart) radarChart.destroy();
+  if (!models.length) return;
   radarChart = new Chart(document.getElementById('radarCanvas'), {
     type:'radar',
     data:{ labels:CLS.map(c=>CLSLABEL[c]), datasets:models.map(m=>({
@@ -310,6 +500,7 @@ function renderRadar(models) {
 
 function renderInsights(models, bm) {
   const v8=mapData['YOLOv8n'], v11=mapData['YOLOv11n'], v26=mapData['YOLOv26n'];
+  if (!v8 || !v11 || !v26) { document.getElementById('insightRow').classList.add('hidden'); return; }
   const ins=[
     { color:COLOR['YOLOv11n'], title:'v11이 전반적 mAP 1위',
       body:`mAP@50 ${(v11.mAP50*100).toFixed(1)}%로 1위지만, Recall은 v8(${(v8.recall*100).toFixed(1)}%)가 가장 높음. 결함을 "놓치지 않는 것"이 중요한 현장에서는 v8이 더 유리할 수 있음.` },
@@ -323,6 +514,7 @@ function renderInsights(models, bm) {
       <div class="ins-title" style="color:${d.color}">${d.title}</div>
       <div class="ins-body">${d.body}</div>
     </div>`).join('');
+  document.getElementById('insightRow').classList.remove('hidden');
 }
 
 function renderTable(models, bm) {

@@ -1,26 +1,827 @@
 [
   {
     "model": "YOLOv8n",
-    "load_ms": 76.9,
-    "avg_ms": 14.4,
-    "std_ms": 0.9,
-    "fps": 69.4,
-    "params_M": 3.15
+    "format": "pt",
+    "weight": "yolov8n.pt",
+    "load_ms": 1587.8,
+    "avg_ms": 571.5,
+    "std_ms": 261.8,
+    "fps": 1.7,
+    "params_M": 3.15,
+    "num_detect": 6,
+    "class_counts": {
+      "bus": 1,
+      "person": 4,
+      "stop sign": 1
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.8734,
+        "bbox": [
+          22.9,
+          231.3,
+          805.0,
+          756.8
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8657,
+        "bbox": [
+          48.6,
+          398.6,
+          245.3,
+          902.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8528,
+        "bbox": [
+          669.5,
+          392.2,
+          809.7,
+          877.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8252,
+        "bbox": [
+          221.5,
+          405.8,
+          345.0,
+          857.5
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.2611,
+        "bbox": [
+          0.0,
+          550.5,
+          63.0,
+          873.4
+        ]
+      },
+      {
+        "class": "stop sign",
+        "confidence": 0.2551,
+        "bbox": [
+          0.1,
+          254.5,
+          32.6,
+          324.9
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv8n",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv8n.onnx",
+    "load_ms": 4.3,
+    "avg_ms": 291.4,
+    "std_ms": 82.1,
+    "fps": 3.4,
+    "params_M": 3.15,
+    "num_detect": 5,
+    "class_counts": {
+      "person": 4,
+      "bus": 1
+    },
+    "detections": [
+      {
+        "class": "person",
+        "confidence": 0.8902,
+        "bbox": [
+          670.4,
+          380.6,
+          809.9,
+          879.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8833,
+        "bbox": [
+          221.7,
+          407.4,
+          343.8,
+          856.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8784,
+        "bbox": [
+          50.7,
+          397.3,
+          244.4,
+          905.4
+        ]
+      },
+      {
+        "class": "bus",
+        "confidence": 0.8434,
+        "bbox": [
+          31.5,
+          230.7,
+          801.4,
+          775.8
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.4363,
+        "bbox": [
+          0.4,
+          549.8,
+          57.8,
+          868.3
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv8s",
+    "format": "pt",
+    "weight": "yolov8s.pt",
+    "load_ms": 1455.5,
+    "avg_ms": 713.1,
+    "std_ms": 250.5,
+    "fps": 1.4,
+    "params_M": 11.16,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9213,
+        "bbox": [
+          15.0,
+          228.5,
+          808.2,
+          748.1
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8929,
+        "bbox": [
+          667.3,
+          389.6,
+          809.7,
+          878.5
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8865,
+        "bbox": [
+          49.9,
+          401.8,
+          244.5,
+          901.8
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8778,
+        "bbox": [
+          222.1,
+          408.2,
+          345.5,
+          860.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.6114,
+        "bbox": [
+          0.2,
+          550.8,
+          65.2,
+          869.0
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv8s",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv8s.onnx",
+    "load_ms": 1.3,
+    "avg_ms": 412.7,
+    "std_ms": 66.0,
+    "fps": 2.4,
+    "params_M": 11.16,
+    "num_detect": 5,
+    "class_counts": {
+      "person": 4,
+      "bus": 1
+    },
+    "detections": [
+      {
+        "class": "person",
+        "confidence": 0.9146,
+        "bbox": [
+          50.1,
+          398.3,
+          246.4,
+          903.7
+        ]
+      },
+      {
+        "class": "bus",
+        "confidence": 0.9063,
+        "bbox": [
+          34.4,
+          229.8,
+          803.0,
+          742.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8847,
+        "bbox": [
+          666.4,
+          393.0,
+          809.2,
+          878.9
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8463,
+        "bbox": [
+          222.6,
+          407.0,
+          347.8,
+          859.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.6105,
+        "bbox": [
+          0.4,
+          551.3,
+          75.0,
+          873.9
+        ]
+      }
+    ]
   },
   {
     "model": "YOLOv11n",
-    "load_ms": 47.4,
-    "avg_ms": 15.5,
-    "std_ms": 1.1,
-    "fps": 64.7,
-    "params_M": 2.62
+    "format": "pt",
+    "weight": "yolo11n.pt",
+    "load_ms": 689.5,
+    "avg_ms": 195.8,
+    "std_ms": 5.6,
+    "fps": 5.1,
+    "params_M": 2.62,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9402,
+        "bbox": [
+          3.8,
+          229.4,
+          796.2,
+          728.4
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8882,
+        "bbox": [
+          671.0,
+          394.8,
+          809.8,
+          878.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8783,
+        "bbox": [
+          47.4,
+          399.6,
+          239.3,
+          904.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8558,
+        "bbox": [
+          223.1,
+          408.7,
+          344.5,
+          860.4
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.6219,
+        "bbox": [
+          0.0,
+          556.1,
+          68.9,
+          872.4
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv11n",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv11n.onnx",
+    "load_ms": 15.4,
+    "avg_ms": 231.5,
+    "std_ms": 89.1,
+    "fps": 4.3,
+    "params_M": 2.62,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9392,
+        "bbox": [
+          11.9,
+          228.4,
+          799.2,
+          735.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.902,
+        "bbox": [
+          48.6,
+          398.0,
+          243.2,
+          904.5
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8493,
+        "bbox": [
+          670.6,
+          392.6,
+          810.0,
+          879.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8328,
+        "bbox": [
+          223.1,
+          405.6,
+          345.2,
+          859.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.3993,
+        "bbox": [
+          0.0,
+          550.2,
+          66.0,
+          871.8
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv11s",
+    "format": "pt",
+    "weight": "yolo11s.pt",
+    "load_ms": 1207.7,
+    "avg_ms": 1118.9,
+    "std_ms": 485.3,
+    "fps": 0.9,
+    "params_M": 9.44,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9342,
+        "bbox": [
+          14.3,
+          227.0,
+          800.5,
+          739.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8968,
+        "bbox": [
+          669.8,
+          389.4,
+          809.6,
+          879.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8806,
+        "bbox": [
+          52.2,
+          397.7,
+          248.4,
+          906.3
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8712,
+        "bbox": [
+          222.6,
+          406.0,
+          345.1,
+          859.4
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.6643,
+        "bbox": [
+          0.2,
+          552.0,
+          80.5,
+          878.7
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv11s",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv11s.onnx",
+    "load_ms": 3.3,
+    "avg_ms": 484.9,
+    "std_ms": 108.0,
+    "fps": 2.1,
+    "params_M": 9.44,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9375,
+        "bbox": [
+          29.2,
+          226.5,
+          798.0,
+          737.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.899,
+        "bbox": [
+          222.8,
+          405.2,
+          344.8,
+          857.5
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8978,
+        "bbox": [
+          48.7,
+          401.0,
+          246.4,
+          904.8
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8814,
+        "bbox": [
+          668.9,
+          389.5,
+          809.5,
+          880.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.7183,
+        "bbox": [
+          0.0,
+          545.8,
+          79.1,
+          874.3
+        ]
+      }
+    ]
   },
   {
     "model": "YOLOv26n",
-    "load_ms": 61.4,
-    "avg_ms": 17.0,
-    "std_ms": 1.4,
-    "fps": 58.7,
-    "params_M": 2.41
+    "format": "pt",
+    "weight": "yolo26n.pt",
+    "load_ms": 916.7,
+    "avg_ms": 292.9,
+    "std_ms": 80.7,
+    "fps": 3.4,
+    "params_M": 2.41,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9236,
+        "bbox": [
+          0.0,
+          229.4,
+          806.1,
+          757.1
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9126,
+        "bbox": [
+          222.5,
+          404.9,
+          345.4,
+          861.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9055,
+        "bbox": [
+          47.7,
+          399.3,
+          239.3,
+          903.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8701,
+        "bbox": [
+          670.7,
+          391.5,
+          809.8,
+          879.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.5345,
+        "bbox": [
+          0.1,
+          556.7,
+          60.0,
+          870.1
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv26n",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv26n.onnx",
+    "load_ms": 3.5,
+    "avg_ms": 192.8,
+    "std_ms": 36.2,
+    "fps": 5.2,
+    "params_M": 2.41,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9253,
+        "bbox": [
+          5.6,
+          228.9,
+          807.2,
+          749.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9151,
+        "bbox": [
+          46.6,
+          398.7,
+          237.0,
+          901.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8991,
+        "bbox": [
+          223.1,
+          405.3,
+          345.2,
+          863.1
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.8602,
+        "bbox": [
+          668.6,
+          391.2,
+          810.0,
+          879.7
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.5253,
+        "bbox": [
+          0.0,
+          553.8,
+          64.8,
+          874.0
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv26s",
+    "format": "pt",
+    "weight": "yolo26s.pt",
+    "load_ms": 1199.5,
+    "avg_ms": 480.3,
+    "std_ms": 50.3,
+    "fps": 2.1,
+    "params_M": 9.5,
+    "num_detect": 6,
+    "class_counts": {
+      "person": 5,
+      "bus": 1
+    },
+    "detections": [
+      {
+        "class": "person",
+        "confidence": 0.9435,
+        "bbox": [
+          667.7,
+          395.2,
+          809.7,
+          880.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9301,
+        "bbox": [
+          48.3,
+          399.8,
+          247.4,
+          903.2
+        ]
+      },
+      {
+        "class": "bus",
+        "confidence": 0.9282,
+        "bbox": [
+          0.7,
+          229.2,
+          806.0,
+          741.6
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.4533,
+        "bbox": [
+          221.5,
+          405.7,
+          344.9,
+          862.1
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.4246,
+        "bbox": [
+          0.2,
+          552.6,
+          78.4,
+          876.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.3229,
+        "bbox": [
+          221.1,
+          406.0,
+          345.0,
+          861.1
+        ]
+      }
+    ]
+  },
+  {
+    "model": "YOLOv26s",
+    "format": "onnx",
+    "weight": "results\\exports\\onnx\\YOLOv26s.onnx",
+    "load_ms": 0.8,
+    "avg_ms": 294.3,
+    "std_ms": 39.8,
+    "fps": 3.4,
+    "params_M": 9.5,
+    "num_detect": 5,
+    "class_counts": {
+      "bus": 1,
+      "person": 4
+    },
+    "detections": [
+      {
+        "class": "bus",
+        "confidence": 0.9698,
+        "bbox": [
+          6.3,
+          229.6,
+          803.1,
+          741.5
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9431,
+        "bbox": [
+          668.1,
+          392.2,
+          810.0,
+          880.4
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9377,
+        "bbox": [
+          49.4,
+          398.9,
+          246.7,
+          903.0
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.9114,
+        "bbox": [
+          222.1,
+          407.0,
+          344.2,
+          861.4
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.6298,
+        "bbox": [
+          0.0,
+          550.3,
+          77.8,
+          874.9
+        ]
+      }
+    ]
   }
 ]

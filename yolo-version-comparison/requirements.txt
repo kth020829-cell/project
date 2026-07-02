@@ -1,3 +1,8 @@
 ultralytics>=8.3.0
 numpy>=1.24.0
 opencv-python-headless>=4.8.0
+onnx>=1.16.0
+onnxruntime>=1.18.0
+# TensorRT(engine export)는 pip 패키지명이 CUDA 버전마다 다르고 NVIDIA GPU가 필요합니다.
+# https://docs.nvidia.com/deeplearning/tensorrt/install-guide/ 참고해 별도 설치하세요.
+# 미설치 환경에서는 compare.py가 export를 자동으로 건너뜁니다.

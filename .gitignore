@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# YOLO 가중치·export 바이너리 (compare.py / map_benchmark.py 재실행으로 재생성 가능)
+yolo-version-comparison/*.pt
+yolo-version-comparison/results/exports/
